@@ -1,4 +1,4 @@
-// Splitted from vite.config.ts, only to make UnoCSS the VSCode extension work.
+// Splitted from vite.config.ts, only to make the VSCode extension for UnoCSS work.
 import { defineConfig } from "unocss"
 import { presetUno, presetAttributify, presetIcons } from 'unocss'
 
