@@ -58,6 +58,8 @@
   "rules": {
     // 允许空内容的interface
     "@typescript-eslint/no-empty-interface": "off",
+    // JSX 自关闭标签尾空格
+    "react/jsx-space-before-closing": ["error", "always"],
     // 无尾空格
     "no-trailing-spaces": "error",
     // 关键词前后空格
@@ -99,6 +101,8 @@
     // 无分号
     "semi": ["error", "never"],
     // 允许混用tab和space
-    "no-mixed-spaces-and-tabs": "off"
+    "no-mixed-spaces-and-tabs": "off",
+    // JSX attrs 使用双引号
+    "jsx-quotes": ["error", "prefer-double"]
   }
 }

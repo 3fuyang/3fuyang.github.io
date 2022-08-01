@@ -10,7 +10,9 @@ export default defineConfig({
     presetIcons({
       extraProperties: {
         'display': 'inline-block',
-        'vertical-align': 'middle'
+        'vertical-align': 'middle',
+        'height': '1.2em',
+        'width': '1.2em'
       }
     })
   ]

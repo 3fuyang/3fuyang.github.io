@@ -1,11 +1,10 @@
 import { BrowserRouter } from 'react-router-dom'
+import { NavBar } from './components/NavBar'
 
 function App () {
   return (
     <BrowserRouter>
-      <article text='center'>
-        <h1 bg='blue-4' text='white'>World Age</h1>
-      </article>
+      <NavBar />
     </BrowserRouter>
   )
 }

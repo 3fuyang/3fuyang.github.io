@@ -4,12 +4,12 @@ Means Fwio's blog.
 
 ## Requirement
 
-+ Responsive
-+ Use lots of Hooks
-+ Automatically read `.md` files and generate routes
++ Responsive (Refer [Responsive Design](https://windicss.org/features/responsive-design.html) of Windi CSS, Mobile First)
++ Use Hooks to build React components
++ Automatically read `.md` files and generate routes (Static Site Generator, `markdown-it`)
 
 ## Todo
 
-+ Learn and apply React Router.
++ Learn and apply [React Router](https://reactrouter.com/docs/en/v6/getting-started/concepts).
 + Add Vitest for React component testing.
-+ Deployment, maybe with Netify?
++ Static Web App Deployment, maybe with Netify?
