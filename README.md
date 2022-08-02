@@ -11,5 +11,6 @@ Means Fwio's blog.
 ## Todo
 
 + Learn and apply [React Router](https://reactrouter.com/docs/en/v6/getting-started/concepts).
++ Capsulate NavLink to HOC for scoped CSS.
 + Add Vitest for React component testing.
 + Static Web App Deployment, maybe with Netify?

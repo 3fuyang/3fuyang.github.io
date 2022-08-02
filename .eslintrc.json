@@ -75,7 +75,7 @@
     // 行内数组方括号首尾空格
     "array-bracket-spacing": ["error", "never"],
     // 函数名前空格
-    "space-before-function-paren": ["error", "always"],
+    "space-before-function-paren": ["error", "never"],
     // 块前空格
     "space-before-blocks": ["error", "always"],
     // 二元操作符前后空格
