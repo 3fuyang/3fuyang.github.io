@@ -6,6 +6,7 @@ import { TbFileDescription, TbAlbum, TbBooks, TbApps } from 'react-icons/tb'
 import { GoMarkGithub } from 'react-icons/go'
 
 const FLink = lazy(() => import('./FLink'))
+const ToggleTheme = lazy(() => import('./ToggleTheme'))
 
 const fLinks:FLinkProps[] = [
   {
@@ -40,9 +41,9 @@ const NavBar:FC = () => {
       <nav flex="~ gap-6 md:gap-8 items-center">
         {fLinks.map((fLink) => <FLink to={fLink.to} title={fLink.title} icon={fLink.icon} key={fLink.title} />)}
         <a href="https://github.com/3fuyang" target="_blank" rel="noreferrer" title="Github">
-          <GoMarkGithub className="h5 w-5 link" />
+          <GoMarkGithub className="h5 w5 link" />
         </a>
-
+        <ToggleTheme />
       </nav>
     </header>
   )
