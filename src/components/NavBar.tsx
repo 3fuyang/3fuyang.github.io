@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import reactLogo from '../assets/react.svg'
 import type { FLinkProps } from './FLink'
 import { TbFileDescription, TbAlbum, TbBooks, TbApps } from 'react-icons/tb'
+import { GoMarkGithub } from 'react-icons/go'
+
 const FLink = lazy(() => import('./FLink'))
 
 const fLinks:FLinkProps[] = [
@@ -28,16 +30,22 @@ const fLinks:FLinkProps[] = [
   }
 ]
 
-export const NavBar:FC = () => {
+const NavBar:FC = () => {
   return (
-    <header className="flex p5 items-center relative">
+    <header className="flex px5 py3 items-center relative">
       <Link to="/" className="select-none outline-none">
         <img src={reactLogo} alt="logo" className="h-10" />
       </Link>
       <div className="spacer flex-1" />
-      <nav flex="~ gap-4.8 md:gap-6">
+      <nav flex="~ gap-6 md:gap-8 items-center">
         {fLinks.map((fLink) => <FLink to={fLink.to} title={fLink.title} icon={fLink.icon} key={fLink.title} />)}
+        <a href="https://github.com/3fuyang" target="_blank" rel="noreferrer" title="Github">
+          <GoMarkGithub className="h5 w-5 link" />
+        </a>
+
       </nav>
     </header>
   )
 }
+
+export default NavBar

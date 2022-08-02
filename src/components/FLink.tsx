@@ -10,9 +10,9 @@ export type FLinkProps = {
 export default function FLink(props: FLinkProps) {
 
   return (
-    <NavLink title={props.title} to={props.to} className="op60 hover:(op100) transition-opacity duration-200">
+    <NavLink title={props.title} to={props.to} className="link">
       <span className="lt-md:hidden">{props.title}</span>
-      <props.icon className="md:hidden w4.8 h4.8" />
+      <props.icon className="md:hidden w5 h5 link" />
     </NavLink>
   )
 }

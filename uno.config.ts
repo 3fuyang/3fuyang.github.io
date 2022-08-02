@@ -4,7 +4,9 @@ import { presetUno, presetAttributify, presetIcons } from 'unocss'
 import transformerVariantGroup from '@unocss/transformer-variant-group'
 
 export default defineConfig({
-  shortcuts: [],
+  shortcuts: {
+    'link': 'op60 hover:op100 transition-opacity duration-200'
+  },
   presets: [
     presetUno(),
     presetAttributify(),
