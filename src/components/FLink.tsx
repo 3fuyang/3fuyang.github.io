@@ -10,7 +10,9 @@ export type FLinkProps = {
 export default function FLink(props: FLinkProps) {
 
   return (
-    <NavLink title={props.title} to={props.to} className="link">
+    <NavLink title={props.title} to={props.to} className={({ isActive }) => {
+      return isActive ? 'link op100' : 'link'
+    }}>
       <span className="lt-md:hidden">{props.title}</span>
       <props.icon className="md:hidden w5 h5 link" />
     </NavLink>

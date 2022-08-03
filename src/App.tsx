@@ -4,17 +4,21 @@ import { useDark } from './hooks/useDark'
 
 const ErrorBoundary = lazy(() => import('./components/ErrorBoundary'))
 const NavBar = lazy(() => import('./components/NavBar'))
+const Footer = lazy(() => import('./components/Footer'))
 
 function App() {
   useDark()
 
   return (
     <BrowserRouter>
-      <Suspense>
-        <ErrorBoundary>
+      <ErrorBoundary>
+        <Suspense>
           <NavBar />
-        </ErrorBoundary>
-      </Suspense>
+          <main className="px7 py10">
+            <Footer />
+          </main>
+        </Suspense>
+      </ErrorBoundary>
     </BrowserRouter>
   )
 }
