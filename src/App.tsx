@@ -2,6 +2,7 @@ import { lazy, Suspense } from 'react'
 import { BrowserRouter } from 'react-router-dom'
 import { useDark } from './hooks/useDark'
 
+const ErrorBoundary = lazy(() => import('./components/ErrorBoundary'))
 const NavBar = lazy(() => import('./components/NavBar'))
 
 function App() {
@@ -10,7 +11,9 @@ function App() {
   return (
     <BrowserRouter>
       <Suspense>
-        <NavBar />
+        <ErrorBoundary>
+          <NavBar />
+        </ErrorBoundary>
       </Suspense>
     </BrowserRouter>
   )
