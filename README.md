@@ -10,7 +10,12 @@ Means Fwio's blog.
 
 ## Todo
 
-+ Learn and apply [React Router](https://reactrouter.com/docs/en/v6/getting-started/concepts).
-+ Capsulate NavLink to HOC for scoped CSS.
-+ Add Vitest for React component testing.
-+ Static Web App Deployment, maybe with Netify?
++ [ ] Learn and apply [React Router](https://reactrouter.com/docs/en/v6/getting-started/concepts).
++ [X] Capsulate NavLink to HOC for scoped CSS.
++ [ ] Implement the Posts component
++ [ ] Design the Router architechture
++ [ ] Integrate markdown-it
++ [ ] Stylize the output HTML
++ [ ] Auto route generation via `vite-plugin-pages`
++ [ ] Add Vitest for React component testing.
++ [ ] Static Web App Deployment, maybe with Netify?
