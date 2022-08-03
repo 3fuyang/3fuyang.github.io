@@ -1,4 +1,4 @@
-import { FC, useState } from 'react'
+import { FC } from 'react'
 import { MdLightMode, MdDarkMode } from 'react-icons/md'
 import { useDark } from '../hooks/useDark'
 
@@ -10,7 +10,7 @@ const ToggleTheme:FC = () => {
   }
 
   return (
-    <a className="select-none link cursor-pointer" title="Toggle Color Theme" onClick={toggleTheme}>
+    <a className="select-none link cursor-pointer" title={mode === 'dark' ? 'Toggle Light Mode' : 'Toggle Dark Mode'} onClick={toggleTheme}>
       {mode === 'dark' ? <MdDarkMode className="w5 h5" /> : <MdLightMode className="w5 h5" />}
     </a>
   )
