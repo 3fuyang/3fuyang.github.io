@@ -14,7 +14,7 @@ Means Fwio's blog.
 + [X] Capsulate NavLink to HOC for scoped CSS.
 + [ ] Implement the Posts component
 + [ ] Design the Router architechture
-+ [ ] Integrate markdown-it
++ [ ] Integrate MDX
 + [ ] Stylize the output HTML
 + [ ] Auto route generation via `vite-plugin-pages`
 + [ ] Add Vitest for React component testing.
