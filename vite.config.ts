@@ -1,4 +1,6 @@
 import { defineConfig } from 'vite'
+import mdx from '@mdx-js/rollup'
+import Pages from 'vite-plugin-pages'
 import react from '@vitejs/plugin-react'
 import Unocss from 'unocss/vite'
 
@@ -9,6 +11,11 @@ export default defineConfig({
     Unocss({
       configFile: 'uno.config.ts'
     }),
-    react()
+    react(),
+    mdx(),
+    Pages({
+      dirs: 'pages',
+      extensions: ['tsx', 'md', 'mdx']
+    })
   ]
 })
