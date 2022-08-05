@@ -1,0 +1,199 @@
+/* Stylize MDX elements. */
+.prose {
+  --fg: #555;
+  --fg-deep: #222;
+  -fg-deeper: #000;
+
+  --a: #185864;
+  --a-dark: #82b0c7;
+
+  color: var(--fg);
+  line-height: 1.75;
+  max-width: 65ch;
+  margin: auto;
+}
+
+.dark .prose {
+  --fg: #bbb;
+  --fg-deep: #ddd;
+  --fg-deeper: #fff;
+}
+
+.prose a {
+  color: var(--fg-deeper);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(125, 125, 125, 0.3);
+  transition: border .3s ease-in-out;
+}
+
+.prose a:hover {
+  border-bottom-color: var(--a);
+}
+
+.dark .prose a:hover {
+  border-bottom-color: var(--a-dark);
+}
+
+.prose strong {
+  padding: 0 .1em;
+  color: var(--fg-deep);
+  font-weight: bold;
+}
+
+.prose hr {
+  border-color: rgba(125, 125, 125, 0.3);
+  width: 50px;
+  margin: 3em 0;
+}
+
+.prose ol[type="A"] {
+  --list-counter-style: upper-alpha;
+}
+
+.prose ol[type="a"] {
+  --list-counter-style: lower-alpha;
+}
+
+.prose ol[type="A s"] {
+  --list-counter-style: upper-alpha;
+}
+
+.prose ol[type="a s"] {
+  --list-counter-style: lower-alpha;
+}
+
+.prose ol[type="I"] {
+  --list-counter-style: upper-roman;
+}
+
+.prose ol[type="i"] {
+  --list-counter-style: lower-roman;
+}
+
+.prose ol[type="I s"] {
+  --list-counter-style: upper-roman;
+}
+
+.prose ol[type="i s"] {
+  --list-counter-style: lower-roman;
+}
+
+.prose ol[type="1"] {
+  --list-counter-style: decimal;
+}
+
+.prose ol>li {
+  position: relative;
+  padding-left: 1.75em;
+}
+
+.prose ol>li::before {
+  content: counter(list-item, var(--list-counter-style, decimal)) ".";
+  position: absolute;
+  font-weight: normal;
+  color: #6b7280;
+  left: 0;
+}
+
+.prose ul>li {
+  position: relative;
+  padding-left: 1.75em;
+}
+
+.prose ul>li::before {
+  content: "";
+  position: absolute;
+  background-color: #d1d5db;
+  border-radius: 50%;
+  width: .375em;
+  height: .375em;
+  top: calc(.875em - .1875em);
+  left: .25em;
+}
+
+.prose blockquote {
+  font-weight: 500;
+  font-style: italic;
+  color: inherit;
+  border-left-width: .25rem;
+  border-color: #d1d5db;
+  quotes: "\201C""\201D""\2018""\2019";
+  line-height: 1.5em;
+  padding: .5em 1.5em;
+  padding-left: 1em;
+  margin: 1.6em 0;
+  opacity: .8;
+  transition: all .25s ease-out;
+}
+
+.dark .prose blockquote {
+  border-color: #4e4e4e;
+}
+
+.prose blockquote:hover {
+  opacity: 1;
+}
+
+.prose blockquote> :first-child {
+  margin-top: 0;
+}
+
+.prose blockquote> :last-child {
+  margin-bottom: 0;
+}
+
+.prose blockquote p:first-of-type::before {
+  content: none;
+}
+
+.prose blockquote p:first-of-type::after {
+  content: none;
+}
+
+.prose h1 {
+  color: var(--fg-deeper);
+  font-weight: 800;
+  font-size: 2.25em;
+  margin-top: 0;
+  margin-bottom: 0.8888889em;
+  line-height: 1.1111111;
+}
+
+.prose h2 {
+  color: var(--fg-deep);
+  font-weight: 700;
+  font-size: 1.5em;
+  margin-top: 2em;
+  margin-bottom: 1em;
+  line-height: 1.3333333;
+}
+
+.prose h3 {
+  color: inherit;
+  font-weight: 600;
+  font-size: 1.25em;
+  margin-top: 1.6em;
+  margin-bottom: 0.6em;
+  line-height: 1.6;
+}
+
+.prose h4 {
+  color: inherit;
+  font-weight: 600;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  line-height: 1.5;
+}
+
+.prose h6 {
+  text-transform: uppercase;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  opacity: 0.5;
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+
+.prose p {
+  margin: .6em 0 0;
+}

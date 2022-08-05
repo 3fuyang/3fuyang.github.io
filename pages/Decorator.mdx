@@ -4,13 +4,13 @@
 
 ## Introduction
 
-**装饰器（Decorator）**提供一种为类声明和成员添加注释和元编程语法的方式，它本身是 JavaScript 的一项 stage 2 提案，也是 TypeScript 的一个实验性特性。
+**装饰器**(Decorator)提供一种为类声明和成员添加注释和元编程语法的方式，它本身是 JavaScript 的一项 stage 2 提案，也是 TypeScript 的一个实验性特性。
 
 需要在 TSConfig 中开启该特性，`"experimentalDecorators": true`。
 
 ## Decorators
 
-一个装饰器是一种**特殊的声明**，它可以添加到类声明、方法、访问器（accessor）、属性和参数上。
+一个装饰器是一种**特殊的声明**，它可以添加到类声明、方法、访问器 (accessor) 、属性和参数上。
 
 装饰器的形式是`@expression`，其中`expression`必须等价于一个**函数**，这个函数将在**运行时**使用被装饰的声明的信息被调用。
 
@@ -51,7 +51,7 @@ x
 
 因此，当评估单个声明上的多个装饰器时，会执行以下步骤：
 
-1. 每个装饰器的 expression 被从上往下**评估**（evaluated，执行表达式，得出 *expression: function*）。
+1. 每个装饰器的 expression 被从上往下**评估** (evaluated，执行表达式，得出 *expression: function*) 。
 2. 将结果作为函数从下往上调用。
 
 ``` typescript
@@ -94,11 +94,11 @@ first(): called
 
 类装饰器随后必须紧跟类声明，它被应用于该类的构造函数，并且可被用来观察、修改和替换一个类定义。
 
-类装饰器不能被用于声明文件（`.d.ts`）中，也不能用于环境上下文（ambient context）中。
+类装饰器不能被用于声明文件 (`.d.ts`) 中，也不能用于环境上下文 (ambient context) 中。
 
 类装饰器的 expression 会在运行时被调用，类的构造函数会作为唯一的参数传递给 expression。
 
-如果类装饰器有返回值，这个值将取代（作为）类声明中提供的构造函数的返回值。
+如果类装饰器有返回值，这个值将取代 (作为) 类声明中提供的构造函数的返回值。
 
 > 注意：如果选择在类装饰器中返回一个新的构造函数，则需要注意维持原本的原型链。
 
@@ -155,9 +155,9 @@ bug.reportingURL
 
 1. 静态成员的类的构造函数，或者实例成员的类的原型。
 2. 成员的名称。
-3. 成员的属性描述符（*Property Descriptor*）
+3. 成员的属性描述符 (*Property Descriptor*) 
 
-> 注意：如果转译目标低于 ES5，那么属性描述符不可用（`undefined`）。
+> 注意：如果转译目标低于 ES5，那么属性描述符不可用 (`undefined`) 。
 
 如果方法装饰器返回一个值，那它将被用作该方法的属性描述符。
 
@@ -188,11 +188,11 @@ function enumerable (value: boolean) {
 
 > 注意：TypeScript 不允许**同时装饰**一个成员的 **get** 和 **set** 访问器。但是，一个成员的所有装饰器都必须被应用于文件顺序的第一个访问器上。这是因为装饰器应用在属性描述符上，属性描述符同时结合了 get 和 set 访问器，而不是分别声明。
 
-访问器装饰器的 expression 会被传入以下参数（与成员装饰器相同）：
+访问器装饰器的 expression 会被传入以下参数 (与成员装饰器相同) ：
 
 1. 静态成员的类的构造函数，或者实例成员的类的原型。
 2. 成员的名称。
-3. 成员的属性描述符（*Property Descriptor*）
+3. 成员的属性描述符 (*Property Descriptor*) 
 
 ``` typescript
 class Point {
@@ -341,7 +341,7 @@ TypeScript 包括了为拥有装饰器的声明产生某些类型的元数据的
 }
 ```
 
-启用以后，只要`reflect-metadata`库被引入，额外的设计时（design-time）类型信息将会在运行时暴露（expose）。
+启用以后，只要`reflect-metadata`库被引入，额外的设计时 (design-time) 类型信息将会在运行时暴露 (expose) 。
 
 ``` typescript
 import "reflect-metadata"
@@ -424,6 +424,3 @@ class Line {
     }    
 }
 ```
-
-
-

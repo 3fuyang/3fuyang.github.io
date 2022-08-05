@@ -1,0 +1,50 @@
+/* Define background and scrollbar style. */
+:root {
+  --c-bg: #fff;
+  --c-scrollbar: #d3d0d7;
+  --c-scrollbar-hover: #9e9cae;
+  --c-scrollbar-active: #787878;
+}
+
+html {
+  background-color: var(--c-bg);
+  transition: background-color .2s ease;
+}
+
+html.dark {
+  --c-bg: #000;
+  --c-scrollbar: #787878;
+  --c-scrollbar-hover: #c2c2bd;
+  --c-scrollbar-active: #ebf0f1;
+}
+
+* {
+  scrollbar-color: var(--c-scrollbar) var(--c-bg);
+}
+
+::-webkit-scrollbar {
+  width: .5rem;
+}
+
+::-webkit-scrollbar:horizontal {
+  height: .375rem;
+}
+
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-corner {
+  background: var(--c-bg);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--c-scrollbar);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--c-scrollbar-hover);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: var(--c-scrollbar-active);
+}

@@ -4,6 +4,7 @@ import Pages from 'vite-plugin-pages'
 import react from '@vitejs/plugin-react'
 import Unocss from 'unocss/vite'
 import rehypeHighlight from 'rehype-highlight'
+import remarkGfm from 'remark-gfm'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -14,8 +15,14 @@ export default defineConfig({
     }),
     react(),
     mdx({
-      // add syntax highlighting to mdx
-      rehypePlugins: [rehypeHighlight]
+      remarkPlugins: [
+        // add Github flavored markdown(GFM) Feature
+        remarkGfm
+      ],
+      rehypePlugins: [
+        // add syntax highlighting to mdx
+        rehypeHighlight
+      ]
     }),
     Pages({
       // auto routes generator
