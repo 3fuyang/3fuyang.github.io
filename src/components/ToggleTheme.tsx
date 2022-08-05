@@ -10,9 +10,9 @@ const ToggleTheme:FC = () => {
   }
 
   return (
-    <a className="select-none link cursor-pointer" title={`Toggle to ${mode === 'dark' ? 'Light' : 'Dark'} Mode`} onClick={toggleTheme}>
+    <span className="select-none link cursor-pointer" title={`Toggle to ${mode === 'dark' ? 'Light' : 'Dark'} Mode`} onClick={toggleTheme}>
       {mode === 'dark' ? <MdDarkMode className="w5 h5" /> : <MdLightMode className="w5 h5" />}
-    </a>
+    </span>
   )
 }
 

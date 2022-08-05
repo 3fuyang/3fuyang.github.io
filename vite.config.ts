@@ -8,6 +8,8 @@ import Unocss from 'unocss/vite'
 import rehypeHighlight from 'rehype-highlight'
 import remarkGfm from 'remark-gfm'
 import rehypeSlug from 'rehype-slug'
+import rehypeToc from 'rehype-toc'
+import a11yEmoji from '@fec/remark-a11y-emoji'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -20,13 +22,16 @@ export default defineConfig({
     mdx({
       remarkPlugins: [
         // add Github flavored markdown(GFM) Feature
-        remarkGfm
+        remarkGfm,
+        a11yEmoji
       ],
       rehypePlugins: [
         // add syntax highlighting to mdx
         rehypeHighlight,
         // add id attrs to headings
-        rehypeSlug
+        rehypeSlug,
+        // Table of Contents
+        rehypeToc
       ]
     }),
     Pages({

@@ -1,4 +1,6 @@
 /* Define background and scrollbar style. */
+@import 'lxgw-wenkai-webfont/style.css';
+
 :root {
   --c-bg: #fff;
   --c-scrollbar: #d3d0d7;
@@ -16,6 +18,17 @@ html.dark {
   --c-scrollbar: #787878;
   --c-scrollbar-hover: #c2c2bd;
   --c-scrollbar-active: #ebf0f1;
+}
+
+body {
+  font-family: 'LXGW WenKai', ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    Consolas,
+    "Liberation Mono",
+    "Courier New",
+    monospace;
 }
 
 * {

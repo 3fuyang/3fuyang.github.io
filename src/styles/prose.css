@@ -4,13 +4,14 @@
   --fg-deep: #222;
   -fg-deeper: #000;
 
-  --a: #185864;
+  --a: rgb(14, 116, 144);
   --a-dark: #82b0c7;
 
   color: var(--fg);
   line-height: 1.75;
-  max-width: 65ch;
+  max-width: 45em;
   margin: auto;
+  position: relative;
 }
 
 .dark .prose {
@@ -23,7 +24,7 @@
   color: var(--fg-deeper);
   text-decoration: none;
   border-bottom: 1px solid rgba(125, 125, 125, 0.3);
-  transition: border .3s ease-in-out;
+  transition: border .8s ease;
 }
 
 .prose a:hover {
@@ -196,4 +197,34 @@
 
 .prose p {
   margin: .6em 0 0;
+}
+
+.prose .toc {
+  opacity: .6;
+  position: fixed;
+  top: 5rem;
+  right: .6rem;
+  z-index: 10;
+  overflow-y: auto;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  margin-top: 2rem;
+  max-height: 31.25rem;
+  max-width: 13rem;
+
+  transition: all .5s ease-out;
+}
+
+@media (max-width: 1200px) {
+  .prose .toc {
+    position: static;
+    width: auto;
+    max-height: fit-content;
+    max-width: fit-content;
+    margin-top: 1rem;
+  }
+}
+
+.prose .toc:hover {
+  opacity: 1;
 }
