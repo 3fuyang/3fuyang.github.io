@@ -4,10 +4,8 @@ export default function Post() {
   useFrontmatter()
 
   return (
-    <article>
-      <a href="">
-        Exists?
-      </a>
-    </article>
+    <a href="">
+      Exists?
+    </a>
   )
 }

@@ -27,6 +27,10 @@
   transition: border .8s ease;
 }
 
+.dark .prose a {
+  border-bottom-color: #666;
+}
+
 .prose a:hover {
   border-bottom-color: var(--a);
 }
