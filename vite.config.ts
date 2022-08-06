@@ -10,6 +10,8 @@ import remarkGfm from 'remark-gfm'
 import rehypeSlug from 'rehype-slug'
 import rehypeToc from 'rehype-toc'
 import a11yEmoji from '@fec/remark-a11y-emoji'
+import remarkFrontmatter from 'remark-frontmatter'
+import remarkMdxFrontmatter from 'remark-mdx-frontmatter'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -23,21 +25,24 @@ export default defineConfig({
       remarkPlugins: [
         // add Github flavored markdown(GFM) Feature
         remarkGfm,
-        a11yEmoji
+        // make the emojis accessible via aria-attrs
+        a11yEmoji,
+        // frontmatter
+        remarkFrontmatter, remarkMdxFrontmatter
       ],
       rehypePlugins: [
         // add syntax highlighting to mdx
         rehypeHighlight,
-        // add id attrs to headings
+        // add `id` attrs to headings
         rehypeSlug,
-        // Table of Contents
+        // add Table of Contents(TOC)
         rehypeToc
       ]
     }),
     Pages({
       // auto routes generator
-      dirs: 'pages',
-      extensions: ['tsx', 'md', 'mdx']
+      dirs: [{ dir: 'pages', baseRoute: '' }],
+      extensions: ['md', 'mdx', 'tsx']
     })
   ]
 })
