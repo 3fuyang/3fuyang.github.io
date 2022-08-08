@@ -3,4 +3,5 @@ export type Frontmatter = {
   duration: string
   lang: string
   date: string
+  path: string
 }

@@ -14,12 +14,16 @@ export function useFrontmatter(setter: (newVal: Frontmatter[]) => void) {
 
     for (const key in mdxFiles) {
       if (key.includes(path)) {
-        promises.push(mdxFiles[key]().then(({ title, date, duration, lang }) => {
-          return { title, duration, date, lang }
+        promises.push(mdxFiles[key]().then(({ title, date, duration, lang, path }) => {
+          return { title, duration, date, lang, path }
         }))
       }
     }
 
-    Promise.all(promises).then((results) => setter(results))
+    Promise.all(promises).then((results) => {
+      // sort the posts by date desc order
+      results.sort((a, b) => Date.parse(b.date) - Date.parse(a.date))
+      setter(results)
+    })
   })
 }
