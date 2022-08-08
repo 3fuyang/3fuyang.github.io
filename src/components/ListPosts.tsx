@@ -1,11 +1,15 @@
+import { useState } from 'react'
+import { Frontmatter } from '../../types/frontmatter'
 import { useFrontmatter } from '../hooks/useFrontmatter'
 
 export default function Post() {
-  useFrontmatter()
+  const [frontmatters, setFrontmatters] = useState<Frontmatter[]>([])
+
+  useFrontmatter(setFrontmatters)
 
   return (
-    <a href="">
-      Exists?
-    </a>
+    <>
+      {frontmatters.map((frontmatter: Frontmatter) => (<article key={frontmatter.title}>{frontmatter.title}</article>))}
+    </>
   )
 }

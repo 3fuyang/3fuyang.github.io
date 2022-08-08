@@ -7,7 +7,6 @@ routes.forEach((route) => {
     // 一级目录
     route.element = createElement('article', { className: 'prose' }, route.element)
   } else if (route.children) {
-    console.log('no element but has children: ', route.path)
     // 二级目录
     route.children.forEach((child) => {
       // Skip the index route stylizing
