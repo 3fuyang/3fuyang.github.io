@@ -2,8 +2,10 @@ import { FC, lazy } from 'react'
 import { Link } from 'react-router-dom'
 import reactLogo from '../assets/react.svg'
 import type { FLinkProps } from './FLink'
-import { TbFileDescription, TbAlbum, TbBooks, TbApps } from 'react-icons/tb'
 import { GoMarkGithub } from 'react-icons/go'
+import { AiOutlineFileText } from 'react-icons/ai'
+import { GiBookshelf } from 'react-icons/gi'
+import { MdAppRegistration, MdOutlineAlbum } from 'react-icons/md'
 
 const FLink = lazy(() => import('./FLink'))
 const ToggleTheme = lazy(() => import('./ToggleTheme'))
@@ -12,22 +14,22 @@ const fLinks:FLinkProps[] = [
   {
     to: '/blog',
     title: 'Blog',
-    icon: TbFileDescription
+    icon: AiOutlineFileText
   },
   {
     to: '/essay',
     title: 'Essay',
-    icon: TbBooks
+    icon: GiBookshelf
   },
   {
     to: '/projects',
     title: 'Projects',
-    icon: TbApps
+    icon: MdAppRegistration
   },
   {
     to: '/demos',
     title: 'Demos',
-    icon: TbAlbum
+    icon: MdOutlineAlbum
   }
 ]
 

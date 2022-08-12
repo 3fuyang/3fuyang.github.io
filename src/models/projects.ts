@@ -22,7 +22,7 @@ export const projects: Project[] = [
   {
     logo: GiPlagueDoctorProfile,
     title: 'Flog',
-    src: 'https://github.com/3fuyang/flog',
+    src: 'https://github.com/3fuyang/3fuyang.github.io',
     intro: 'Means Fwio\'s blog.',
     type: 'react'
   },
