@@ -1,6 +1,7 @@
 import { createElement, FC } from 'react'
 import { useRoutes } from 'react-router-dom'
 import routes from '~react-pages'
+import { NotFound } from '../components/NotFound'
 
 routes.forEach((route) => {
   if (route.element) {
@@ -13,6 +14,11 @@ routes.forEach((route) => {
       !child.path?.length || (child.element = createElement('article', { className: 'prose' }, child.element))
     })
   }
+})
+
+routes.push({
+  path: '*',
+  element: <NotFound />
 })
 
 const RenderedRoutes:FC = () =>  useRoutes(routes)
