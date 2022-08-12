@@ -19,6 +19,7 @@ function App() {
             <RenderedRoutes />
             <Footer />
           </main>
+          <img src="/seagull.svg" alt="seagull" className="fixed top-1/2 left-1/2 -translate-1/2 max-w-1/6 ha op45 dark:op100 filter-invert-60 mix-blend-difference pointer-events-none" />
         </Suspense>
       </Router>
     </ErrorBoundary>
