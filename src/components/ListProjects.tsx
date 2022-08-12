@@ -3,11 +3,11 @@ import { FaReact, FaVuejs } from 'react-icons/fa'
 
 export default function ListProjects() {
   return (
-    <section className="m-auto max-w-45em justify-between" flex="~ wrap">
+    <section className="m-auto max-w-45em md:justify-between md:flex md:flex-wrap">
       {projects.map((project) => (
         <article
           key={project.title}
-          className="relative dark:shadow-gray-5 box-border rounded-md p3 w-20/41 h-50 op80 mb4"
+          className="relative dark:shadow-gray-5 box-border rounded-md p3 md:w-20/41 h-50 op80 mb4"
           hover="op100 shadow-md"
           active="op100 shadow-md"
           transition="~"

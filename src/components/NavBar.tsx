@@ -1,10 +1,9 @@
 import { FC, lazy } from 'react'
 import { Link } from 'react-router-dom'
-import reactLogo from '../assets/react.svg'
 import type { FLinkProps } from './FLink'
 import { GoMarkGithub } from 'react-icons/go'
 import { AiOutlineFileText } from 'react-icons/ai'
-import { GiBookshelf } from 'react-icons/gi'
+import { GiBookshelf, GiSeagull } from 'react-icons/gi'
 import { MdAppRegistration, MdOutlineAlbum } from 'react-icons/md'
 
 const FLink = lazy(() => import('./FLink'))
@@ -36,8 +35,8 @@ const fLinks:FLinkProps[] = [
 const NavBar:FC = () => {
   return (
     <header className="flex px5 py3 items-center relative">
-      <Link to="/" className="select-none outline-none">
-        <img src={reactLogo} alt="logo" className="h-10" />
+      <Link to="/" className="select-none outline-none" title="Fwio">
+        <GiSeagull className="h-10 wa color-cyan-9 dark:color-#83BEEC" />
       </Link>
       <div className="spacer flex-1" />
       <nav flex="~ gap-6 md:gap-8 items-center">

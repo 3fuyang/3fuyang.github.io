@@ -6,6 +6,7 @@ export type Demo = {
   title: string
   src: string
   intro: string
+  type: 'js' | 'ts' | 'vue' | 'react'
 }
 
 export const demos: Demo[] = [
@@ -13,12 +14,14 @@ export const demos: Demo[] = [
     icon: SiWindicss,
     title: 'Pure Demo',
     src: 'https://github.com/3fuyang/pure-demo',
-    intro: 'Demo of some pure front-end skills.'
+    intro: 'Demo of some pure front-end skills.',
+    type: 'vue'
   },
   {
     icon: SiJsonwebtokens,
     title: 'Authorization Demo',
     src: 'https://github.com/3fuyang/authorization_demo',
-    intro: 'A demo to implement JWT(JSON Web Token), including both the front end and the back end.'
+    intro: 'A demo to implement JWT(JSON Web Token), including both the front end and the back end.',
+    type: 'vue'
   }
 ]

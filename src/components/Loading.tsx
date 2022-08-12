@@ -1,4 +1,3 @@
-import { spawn } from 'child_process'
 import { RiLoaderLine } from 'react-icons/ri'
 
 export default function Loading() {
