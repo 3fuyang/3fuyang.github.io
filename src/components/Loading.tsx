@@ -1,6 +1,6 @@
 import { RiLoaderLine } from 'react-icons/ri'
 
-export default function Loading() {
+export default function Loading({ msg }: { msg: string }) {
   return (
     <article
       className="justify-center items-center fixed top-1/2 left-1/2 -translate-1/2"
@@ -9,7 +9,7 @@ export default function Loading() {
         aria-hidden="true"
         className="w-10 md:w-18 ha animate-spin color-gray-3 animate-duration-1500" />
       <section className="animate-pulse font-bold text-lg mt-2 tracking-wider text-gray-5">
-        Loading ...
+        {msg}
       </section>
     </article>
   )

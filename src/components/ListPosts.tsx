@@ -18,7 +18,7 @@ export default function ListPosts() {
             border="r-4 #878584 hover:blue-4 dark:hover:blue-5 focus:blue-4 dark:focus:blue-5 lt-md:blue-4"
             flex="~ col"
             transition="~">
-            <span className="text-3xl font-bold">{frontmatter.title}</span>
+            <span className="text-3xl font-bold truncate">{frontmatter.title}</span>
             <span>{new Date(frontmatter.date).toLocaleDateString()}</span>
           </Link>
         </article>
