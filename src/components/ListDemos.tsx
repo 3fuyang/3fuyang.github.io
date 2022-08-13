@@ -2,16 +2,16 @@ import { demos, type Demo } from '../models/demos'
 import { FaReact, FaVuejs } from 'react-icons/fa'
 import { SiTypescript, SiJavascript } from 'react-icons/si'
 
-function getLangLogo(type: typeof Demo['type']) {
-  switch(type) {
-    case 'vue':
-      return <FaVuejs className="w-6 ha color-green-7 dark:color-emerald-5" />
-    case 'react':
-      return <FaReact className="w-6 ha color-cyan-5 dark:color-cyan-4" />
-    case 'ts':
-      return <SiTypescript className="w-6 ha color-blue-5 dark:color-blue-4" />
-    case 'js':
-      return <SiJavascript className="w-6 ha color-amber-5 dark:color-amber-4" />
+function getLangLogo(type: 'vue' | 'react' | 'ts' | 'js') {
+  switch (type) {
+  case 'vue':
+    return <FaVuejs className="w-6 ha color-green-7 dark:color-emerald-5" />
+  case 'react':
+    return <FaReact className="w-6 ha color-cyan-5 dark:color-cyan-4" />
+  case 'ts':
+    return <SiTypescript className="w-6 ha color-blue-5 dark:color-blue-4" />
+  case 'js':
+    return <SiJavascript className="w-6 ha color-amber-5 dark:color-amber-4" />
   }
 }
 

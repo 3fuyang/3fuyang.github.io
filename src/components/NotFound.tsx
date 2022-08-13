@@ -1,8 +1,11 @@
 
 export function NotFound() {
   return (
-    <article className="m-auto text-2xl max-w-45rem">
-      Less than nothing.
+    <article className="m-auto text-4xl max-w-45rem font-extrabold tracking-wide">
+      UN JOUR <br />
+      JE SERAI <br />
+      DE RETOUR <br />
+      PRÈS DE TOI
     </article>
   )
 }
