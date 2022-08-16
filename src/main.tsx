@@ -7,7 +7,11 @@ import './styles/main.css'
 import './styles/prose.css'
 import './styles/syntax-highlight.css'
 
-createRoot(document.getElementById('root') as HTMLElement).render(
+const root = document.getElementById('root')
+
+root && (root.className = 'text-gray-700 dark:text-gray-200 scroll-smooth')
+
+createRoot(root as HTMLElement).render(
   <StrictMode>
     <App />
   </StrictMode>

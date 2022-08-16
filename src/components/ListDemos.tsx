@@ -2,7 +2,7 @@ import { demos, type Demo } from '../models/demos'
 import { FaReact, FaVuejs } from 'react-icons/fa'
 import { SiTypescript, SiJavascript } from 'react-icons/si'
 
-function getLangLogo(type: 'vue' | 'react' | 'ts' | 'js') {
+function getLangLogo(type: Demo['type']) {
   switch (type) {
   case 'vue':
     return <FaVuejs className="w-6 ha color-green-7 dark:color-emerald-5" />

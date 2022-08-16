@@ -3,6 +3,7 @@ import mdx from '@mdx-js/rollup'
 import Pages from 'vite-plugin-pages'
 import react from '@vitejs/plugin-react'
 import Unocss from 'unocss/vite'
+import { VitePWA } from 'vite-plugin-pwa'
 
 // MDX plugins
 import rehypeHighlight from 'rehype-highlight'
@@ -43,6 +44,36 @@ export default defineConfig({
       // auto routes generator
       dirs: [{ dir: 'pages', baseRoute: '' }],
       extensions: ['md', 'mdx', 'tsx']
+    }),
+    VitePWA({
+      registerType: 'autoUpdate',
+      devOptions: {
+        enabled: true
+      },
+      includeAssets: ['fwio.svg', 'fwio-apple-touch.png', 'images/**/*.png'],
+      manifest: {
+        name: 'Flog',
+        short_name: 'Flog',
+        description: 'Fwio\'s personal blog',
+        theme_color: '#ffffff',
+        // all icons on PWA Web App Manifest option
+        // will be included in the service worker precache
+        icons: [
+          {
+            src: 'fwio-192x192.png',
+            sizes: '192x192',
+            type: 'image/png'
+          },
+          {
+            src: 'fwio-512x512.png',
+            sizes: '512x512',
+            type: 'image/png'
+          }
+        ]
+      },
+      workbox: {
+        maximumFileSizeToCacheInBytes: 3e6
+      }
     })
   ]
 })
