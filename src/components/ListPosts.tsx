@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Frontmatter } from '../../types/frontmatter'
-import { useFrontmatter } from '../hooks/useFrontmatter'
+import { useFrontmatters } from '../hooks/useFrontmatters'
 
 export default function ListPosts() {
   const [frontmatters, setFrontmatters] = useState<Frontmatter[]>([])
 
-  useFrontmatter(setFrontmatters)
+  useFrontmatters(setFrontmatters)
 
   return (
     <section className="max-w-45em m-auto">

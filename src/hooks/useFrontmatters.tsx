@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { useLocation } from 'react-router'
 import type { Frontmatter } from '../../types/frontmatter'
 
-export function useFrontmatter(setter: (newVal: Frontmatter[]) => void) {
+export function useFrontmatters(setter: (newVal: Frontmatter[]) => void) {
   const location = useLocation()
 
   useEffect(() => {
