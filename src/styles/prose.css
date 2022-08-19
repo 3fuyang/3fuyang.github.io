@@ -232,3 +232,17 @@
 .prose .toc:hover {
   opacity: 1;
 }
+
+.prose img {
+  margin: 1em auto;
+  max-width: 40em;
+  border: 1px solid #eee;
+}
+
+.dark .prose img {
+  border-color: #555;
+}
+
+.dark .prose .revertable {
+  filter: invert(.9);
+}

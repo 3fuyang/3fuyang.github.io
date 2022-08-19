@@ -1,0 +1,91 @@
+---
+title: Flog 与 SSG
+date: 2022-08-19T18:07:00.000+00:00
+lang: zh
+duration: 6min
+path: /blog/ssg-in-flog
+---
+
+# Flog 与 SSG
+
+个人博客，和官方文档一样，是 SSG(Static Site Generator) 的典型用例。
+
+但写这个博客时没有用 [Vitepress](https://vitepress.vuejs.org/) 、 [Docusaurus](https://docusaurus.io/) 等 SSG 框架，
+一方面是为了练习写 React，另一方面是对SSG 应用比较感兴趣，想对其有更多的了解。
+
+但这个博客也不是手搓`markdown-it`那种硬核、或者说深入的项目，而是简单的对一些提供 SSG 关键功能的插件的集成而已。
+
+在具体陈述之前，先列举一下项目中用到的两个关键插件：
++ `vite-plugin-pages` - 自动生成路由。
++ `@mdx-js/rollup` - 负责处理(解析、渲染) markdown 文件。
+
+## 框架视点下，SSG 的基本要素
+
+这里的框架指的是 bundler(webpack, rollup ...) 以及业务框架(Vue, React ...)，它们已经解决了项目构建与用户交互的需求。
+
+在它们的基础上，我认为一个 SSG 应用还应具备的基本要素是：**markdown 处理(markdown processing)** 和 **自动路由(auto routes generation)**。
+
+在写到“基本要素”时，我想到 **basic features** 和 **minimum requirements** 两种描述，我认为其中 minimum requirements 更为合适，
+或者抛除中文原意，用 **additional requirements** 来表示框架的在场。
+
+这两个特性结合就能形成一个典型的用例: 在一个指定的目录下，解析所有 markdown 文件并渲染为 DOM(或 VNode 等过渡形式)，
+并自动为这些元素生成供框架使用的路由。
+
+听上去就和各种 SSG 框架 playground 中最简单的例子大差不差了，本文的探讨大概也就到兹范围。
+
+### markdown 处理
+
+不一定是 markdown，只要有办法**处理**，你可以用任何语言编写博客的文章，但 markdown 无疑是最为流行的一员，它得到了绝大多数生态(来自官方或社区)的支持。
+
+**处理**可以分为**解析**和**渲染**两步：
++ **解析** - 根据原始文本生成 AST。
++ **渲染** - 根据 AST 生成 HTML 或过渡产物。
+
+鉴于 React 的使用需求，博客选择 [MDX](https://mdxjs.com/) 作为 markdown 文件的处理引擎。
+
+> 当然，除了 React 外，MDX 也可以用于其他任何支持 JSX 的框架。
+
+MDX 依赖 [remark](https://github.com/remarkjs/remark) 和 [rehype](https://github.com/rehypejs/rehype) 来转译 markdown：
+
+remark 负责生成 AST ，MDX 依据 AST 生成原始的 HTML 文本，再交由 rehype 解析成目标产物(在该项目中，即 React Components)。
+
+有趣的是，React Component(或者其他框架的 VDOM) 虽然可以视作 HTML(framework output) 的一种过渡性产物，但其实在 MDX 处理周期中，
+它是先由 HTML(mdx output) 转化成的，用“同态”来形容或许更为恰当。
+
+虽然`.mdx`文件支持 inline react，这使得`.mdx`的编写有莫大的潜能，但博客文章基本上就是用 [CommonMark](https://commonmark.org/) 写的，
+所以我选择用各种 MDX plugins 对转译结果进行预处理，这种**静态**的方式也符合 SSG 的理念。
+
+下面列举了该项目使用到的 MDX 插件：
++ remark-gfm - 支持 GFM(Github Flavored Markdown)。
++ remark-mdx-frontmatter & remark-frontmatter - 解析文本的`frontmatter`，并将其以 ESM 的风格导出。
++ remark-a11y-emoji - 为 emoji 添加`aria-`属性，使其成为 accessible emoji。
++ rehype-highlight - 以`highlight.js`的风格，为 HTML 中各元素添加`class`名，然后便可引入自定义的`.css` stylize 自己的博客文章，
+其中当然包括代码的**语法高亮**。
++ rehype-slug - 为 title 元素添加`id`属性。
++ rehype-toc - 为文本生成 TOC(Table of Content)。
+
+前缀代表插件 hook 进了哪个阶段，可以看出，`remark`插件多负责 AST 相关的工作，而`rehype`中可对 HTML 进行处理，这种处理较于字符串式，
+更可能是 DOM 式的。
+
+### 自动路由
+
+SSG 自动路由的思路很简单，就是用脚本在编译时读取某些目录下的文件(读取哪些目录、哪些文件完全自定义化)，然后生成对应路由即可。
+
+这个需求利用 Node.js 很容易实现，这可能也是为什么 Vitepress 的路由生成都不用 [Vue Router](https://router.vuejs.org/)，
+而是另写一个　LOC < 200　的脚本。
+
+<img alt="vitepress-router" src="/images/ssg-in-flog/vitepress-router.png" aria-hidden="true" className="revertable" />
+
+这对 React 来说应该更为简单，因为 React Router 的实现比 Vue Router 更为简洁，虽然这也意味着开发者需要自己做更多的 dirty work。
+
+本项目使用 [vite-plugin-pages](https://github.com/hannoeru/vite-plugin-pages) 读取`/pages`目录下所有后缀名为`.tsx`或`.mdx`的文件，
+该插件本身就支持生成 React Router 式的路由。
+
+项目对`vite-plugin-pages`生成的路由集进行一定的处理，包括用`<article class="prose" />`包装文章 JSX，作为 **landmark** 且方便**引入样式**。
+
+但这个包装是有条件的，因为生成的路由集很可能是一个**嵌套路由**，需要通过`RouteObject`实例的`children`和`element`属性进行区分，可以使用递归实现。
+
+这里插一个与上一节有关的话题，SSG 一个重要的功能点是 **页面标题随路由改变**，但由于`vite-plugin-pages`不提供相关 hook，
+我们不能直接在插件的`config options`中为路由对应的组件添加监听器，
+所以要用到 markdown 的 frontmatter 在编译时获取文章的元信息(meta info, 包括标题、路由、时间等)，
+然后将插件返回的路由包装进带有事件监听器的 HOC，即上面提到的`<article class="prose" ... />`中。
