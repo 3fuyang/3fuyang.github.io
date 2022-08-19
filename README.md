@@ -4,7 +4,7 @@ Means Fwio's blog.
 
 ## Introduction
 
-A personal blog built with [Vite](https://vitejs.dev/) & [React](https://reactjs.org/), [deployed]() with Github Pages.
+A personal blog built with [Vite](https://vitejs.dev/) & [React](https://reactjs.org/), [deployed](https://3fuyang.github.io) with Github Pages.
 
 ## Features
 
