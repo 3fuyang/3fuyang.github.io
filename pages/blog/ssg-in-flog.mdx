@@ -2,21 +2,21 @@
 title: Flog 与 SSG
 date: 2022-08-19T18:07:00.000+00:00
 lang: zh
-duration: 6min
+duration: 10min
 path: /blog/ssg-in-flog
 ---
 
 # Flog 与 SSG
 
-个人博客，和官方文档一样，是 SSG(Static Site Generator) 的典型用例。
+个人博客，和官方文档一样，是 **SSG(Static Site Generator)** 的典型用例。
 
 但写这个博客时没有用 [Vitepress](https://vitepress.vuejs.org/) 、 [Docusaurus](https://docusaurus.io/) 等 SSG 框架，
-一方面是为了练习写 React，另一方面是对SSG 应用比较感兴趣，想对其有更多的了解。
+一方面是为了练习写 React，另一方面是对 SSG 比较感兴趣，想对其有更多的了解。
 
 但这个博客也不是手搓`markdown-it`那种硬核、或者说深入的项目，而是简单的对一些提供 SSG 关键功能的插件的集成而已。
 
 在具体陈述之前，先列举一下项目中用到的两个关键插件：
-+ `vite-plugin-pages` - 自动生成路由。
++ `vite-plugin-pages` - 自动生成路由；
 + `@mdx-js/rollup` - 负责处理(解析、渲染) markdown 文件。
 
 ## 框架视点下，SSG 的基本要素
@@ -87,5 +87,20 @@ SSG 自动路由的思路很简单，就是用脚本在编译时读取某些目�
 
 这里插一个与上一节有关的话题，SSG 一个重要的功能点是 **页面标题随路由改变**，但由于`vite-plugin-pages`不提供相关 hook，
 我们不能直接在插件的`config options`中为路由对应的组件添加监听器，
-所以要用到 markdown 的 frontmatter 在编译时获取文章的元信息(meta info, 包括标题、路由、时间等)，
+所以要用到 markdown 的 frontmatter 在编译时获取文章的元信息(meta info, 包括标题、路由、时间等任何信息)，
 然后将插件返回的路由包装进带有事件监听器的 HOC，即上面提到的`<article class="prose" ... />`中。
+
+markdown 的 frontmatter 是一个很强力的特性，它传递的 meta 信息在项目中也用于博客目录的渲染，项目中与 frontmatter 相关的功能都写成了 React hooks。
+
+## MDX 与 vite-plugin-pages 的加载顺序
+
+> 本节内容与 SSG 无关，而是关于 Vite 插件的加载
+
+React 环境下的`vite-plugin-pages`将生成 React Router 式的 routes，那么其扫描的文件应该**已经**是`js`, `ts`, `tsx`代码,
+那么在此之前`.mdx`应该已经被`@mdx-js/rollup`转译成`js`代码。
+
+直观上，在 Vite Config 的`plugins`中`@mdx-js/rollup`应该先于`vite-plugin-pages`，但实践证明两个插件的顺序并不影响最终效果。
+
+> 这里不考虑`vite-plugin-pages`具备先生成某种路由雏形(其路由不包含具体元素，可能是树形或某种可被解析为树形的形式)，等待`.mdx`文件被转译后再生成路由的**异步**特性，因为考虑到各种转译插件不一定都是纯净(pure)的，这会使得插件的设计变得非常耦合。
+
+显然，这两个插件作用于整个应用 build 过程中的不同阶段，
