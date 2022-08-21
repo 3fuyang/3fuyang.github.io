@@ -237,12 +237,14 @@
   margin: 1em auto;
   max-width: 40em;
   border: 1px solid #eee;
+  border-radius: .3rem;
 }
 
 .dark .prose img {
   border-color: #555;
 }
 
-.dark .prose .revertable {
+.dark .prose .invertable {
   filter: invert(.9);
+  border-color: #eee;
 }
