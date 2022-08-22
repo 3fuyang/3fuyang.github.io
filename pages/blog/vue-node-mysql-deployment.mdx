@@ -58,36 +58,25 @@ path: /blog/vue-node-mysql-deployment
 ### 五、启用 Node 服务
 
 1. 使用 **node --version** 或 **node -v** 命令查看 ECS 是否安装了 Node.js 。
-
 2. 若未安装，使用以下命令安装 Node （**注意：CentOS 属于 Linux 系统**）：
-
 3. ``` shell
    $cd /root
    $wget https://nodejs.org/download/release/v14.17.0/node-v14.17.0-linux-x64.tar.gz
    $sudo tar --strip-components 1 -xzvf node-v14.17.0-linux-x64.tar.gz -C /usr/local
    ```
-
 4. 切换到后端文件夹，执行 **npm install** 安装依赖（express，mysql 等）。
-
 5. 安装完毕后，使用 **node main.js** 测试能否成功运行后端。
-
 6. 运行成功后，安装 **pm2** 使 cmd 不需要一直运行以**维持后端服务**：
-
 7. ``` shell
    $cd /usr/local
    $npm install -g pm2
    ```
-
 8. 进入后端目录，使用 pm2 启动后端应用，**--name** 可为进程设置名称：
-
 9. ``` shell
    $pm2 start main.js --name="name"
    ```
-
 10. 启动成功后，看到如下结果：<img src="/images/vue-node-mysql-deployment/4.png" alt="pm2 start" />
-
 11. **附录—— pm2 常用命令**：
-
     1. **查看所有进程**：`$pm2 list`
     2. **查看某进程详细信息**：`$pm2 info [proc_id]`
     3. **暂停某进程**：`$pm2 stop [proc_id]`
@@ -99,57 +88,46 @@ path: /blog/vue-node-mysql-deployment
 
 ### 六、Nginx 配置与启动
 
-8. **Nginx 配置与启动：**
+1. 进入宝塔面板——软件商店—— Nginx 设置——配置修改，在 **http** 块（**注意**：不是 **server** 块）内增加以下**反向代理**代码：
+2. ``` js
+    server{
+        // 前端网页端口号
+        listen <port>;
+        // ECS 服务器外网IP地址
+        server_name localhost <host>;
+        location / {
+        // 前端目录
+        root <dir>;
+        try_files $uri $uri/ /index.html;
+        }
+    }
+   ```
+3. 保存修改，回到服务，先点击**重载配置**，再点击**重启**：
+    1. 如果此时运行失败，出现：`bind() to 0.0.0.0:80 failed (98:Adress already in use)`错误，是由于**端口号被占用**。
+4. 在浏览器中访问 “http://ip:port"，即可进入前端页面
+    1. 主页可以正常访问，但**调用后端接口**时，提示错误 **We're sorry but XX doesn't work properly without JavaScript enabled**，原因是 **Nginx 配置异常，没有正确转发后端接口地址**。
+    2. 需要在 Nginx 中配置**转发访问后端的具体地址**：
+    3. ``` js
+        server{
+            listen <port>; # 前端页面端口
+            server_name localhost <host>; # 服务器 IP
+            error_page 404 /index.html;	# 防止出现 404 Not Found 页面 
+        
+            location / {
+                root /www/server/tomcat/webapps/dist; # Vue 项目路径
+                try_files $uri $uri/ /index.html;
+            }
+            ## 配置后端反向代理
+            location ~ /api/ {
+                proxy_pass <back-end-origin>; # 后端运行地址
+            }
+        }
+       ```
+    4. 保存，重载配置并重启 Nginx 服务即可。
 
-   9. 进入宝塔面板——软件商店—— Nginx 设置——配置修改，在 **http** 块（**注意**：不是 **server** 块）内增加以下**反向代理**代码：
-
-   10. ``` js
-         server{
-          // 前端网页端口号
-          listen 8090;
-          // ECS 服务器外网IP地址
-          server_name localhost 106.15.78.201;
-          location / {
-              // 前端目录
-              root /www/server/tomcat/webapps/dist;
-              try_files $uri $uri/ /index.html;
-          }
-         }
-      ```
-   
-   11. 保存修改，回到服务，先点击**重载配置**，再点击**重启**：
-   
-       1. 如果此时运行失败，出现：**bind() to 0.0.0.0:80 failed (98:Adress already in use)**错误，是由于**端口号被占用**。
-   
-   12. 在浏览器中访问 “http://ip:port"，即可进入前端页面
-   
-       1. 主页可以正常访问，但**调用后端接口**时，提示错误 **We're sorry but XX doesn't work properly without JavaScript enabled**，原因是 **Nginx 配置异常，没有正确转发后端接口地址**。
-   
-       2. 需要在 Nginx 中配置**转发访问后端的具体地址**：
-   
-       3. ``` js
-          server{
-              listen 8090; # 前端页面端口
-              server_name localhost 106.15.78.201; # 服务器 IP
-              error_page 404 /index.html;	# 防止出现 404 Not Found 页面 
-          
-              location / {
-                  root /www/server/tomcat/webapps/dist; # Vue 项目路径
-                  try_files $uri $uri/ /index.html;
-              }
-              ## 配置后端反向代理
-              location ~ /api/ {
-                  proxy_pass http://106.15.78.201:8081/; # 后端运行地址
-              }
-          }
-      ```
-
-       4. 保存，重载配置并重启 Nginx 服务即可。
-
-   13. **附注**：
-
-       1. 本部署方法**并未用到 Tomcat 服务器**，只是将前后端代码放在 tomcat 下属的目录（其他目录也可）中，所以**不需要安装 Tomcat**。
-       2. **开发环境下**，为了解决调试时的**跨域问题**，而为前端项目配置的 **vue.config.js** 文件在**发布/部署**时不再需要，**不要打包进 dist 目录**。
+5. **附注**：
+    1. 本部署方法**并未用到 Tomcat 服务器**，只是将前后端代码放在 tomcat 下属的目录（其他目录也可）中，所以**不需要安装 Tomcat**。
+    2. **开发环境下**，为了解决调试时的**跨域问题**，而为前端项目配置的 **vue.config.js** 文件在**发布/部署**时不再需要，**不要打包进 dist 目录**。
 
 ## 问题与解答
 
