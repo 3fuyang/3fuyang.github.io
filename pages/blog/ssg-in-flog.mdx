@@ -71,7 +71,9 @@ remark 负责生成 AST , MDX 依据 AST 生成原始的 HTML 文本, 再交由 
 
 SSG 自动路由的思路很简单, 就是用脚本在编译时读取某些目录下的文件(读取哪些目录、哪些文件完全自定义化), 然后生成对应路由即可。
 
-这个需求利用 Node.js 很容易实现, 这可能也是为什么 Vitepress 的路由生成都不用 [Vue Router](https://router.vuejs.org/), 
+这个需求利用 Node.js 的**fs**模块很容易实现，而且如果你使用 Vite，那么`import.meta.glob`会使它更加容易。
+
+这可能也是为什么 Vitepress 的路由生成都不用 [Vue Router](https://router.vuejs.org/), 
 而是另写一个　LOC < 200　的脚本。
 
 <img alt="vitepress-router" src="/images/ssg-in-flog/vitepress-router.png" aria-hidden="true" className="invertable" />
@@ -130,7 +132,7 @@ React 环境下的`vite-plugin-pages`将生成 React Router 式的 routes, 那�
 
 ```
 
-而`vite-plugin-pages`使用到的 hooks 包括来自 rollup的`resolveId`、`load`, 以及 vite
+而`vite-plugin-pages`使用到的 hooks 包括来自 rollup 的`resolveId`、`load`, 以及 vite
 独有的`configResolved`、`configureServer`, 同时通过`enforce: "pre"`指定插件在 vite core plugins **之前**运行。
 
 ``` js
@@ -225,10 +227,10 @@ export default routes
 
 ### 结论
 
-没错，我也是半途才发现这与两个插件的 **hook 类型根本没啥关系**，单纯是 Vite 构建项目依赖的顺序而已...
+没错，我是半途才发现这与两个插件的 **hook 类型根本没啥关系**，单纯是 Vite 构建项目依赖的机制而已...
 
 但是细想也对，现代的打包工具都以 **tree-shaking** 为特征，对特定模块的处理都必须建立在"它会被打包"这一基础上,
-这样，也与一开始的"路由雏形"猜测相映了，它正是"依赖解析"这一更为底层的机制的显现，或者说,
+这样，也与一开始就被否决的"路由雏形"猜测相映了，它正是"依赖解析"这一更为底层的机制的显现，或者说,
 路由雏形是不完整的、**退化**的依赖解析而已。
 
 ### Vite specific hooks
