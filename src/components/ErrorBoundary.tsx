@@ -1,4 +1,5 @@
 import { Component, ErrorInfo, ReactNode } from 'react'
+import { MdErrorOutline } from 'react-icons/md'
 
 type EBProps = { children?: ReactNode }
 type EBState = { hasError: boolean }
@@ -18,7 +19,12 @@ export default class ErrorBoundary extends Component<EBProps, EBState> {
 
   public render() {
     if (this.state.hasError) {
-      return <h1>Uncaught error.</h1>
+      return (
+        <h1>
+          <MdErrorOutline className="w-6 ha" />
+          Uncaught error.
+        </h1>
+      )
     }
 
     return this.props.children

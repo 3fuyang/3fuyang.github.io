@@ -5,6 +5,7 @@ code {
   background: #f4f4f4;
   padding: .2em .5em;
   border-radius: .3rem;
+  margin: auto .15em;
 }
 
 .dark code {

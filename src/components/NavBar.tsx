@@ -9,7 +9,7 @@ import { MdAppRegistration, MdOutlineAlbum } from 'react-icons/md'
 const FLink = lazy(() => import('./FLink'))
 const ToggleTheme = lazy(() => import('./ToggleTheme'))
 
-const fLinks:FLinkProps[] = [
+const fLinks: FLinkProps[] = [
   {
     to: '/blog',
     title: 'Blog',
@@ -32,7 +32,7 @@ const fLinks:FLinkProps[] = [
   }
 ]
 
-const NavBar:FC = () => {
+const NavBar: FC = () => {
   return (
     <header className="flex px5 py3 items-center relative">
       <Link to="/" className="select-none outline-none" title="Fwio">

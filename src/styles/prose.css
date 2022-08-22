@@ -235,9 +235,15 @@
 
 .prose img {
   margin: 1em auto;
-  max-width: 40em;
+  max-width: 35em;
   border: 1px solid #eee;
   border-radius: .3rem;
+}
+
+@media (max-width: 1200px) {
+  .prose img {
+    max-width: 15em;
+  }
 }
 
 .dark .prose img {

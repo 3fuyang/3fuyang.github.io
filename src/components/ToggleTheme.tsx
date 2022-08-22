@@ -2,7 +2,7 @@ import { FC } from 'react'
 import { MdLightMode, MdDarkMode } from 'react-icons/md'
 import { useDark } from '../hooks/useDark'
 
-const ToggleTheme:FC = () => {
+const ToggleTheme: FC = () => {
   const [mode, setMode] = useDark()
 
   function toggleTheme() {
