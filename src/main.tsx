@@ -7,6 +7,10 @@ import './styles/main.css'
 import './styles/prose.css'
 import './styles/syntax-highlight.css'
 
+import routes from './routes/auto-routes'
+
+console.dir(routes)
+
 const root = document.getElementById('root')
 
 root && (root.className = 'text-gray-700 dark:text-gray-200 scroll-smooth')

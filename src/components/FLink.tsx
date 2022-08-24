@@ -1,7 +1,7 @@
 import type { IconType } from 'react-icons'
 import { NavLink } from 'react-router-dom'
 
-export type FLinkProps = {
+export interface FLinkProps {
   to: string
   title: string
   icon: IconType

@@ -1,7 +1,7 @@
 import { PropsWithChildren } from 'react'
 import { useTitle } from '../hooks/useTitle'
 
-type PWprops = { path: string }
+interface PWprops  { path: string }
 
 export default function PostWrapper(props: PropsWithChildren<PWprops>) {
 

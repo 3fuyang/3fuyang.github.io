@@ -3,7 +3,7 @@ import { BsCart } from 'react-icons/bs'
 import { GiPlagueDoctorProfile } from 'react-icons/gi'
 import { SiJest } from 'react-icons/si'
 
-export type Project = {
+export interface Project {
   logo: IconType
   title: string
   src: string

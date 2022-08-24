@@ -1,8 +1,8 @@
 import { Component, ErrorInfo, ReactNode } from 'react'
 import { MdErrorOutline } from 'react-icons/md'
 
-type EBProps = { children?: ReactNode }
-type EBState = { hasError: boolean }
+interface EBProps { children?: ReactNode }
+interface EBState { hasError: boolean }
 
 export default class ErrorBoundary extends Component<EBProps, EBState> {
   public state: EBState = {

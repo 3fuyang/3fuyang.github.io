@@ -2,7 +2,7 @@ import { IconType } from 'react-icons'
 import { SiWindicss, SiJsonwebtokens } from 'react-icons/si'
 import { GiPuzzle } from 'react-icons/gi'
 
-export type Demo = {
+export interface Demo {
   icon: IconType
   title: string
   src: string

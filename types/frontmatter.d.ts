@@ -1,4 +1,4 @@
-export type Frontmatter = {
+export interface Frontmatter {
   title: string
   duration: string
   lang: string
