@@ -49,7 +49,7 @@ type AnyOf<T extends readonly any[]> =
 
 今天，偶然在另一个项目的`@typescript-eslint`提示中看到这样的信息：
 
-``` txt
+``` xml
 Don't use `{}` as a type. `{}` actually means "any non-nullish value".
 - If you want a type meaning "any object", you probably want `Record<string, unknown>` instead.
 - If you want a type meaning "any value", you probably want `unknown` instead.
