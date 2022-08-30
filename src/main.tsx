@@ -7,9 +7,9 @@ import './styles/main.css'
 import './styles/prose.css'
 import './styles/syntax-highlight.css'
 
-import routes from './routes/auto-routes'
+/* import routes from './routes/auto-routes'
 
-console.dir(routes)
+console.dir(routes) */
 
 const root = document.getElementById('root')
 

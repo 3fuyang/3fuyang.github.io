@@ -1,6 +1,7 @@
 import { ReactNode } from 'react'
+import { RouteObject } from 'react-router'
 
-const pages = import.meta.glob<boolean, string, any>(
+const pages = import.meta.glob<boolean, string, ReactNode>(
   [
     '../../pages/**/*.mdx',
     '../../pages/**/*.tsx'
@@ -8,24 +9,36 @@ const pages = import.meta.glob<boolean, string, any>(
   { import: 'default' }
 )
 
-interface Route {
+interface Page {
   path: string
   element: ReactNode
 }
 
-const routes: Route[] = []
+const flatRoutes: Page[] = []
 
 for (const key in pages) {
-  routes.push({
+  flatRoutes.push({
     element: (await pages[key]()),
     path: key.slice(12)
   })
 }
 
-routes.forEach((route) => {
-  if (route.path.includes('/')) {
-    const dir = route.path.split
-  }
-})
+const reactRoute: RouteObject = {
+  caseSensitive: false,
+  path: '/',
+  children: []
+}
 
-export default routes
+// build real react-router route (flat array => tree-like object)
+function constructRoute(root: RouteObject, pages: Page[]) {
+  pages.forEach((page) => {
+    if (!page.path.includes('/')) {
+      // index route
+      root.element = page.element
+    } else {
+      const dirs = page.path.split('/')
+    }
+  })
+}
+
+export { flatRoutes as default }

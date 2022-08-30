@@ -4,6 +4,8 @@ import routes from '~react-pages'
 import { NotFound } from '../components/NotFound'
 import PostWrapper from '../components/PostWrapper'
 
+//console.log(routes)
+
 function parseRoutes(routes: RouteObject[]) {
   routes.forEach((route) => {
     if (route.element && route.path?.length) {
