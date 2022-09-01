@@ -18,10 +18,20 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Build
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
-      - run: npm install
-      - run: ./deploy.sh
+      - run: npm ci
+      - run: npm run build --if-present
+      
+      - name: Deploy
+      - run: set -e
+      - run: cd dist
+      - run: git init
+      - run: git checkout main
+      - run: git add -A
+      - run: git commit -m 'deploy'
+      - run: git push -f git@github.com:3fuyang/3fuyang.github.io.git main
+      - run: cd -
