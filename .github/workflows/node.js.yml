@@ -27,6 +27,7 @@ jobs:
       - run: npm run build --if-present
       
       - name: Deploy
+        uses: actions/setup-node@v3
       - run: set -e
       - run: cd dist
       - run: git init
