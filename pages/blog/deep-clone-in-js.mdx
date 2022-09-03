@@ -231,3 +231,17 @@ function cloneDeep (obj, memo = null) {
 ```
 
 将上面的代码合并，便得到相对完整的一个深拷贝函数，但它无法处理`Function`, `Error`, `WeakMap`, `WeakSet`以及`Object`中的不可枚举的属性。
+
+#### 对 Promise 的深拷贝
+
+在看《JS 高级程序设计》时，发现`static Promise.prototype.race()`这个方法返回的是最先解决的 Promise 对象的**镜像**，意即一个**新 promise**,
+所以可以专门对 Promise 对象进行深拷贝：
+``` js
+function cloneDeep(obj) {
+  // ...
+  // Promise
+  else if (/Promise/.test(Object.prototype.toString.call(obj)) {
+    return Promise.race([obj])
+  }
+}
+```
