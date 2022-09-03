@@ -1,0 +1,60 @@
+---
+title: JavaScript 实现深拷贝（cloneDeep）
+date: 2022-09-03T12:48:00.000+00:00
+lang: zh
+duration: 10min
+path: /blog/deep-clone-in-js
+---
+
+# JavaScript 实现深拷贝（cloneDeep）
+
+JavaScript 只有两种不同的数据类型：**原始值**（primitive value）和**引用值**（reference value）。
+
+**深拷贝**（Deep Clone）就是对于引用值，要复制**内存**中对象的**结构**，而不是单纯复制其引用。
+
+为了实现深拷贝，要根据目标对象的**类型**对其进行不同的操作，当涉及到集合引用类型`Array`、`Set`、`Map`时，更需要**递归**地进行复制。
+
+## 使用 JSON 序列化
+在实现上述思路之前，先简单看一个普遍流传的、使用 JSON 序列于反序列化的写法：
+
+``` js
+function cloneDeep(obj) {
+  return JSON.parse(JSON.stringify(obj))
+}
+```
+
+该解答借助`json`这一**中间**数据序列化格式，根据一种不同格式的文件创建变量式，当然也会**重新分配内存**。
+
+但根据 [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify),
+`static JSON.prototype.stringify()`这个 API 会**忽略**源中的许多字段：
+- `undefined`, `Function`, `Symbol` 值将被忽略或转换成`null`。
+- 数值`Infinity`和`NaN`都被视作`null`。
+- **符号属性**（symbol-keyed properties）将被忽略，如`[[Symbol.Iterator]]`、`[[Symbol.toPrimitive]]`等。
+- Date 对象转换为字符串。
+- 只访问可枚举的属性，这意味着`Map`、`Set`等集合类型将变为`{}`...
+
+由此见得，JSON 序列化将会丢失和更改许多字段，远不能实现满足需求的深拷贝。
+
+## 根据源的类型处理
+
+> 根据 JavaScript 结构化克隆方法`structuredClone()`的描述，我们不考虑对`Function`和`Error`这两种类型的拷贝。
+
+JavaScript 中有 **6** 种原始值类型：`number`, `string`, `boolean`, `undefined`, `null`, `symbol`。
+
+对于原始值，我们可以**直接返回**，但要注意判断类型的方式。`typeof null`的结果为`object`，需用`obj === null`单独处理，而其他 5 种类型可直接用`typeof`判断。
+
+``` js
+function cloneDeep(obj) {
+  // Notice: tyeof null === 'object'
+  const primitiveTypes = ['string', 'number', 'boolean', 'undefined', 'symbol']
+  // null
+  if (obj === null) {
+    return null
+  }
+  // other primitive types
+  else if (primitiveTypes.includes(typeof obj)) {
+    return obj
+  }
+  // ...
+}
+```

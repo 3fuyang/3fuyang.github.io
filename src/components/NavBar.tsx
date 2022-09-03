@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import type { FLinkProps } from './FLink'
 import { GoMarkGithub } from 'react-icons/go'
 import { AiOutlineFileText } from 'react-icons/ai'
-import { GiBookshelf, GiSeagull } from 'react-icons/gi'
+import { GiBookshelf, GiSeagull, GiNotebook } from 'react-icons/gi'
 import { MdAppRegistration, MdOutlineAlbum } from 'react-icons/md'
 
 const FLink = lazy(() => import('./FLink'))
@@ -14,6 +14,11 @@ const fLinks: FLinkProps[] = [
     to: '/blog',
     title: 'Blog',
     icon: AiOutlineFileText
+  },
+  {
+    to: '/notes',
+    title: 'Notes',
+    icon: GiNotebook
   },
   {
     to: '/essay',
