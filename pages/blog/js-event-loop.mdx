@@ -1,12 +1,12 @@
 ---
-title: 详解 JavaScript 的事件循环（Event Loop）
+title: JavaScript 的事件循环（Event Loop）
 date: 2022-09-03T18:42:00.000+00:00
 lang: zh
 duration: 4min
 path: /blog/js-event-loop
 ---
 
-# 详解 JavaScript 的事件循环（Event Loop）
+# JavaScript 的事件循环（Event Loop）
 
 **参考资料**：
 - [Tasks, microtasks, queues and schedules - JakeArchibald.com](https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/?utm_source=html5weekly)
@@ -81,7 +81,7 @@ JavaScript 是一门**单线程同步**编程语言，任务只能在主线程�
 + `async/await`中的`await`语句（statement）。
 + `MutationObserver`的回调。
 
-> **注意：**当前宏任务下有**`pending`**状态的`MutationObserver`回调时，**不会为其他`MutationObserver`回调再创建新的微任务**。
+> **注意**：当前宏任务下有`pending`状态的`MutationObserver`回调时，**不会为其他`MutationObserver`回调再创建新的微任务**。
 >
 > <img alt="mid-execution" rel="noreferrer" src="/images/js-event-loop/mid-execution.png" />
 
