@@ -9,10 +9,10 @@ import PostWrapper from '../components/PostWrapper'
 function parseRoutes(routes: RouteObject[]) {
   routes.forEach((route) => {
     if (route.element && route.path?.length) {
-      // file
+      // file, wrap it
       route.element = createElement(PostWrapper, { path: route.path as string }, route.element)
     } else if (route.children) {
-      // folder
+      // folder, handle it recursively
       parseRoutes(route.children)
     }
   })
