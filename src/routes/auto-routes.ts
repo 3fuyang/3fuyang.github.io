@@ -16,12 +16,12 @@ interface Page {
 
 const flatRoutes: Page[] = []
 
-for (const key in pages) {
+/* for (const key in pages) {
   flatRoutes.push({
     element: (await pages[key]()),
     path: key.slice(12)
   })
-}
+} */
 
 // build real react-router route (convert: flat array => tree-like object)
 /* function convertRoutes(pages: Page[]): RouteObject[] {
