@@ -18,19 +18,6 @@ function parseRoutes(routes: RouteObject[]) {
   })
 }
 
-/* routes.forEach((route) => {
-  if (route.element) {
-    // 一级目录
-    route.element = createElement(PostWrapper, { path: route.path as string }, route.element)
-  } else if (route.children) {
-    // 二级目录
-    route.children.forEach((child) => {
-      // Skip the index route stylizing
-      !child.path?.length || (child.element = createElement(PostWrapper, { path: child.path as string }, child.element))
-    })
-  }
-}) */
-
 parseRoutes(routes)
 
 routes.push({
