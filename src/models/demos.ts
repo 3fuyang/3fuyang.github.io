@@ -1,6 +1,7 @@
 import { IconType } from 'react-icons'
 import { SiWindicss, SiJsonwebtokens } from 'react-icons/si'
 import { GiPuzzle } from 'react-icons/gi'
+import { VscListSelection } from 'react-icons/vsc'
 
 export interface Demo {
   icon: IconType
@@ -24,6 +25,13 @@ export const demos: Demo[] = [
     src: 'https://github.com/3fuyang/authorization_demo',
     intro: 'A demo to implement JWT(JSON Web Token), including both the front end and the back end.',
     type: 'vue'
+  },
+  {
+    icon: VscListSelection,
+    title: 'Virtual List',
+    src: 'https://github.com/3fuyang/virtual-list',
+    intro: 'A very rough implementation of virtual list, a.k.a. virtual scroller.',
+    type: 'react'
   },
   {
     icon: GiPuzzle,
