@@ -1,7 +1,7 @@
 import { IconType } from 'react-icons'
 import { SiWindicss, SiJsonwebtokens } from 'react-icons/si'
 import { GiPuzzle } from 'react-icons/gi'
-import { VscListSelection } from 'react-icons/vsc'
+import { VscListTree } from 'react-icons/vsc'
 
 export interface Demo {
   icon: IconType
@@ -27,10 +27,10 @@ export const demos: Demo[] = [
     type: 'vue'
   },
   {
-    icon: VscListSelection,
+    icon: VscListTree,
     title: 'Virtual List',
     src: 'https://github.com/3fuyang/virtual-list',
-    intro: 'A very rough implementation of virtual list, a.k.a. virtual scroller.',
+    intro: 'A very rough implementation of a virtual list, a.k.a. virtual scroller, with React hooks.',
     type: 'react'
   },
   {
