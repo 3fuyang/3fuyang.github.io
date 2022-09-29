@@ -9,7 +9,7 @@ import './styles/main.css'
 import './styles/prose.css'
 import './styles/syntax-highlight.css'
 
-export const appElement = (
+export const AppElement = () => (
   <StrictMode>
     <App />
   </StrictMode>

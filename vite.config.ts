@@ -16,6 +16,9 @@ import remarkMdxFrontmatter from 'remark-mdx-frontmatter'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  server: {
+    port: 3127
+  },
   plugins: [
     // When using preset-attributify, make sure UnoCss is ahead of react in the vite plugins.
     Unocss({
