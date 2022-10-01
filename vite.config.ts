@@ -49,6 +49,7 @@ export default defineConfig({
       extensions: ['md', 'mdx', 'tsx']
     }),
     VitePWA({
+      injectRegister: 'auto',
       registerType: 'autoUpdate',
       devOptions: {
         enabled: true

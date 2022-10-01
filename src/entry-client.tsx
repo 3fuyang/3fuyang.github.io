@@ -7,10 +7,12 @@ const ErrorBoundary = lazy(() => import('./components/ErrorBoundary'))
 
 const root = document.getElementById('root')
 
+const Loading = lazy(() => import('./components/Loading'))
+
 root && (root.className = 'text-gray-700 dark:text-gray-200 scroll-smooth')
 
 hydrateRoot(root as HTMLElement, (
-  <Suspense fallback={<p>Loading...</p>}>
+  <Suspense fallback={<Loading msg="Initializaing..." />}>
     <ErrorBoundary>
       <BrowserRouter>
         <AppElement />

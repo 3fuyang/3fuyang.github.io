@@ -9,9 +9,7 @@ export function useTitle(routePath: string) {
     for (const key in mdxFiles) {
       if (routePath !== '/' && key.includes(routePath)) {
         mdxFiles[key]().then(({ title }) => {
-          if (title) {
-            document.title = title
-          }
+          title && (document.title = title)
         })
       }
     }

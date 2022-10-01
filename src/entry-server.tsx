@@ -5,8 +5,10 @@ import { AppElement } from './main'
 
 const ErrorBoundary = lazy(() => import('./components/ErrorBoundary'))
 
+const Loading = lazy(() => import('./components/Loading'))
+
 export const render = (url: string) => renderToPipeableStream(
-  <Suspense fallback={<p>Loading...</p>}>
+  <Suspense fallback={<Loading msg="Initializaing..." />}>
     <ErrorBoundary>
       <StaticRouter location={url}>
         <AppElement />

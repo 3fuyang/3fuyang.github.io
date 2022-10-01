@@ -6,6 +6,7 @@
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
+    "plugin:react-hooks/recommended",
     "plugin:react/recommended",
     "plugin:react/jsx-runtime"
   ],
@@ -19,7 +20,7 @@
       "jsx": true
     }
   },
-  "plugins": ["react", "@typescript-eslint"],
+  "plugins": ["react", "@typescript-eslint", "react-hooks"],
   "settings": {
     "react": {
       "createClass": "createReactClass", // Regex for Component Factory to use,
