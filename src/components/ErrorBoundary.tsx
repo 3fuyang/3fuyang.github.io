@@ -20,7 +20,7 @@ export default class ErrorBoundary extends Component<EBProps, EBState> {
   public render() {
     if (this.state.hasError) {
       return (
-        <h1 flex="~">
+        <h1 flex="~" className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
           <MdErrorOutline className="inline mr-1 ha" />
           Uncaught error.
         </h1>

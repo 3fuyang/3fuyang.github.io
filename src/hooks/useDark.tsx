@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 
 export function useDark() {
 
-  const isDark = typeof window === 'undefined' ? 'dark' : window.localStorage.getItem('dark')
+  const isDark = typeof window === 'undefined' ? '0' : window.localStorage.getItem('dark')
 
   const [mode, setMode] = useState<'dark' | 'light'>(isDark === '1' ? 'dark' : 'light')
 

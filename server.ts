@@ -34,13 +34,11 @@ async function createServer() {
 
       const { render } = await vite.ssrLoadModule('/src/entry-server.tsx')
 
-      const appHtml = await render(url)
+      await render(url, res)
 
-      const html = template.replace('<!--ssr-outlet-->', appHtml)
+      /* const html = template.replace('<!--ssr-outlet-->', appHtml)
 
-      //console.log('html: ', html)
-
-      res.status(200).set({ 'Content-Type': 'text/html' }).end(html)
+      res.status(200).set({ 'Content-Type': 'text/html' }).end(html) */
     } catch (e: any) {
       console.log('e.stack:', e.stack)
       // If an error is caught, let Vite fix the stack trace so it maps back to
