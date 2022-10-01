@@ -16,7 +16,7 @@ async function createServer() {
     appType: 'custom'
   })
 
-  console.log(resolve('index.html'))
+  //console.log(resolve('index.html'))
 
   app.use(vite.middlewares)
   // express@5 feature: Matching group expressions are ONLY RegExp syntax.
@@ -36,13 +36,13 @@ async function createServer() {
 
       const appHtml = await render(url)
 
-      const html = template.replace('<!-- ssr-outlet -->', appHtml)
+      const html = template.replace('<!--ssr-outlet-->', appHtml)
 
-      console.log('html: ', html)
+      //console.log('html: ', html)
 
       res.status(200).set({ 'Content-Type': 'text/html' }).end(html)
     } catch (e: any) {
-      console.log(e.stack)
+      console.log('e.stack:', e.stack)
       // If an error is caught, let Vite fix the stack trace so it maps back to
       // your actual source code.
       vite.ssrFixStacktrace(e)
