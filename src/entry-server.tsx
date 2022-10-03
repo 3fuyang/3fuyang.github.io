@@ -3,6 +3,7 @@ import { renderToPipeableStream } from 'react-dom/server'
 import { StaticRouter } from 'react-router-dom/server'
 import { AppElement } from './main'
 import { type Response } from 'express'
+import HtmlElemnt from './Html'
 
 const ErrorBoundary = lazy(() => import('./components/ErrorBoundary'))
 
@@ -11,13 +12,15 @@ const Loading = lazy(() => import('./components/Loading'))
 export const render = (url: string, res: Response) => {
   let didError = false
   const { pipe } = renderToPipeableStream(
-    <Suspense fallback={<Loading msg="Initializaing..." />}>
-      <ErrorBoundary>
-        <StaticRouter location={url}>
-          <AppElement />
-        </StaticRouter>
-      </ErrorBoundary>
-    </Suspense>,
+    <HtmlElemnt>
+      <Suspense fallback={<Loading msg="Initializaing..." />}>
+        <ErrorBoundary>
+          <StaticRouter location={url}>
+            <AppElement />
+          </StaticRouter>
+        </ErrorBoundary>
+      </Suspense>
+    </HtmlElemnt>,
     {
       onShellReady() {
         // The content above all Suspense boundaries is ready.
@@ -32,7 +35,7 @@ export const render = (url: string, res: Response) => {
         // Something errored before we could complete the shell so we emit an alternative shell.
         res.statusCode = 500
         res.end(
-          '<!doctype html><p>Loading...</p><script src="clientrender.js"></script>'
+          '<!doctype html><p>Loading...</p><script src="entry-client.js"></script>'
         )
       },
       onError(err) {
