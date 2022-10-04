@@ -18,6 +18,7 @@ path: /blog/promise-a-plus
 
 1. "promise" 是一个对象或者函数，其`then`方法的实现与该规范一致。
 2. "thenable"是一个定义了`then`方法的对象或者函数。
+> **注意**：在 ECMAScript 规范中，只要一个对象**定义**了`then`方法，**无论实现如何**，都被认为实现了 Thenable 接口。
 3. "value"是任意 JavaScript 值（包含`undefined`，`thenable`或`promise`）。
 4. "exception"是一个由`throw`语句抛出的值。
 5. "reason"是一个解释 promise 变为 rejected 原因的值。
