@@ -1,11 +1,10 @@
 import { useEffect } from 'react'
-import { useLocation } from 'react-router'
 import type { Frontmatter } from '../../types/frontmatter'
 
 export function useFrontmatters(setter: (newVal: Frontmatter[]) => void) {
-  const location = useLocation()
-
   useEffect(() => {
+    const location = window && window.location
+
     const promises: Promise<Frontmatter>[] = []
 
     const mdxFiles = import.meta.glob<boolean, string, Frontmatter>('../../pages/**/*.mdx')

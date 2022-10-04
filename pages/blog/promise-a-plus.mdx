@@ -68,6 +68,8 @@ promise.then(onFulfied, onRejected)
 
 4. `onFulfilled`和`onRejected`在执行上下文栈只包含**平台代码**（platform code）之前不可被调用。
 
+> **平台代码**（platform code）是指引擎、环境和 promise 实现代码。实际上，该要求保证`onFulfilled`和`onRejected`在调用`then`后被**异步**执行。这可以通过**宏任务**机制实现（比如`setTimeout`或`setImmediate`），或者**微任务**机制（比如`MutationObserver`或`process.nextTick`）。
+
 5. `onFulfilled`和`onRejected`必须作为函数调用（没有`this`对象）。
 
 6. 在同一个 promise 上，`then`可能被多次调用。
@@ -81,7 +83,7 @@ promise.then(onFulfied, onRejected)
       promise2 = promise1.then(onFulfied, onRejected)
       ```
 
-   2. 如果`onFulfilled`或`onRejected`**返回**了一个值`x`，`promise2 `执行 promise pesolution procedure `[[Resolve]](promise2, x)`。
+   2. 如果`onFulfilled`或`onRejected`**返回**了一个值`x`，`promise2`执行 promise pesolution procedure `[[Resolve]](promise2, x)`。
 
    3. 如果`onFulfilled`或`onRejected`抛出一个异常`e`，`promise2`转变为 rejected，其原因为`e`。
 
@@ -89,8 +91,7 @@ promise.then(onFulfied, onRejected)
 
    5. 如果`onRejected`不是函数，且`promise1`转为了 rejected，则`promise2`转为 rejected，其原因（reason）与`promise1`一样。
 
-> 1. 根据具体实现的不同，`then`方法返回的 promise 可能与原 promise 完全相等。
-> 2. **平台代码**（platform code）是指引擎、环境和 promise 实现代码。实际上，该要求保证`onFulfilled`和`onRejected`在调用`then`后被**异步**执行。这可以通过**宏任务**机制实现（比如`setTimeout`或`setImmediate`），或者**微任务**机制（比如`MutationObserver`或`process.nextTick`）。
+> 注意： 根据具体实现的不同，`then`方法返回的 promise 可能与原 promise 完全相等。
 
 ### 2.3 The Promise Resolution Procedure
 
@@ -116,6 +117,6 @@ Promise 解析流程（promise pesolution procedure）是一个**抽象操作**�
          1. 如果`resolvePromise`或`rejectPromise`已被调用，则忽视异常。
          2. 否则，以`e`为原因 reject promise。
    4. 如果`then`不是函数，则以`x`为值将`promise`转为 fullfied。
-4. 如果`x`不是函数或对象，则以`x`为值将`promise`转为 fullfied。
+4. 如果`x`不是函数或对象，则以`x`为值将`promise`转为 fullfied。（这里包括`x === undefined`，即 handler 没有返回值的情况）
 
 当上面这种实现遇到**循环引用**的 thenable 对象时，将进入无限递归，**推荐但不要求**对这种情况以`TypeError`为原因 reject promise。
