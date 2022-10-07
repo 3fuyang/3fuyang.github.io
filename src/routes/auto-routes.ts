@@ -1,7 +1,7 @@
-import type { ReactNode } from 'react'
+import { createElement, type FC, type ReactNode } from 'react'
 import type { RouteObject } from 'react-router'
 
-const rawPages = import.meta.glob<boolean, string, ReactNode>(
+const rawPages = import.meta.glob<boolean, string, FC>(
   [
     '../../pages/**/*.mdx',
     '../../pages/**/*.tsx'
@@ -9,8 +9,8 @@ const rawPages = import.meta.glob<boolean, string, ReactNode>(
   { import: 'default' }
 )
 
-console.log('rawPages:\n')
-console.dir(rawPages)
+import.meta.env.DEV && console.log('rawPages:\n')
+import.meta.env.DEV && console.dir(rawPages)
 
 interface Page {
   path: string
@@ -20,14 +20,16 @@ interface Page {
 const pages: Page[] = []
 
 for (const key in rawPages) {
+  const component = await rawPages[key]()
+
   pages.push({
-    element: (await rawPages[key]()),
+    element: createElement(component),
     path: key.match(/pages\/(.+)/)![1]
   })
 }
 
-console.log('pages:\n')
-console.log(pages)
+import.meta.env.DEV && console.log('pages:\n')
+import.meta.env.DEV && console.log(pages)
 
 interface Dir {
   path: string
@@ -40,14 +42,14 @@ function transform(pages: Page[]): RouteObject[] {
     result: RouteObject[] = []
 
   pages.forEach(({ path, element }) => {
-    console.log('path:', path)
+    import.meta.env.DEV && console.log('path:', path)
     const [pageDir, fileName] = path.split(/\/?([^/]+$)/)
-    console.log(pageDir, fileName)
+    import.meta.env.DEV && console.log(pageDir, fileName)
 
     const folders = pageDir.split('/')
     let matchedIndex = -1
 
-    console.log('folders:', folders)
+    import.meta.env.DEV && console.log('folders:', folders)
 
     // 与当前路由栈从前往后进行匹配
     for (let i = 0; i < folders.length && i < currDirs.length; ++i) {
@@ -58,7 +60,7 @@ function transform(pages: Page[]): RouteObject[] {
       matchedIndex = i
     }
 
-    console.log(`matchedIndex: ${matchedIndex}`)
+    import.meta.env.DEV && console.log(`matchedIndex: ${matchedIndex}`)
 
     // 从路由栈中匹配到了已有路由
     if (matchedIndex >= 0) {
@@ -112,12 +114,12 @@ function transform(pages: Page[]): RouteObject[] {
     const newLeaf = {
       caseSensitive: true,
       path: /index\.\w+/.test(fileName) ? '' : fileName.match(/^([^.]+)\./)![1],
-      element: element
+      element
     }
 
     currDirs.length
       ? (currDirs.at(-1)?.container?.children?.push(newLeaf))
-      : (result.push(newLeaf))
+      : (result.push({ ...newLeaf, path: newLeaf.path === '' ? '/' : newLeaf.path }))
   })
 
   currDirs.length && result.push(currDirs[0].container!)
@@ -127,6 +129,6 @@ function transform(pages: Page[]): RouteObject[] {
 
 const result = transform(pages)
 
-console.log(result)
+import.meta.env.DEV && console.log(result)
 
 export default result
