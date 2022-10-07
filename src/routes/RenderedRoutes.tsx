@@ -3,8 +3,10 @@ import { RouteObject, useRoutes } from 'react-router-dom'
 import routes from '~react-pages'
 import { NotFound } from '../components/NotFound'
 import PostWrapper from '../components/PostWrapper'
+import manualRoutes from './auto-routes'
 
-//console.log(routes)
+console.log('targetRoutes:\n')
+console.log(routes)
 
 function parseRoutes(routes: RouteObject[]) {
   routes.forEach((route) => {
@@ -20,10 +22,10 @@ function parseRoutes(routes: RouteObject[]) {
 
 parseRoutes(routes)
 
-routes.push({
+/* routes.push({
   path: '*',
   element: <NotFound />
-})
+}) */
 
 const RenderedRoutes: FC = () =>  useRoutes(routes)
 

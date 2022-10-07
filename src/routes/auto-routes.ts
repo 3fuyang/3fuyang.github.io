@@ -1,7 +1,7 @@
-import { ReactNode } from 'react'
-import { RouteObject } from 'react-router'
+import type { ReactNode } from 'react'
+import type { RouteObject } from 'react-router'
 
-const pages = import.meta.glob<boolean, string, ReactNode>(
+const rawPages = import.meta.glob<boolean, string, ReactNode>(
   [
     '../../pages/**/*.mdx',
     '../../pages/**/*.tsx'
@@ -9,71 +9,124 @@ const pages = import.meta.glob<boolean, string, ReactNode>(
   { import: 'default' }
 )
 
+console.log('rawPages:\n')
+console.dir(rawPages)
+
 interface Page {
   path: string
   element: ReactNode
 }
 
-const flatRoutes: Page[] = []
+const pages: Page[] = []
 
-/* for (const key in pages) {
-  flatRoutes.push({
-    element: (await pages[key]()),
-    path: key.slice(12)
+for (const key in rawPages) {
+  pages.push({
+    element: (await rawPages[key]()),
+    path: key.match(/pages\/(.+)/)![1]
   })
-} */
-
-// build real react-router route (convert: flat array => tree-like object)
-/* function convertRoutes(pages: Page[]): RouteObject[] {
-  const routes: RouteObject[] = []
-  const activeRoutes: RouteObject[] = []
-  // sort pages by path first(import.meta.glob has already done that)
-  pages.forEach((page) => {
-    if (!page.path.includes('/')) {
-      // index route
-      routes.push({
-        caseSensitive: true,
-        path: '/',
-        element: page.element
-      })
-    } else {
-      // process one single page
-      const dirs = page.path.split('/')
-
-      dirs.forEach((dir) => {
-        do {
-          const activeRoute = activeRoutes.at(-1)
-          if (!/(\/) | (.tsx) | (.mdx)/.test(dir)) {
-            if (activeRoute?.path === dir) {
-              const newDir = {
-                caseSensitive: true,
-                path: dir,
-                children: []
-              }
-              activeRoutes.push(newDir)
-              activeRoute.children?.push(newDir)
-              break
-            } else {
-              activeRoutes.pop()
-            }
-          } else {
-            if (!dir.includes('/')) {
-              activeRoute?.children?.push({
-                caseSensitive: true,
-                path: /index/.test(dir) ? '/' : dir.split('.')[0],
-                element: page.element
-              })
-              return
-            }
-          }
-        } while (!activeRoutes.length)
-      })
-    }
-  })
-  return routes
 }
 
-const convertedRoutes = convertRoutes(flatRoutes) */
+console.log('pages:\n')
+console.log(pages)
 
+interface Dir {
+  path: string
+  container: Pick<RouteObject, 'caseSensitive' | 'path' | 'children'> | null
+}
 
-export { flatRoutes as default }
+function transform(pages: Page[]): RouteObject[] {
+  // 注意：import.meta.glob 已将 pages 排序过
+  const currDirs: Dir[] = [],
+    result: RouteObject[] = []
+
+  pages.forEach(({ path, element }) => {
+    console.log('path:', path)
+    const [pageDir, fileName] = path.split(/\/?([^/]+$)/)
+    console.log(pageDir, fileName)
+
+    const folders = pageDir.split('/')
+    let matchedIndex = -1
+
+    console.log('folders:', folders)
+
+    // 与当前路由栈从前往后进行匹配
+    for (let i = 0; i < folders.length && i < currDirs.length; ++i) {
+      // 当出现不匹配时，跳出循环
+      if (folders[i] !== currDirs[i].path) {
+        break
+      }
+      matchedIndex = i
+    }
+
+    console.log(`matchedIndex: ${matchedIndex}`)
+
+    // 从路由栈中匹配到了已有路由
+    if (matchedIndex >= 0) {
+      // 将路由栈匹配中不匹配的路由删除
+      currDirs.splice(matchedIndex + 1)
+
+      // 将新增的路由添加到当前路由栈中
+      folders.slice(matchedIndex + 1).forEach((newFolder) => {
+        // 栈顶父路由
+        const parent = currDirs.at(-1)?.container,
+          // 新父路由
+          newParent: Dir['container'] = {
+            caseSensitive: true,
+            path: newFolder,
+            children: []
+          }
+
+        // 与上层路由建立父子关系
+        parent?.children?.push(newParent)
+        // 新父路由进栈
+        currDirs.push({
+          path: newFolder,
+          container: newParent
+        })
+      })
+    }
+    // 从路由栈中未匹配到任一路由
+    else {
+      // 清空路由栈
+      // 注意：先将栈底路由加入到 result 中
+      currDirs.length && result.push(currDirs[0].container!)
+      currDirs.length = 0
+      // 重新构建路由栈
+      folders.forEach((newFolder) => {
+        if (newFolder === '') return
+        const newParent: Dir['container'] = {
+          caseSensitive: true,
+          path: newFolder,
+          children: []
+        }
+
+        currDirs.length && currDirs.at(-1)?.container?.children?.push(newParent)
+
+        currDirs.push({
+          path: newFolder,
+          container: newParent
+        })
+      })
+    }
+
+    const newLeaf = {
+      caseSensitive: true,
+      path: /index\.\w+/.test(fileName) ? '' : fileName.match(/^([^.]+)\./)![1],
+      element: element
+    }
+
+    currDirs.length
+      ? (currDirs.at(-1)?.container?.children?.push(newLeaf))
+      : (result.push(newLeaf))
+  })
+
+  currDirs.length && result.push(currDirs[0].container!)
+
+  return result
+}
+
+const result = transform(pages)
+
+console.log(result)
+
+export default result
