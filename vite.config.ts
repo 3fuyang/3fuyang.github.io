@@ -1,6 +1,5 @@
 import { defineConfig } from 'vite'
 import mdx from '@mdx-js/rollup'
-import Pages from 'vite-plugin-pages'
 import react from '@vitejs/plugin-react'
 import Unocss from 'unocss/vite'
 import { VitePWA } from 'vite-plugin-pwa'
@@ -16,6 +15,9 @@ import remarkMdxFrontmatter from 'remark-mdx-frontmatter'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  build: {
+    target: 'esnext'
+  },
   plugins: [
     // When using preset-attributify, make sure UnoCss is ahead of react in the vite plugins.
     Unocss({
@@ -39,11 +41,6 @@ export default defineConfig({
         // add Table of Contents(TOC)
         rehypeToc
       ]
-    }),
-    Pages({
-      // auto routes generator
-      dirs: [{ dir: 'pages', baseRoute: '' }],
-      extensions: ['md', 'mdx', 'tsx']
     }),
     VitePWA({
       registerType: 'autoUpdate',
