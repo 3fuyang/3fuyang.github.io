@@ -9,7 +9,7 @@ A personal blog built with [Vite](https://vitejs.dev/) & [React](https://reactjs
 ## Features
 
 + Integrate [MDX](https://mdxjs.com/) to render markdown files.
-+ SSG partially supported via [vite-plugin-pages](https://github.com/hannoeru/vite-plugin-pages).
++ [Manual script](https://github.com/3fuyang/3fuyang.github.io/blob/master/src/routes/auto-routes.ts) for automatic React Routes.
 + Responsive Design with powerful [UnoCSS](https://github.com/unocss/unocss).
 + PWA with [vite-plugin-pwa](https://vite-plugin-pwa.netlify.app/).
 
@@ -24,7 +24,7 @@ A personal blog built with [Vite](https://vitejs.dev/) & [React](https://reactjs
 
 + Responsive (Refer [Responsive Design](https://windicss.org/features/responsive-design.html) of Windi CSS, Mobile First)
 + Use Hooks to build React components
-+ Automatically read `.md` files and generate routes (Static Site Generator, `markdown-it`)
++ Automatically read `.md` files and generate routes ( `markdown-it`)
 
 ### Todo
 
