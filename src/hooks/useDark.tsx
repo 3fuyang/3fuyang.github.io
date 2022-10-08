@@ -13,7 +13,7 @@ export function useDark() {
       document.documentElement.classList.remove('dark')
       window.localStorage.setItem('dark', '0')
     }
-  })
+  }, [mode])
 
   return [mode, setMode] as const
 }

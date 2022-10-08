@@ -17,6 +17,6 @@ export function useTitle(routePath: string) {
     }
 
     return () => { document.title = 'Fwio' }
-  })
+  }, [])
 
 }

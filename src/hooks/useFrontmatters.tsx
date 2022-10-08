@@ -24,5 +24,5 @@ export function useFrontmatters(setter: (newVal: Frontmatter[]) => void) {
       results.sort((a, b) => Date.parse(b.date) - Date.parse(a.date))
       setter(results)
     })
-  })
+  }, [])
 }
