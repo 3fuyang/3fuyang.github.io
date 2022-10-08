@@ -35,6 +35,16 @@ Flog（即这个网站）一开始是借助 [vite-plugin-pages](https://github.c
 
 第一点通过`import.meta.glob`可以很轻松地解决，那么主要的难点好像就成了一道算法题，如何将**数组转化为树**？
 
-## 转数组为树
+## 将数组转为树
 
 Todo
+
+## 打包体积对比
+
+Before:
+<img alt="before-65-189-785-bytes" src="/images/import-meta-glob-and-auto-routes/before.png" className="invertable" />
+
+After:
+<img alt="after-65-123-330-bytes" src="/images/import-meta-glob-and-auto-routes/after.png" className="invertable" />
+
+可以看到，移除`vite-plugin-pages`后，应用的打包体积优化了整整...**64 KB**！
