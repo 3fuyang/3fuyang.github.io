@@ -1,0 +1,12 @@
+import { useEffect } from 'react'
+
+export function useScrollToTop() {
+  const { pathname } = window.location
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0
+    })
+  }, [pathname])
+}
