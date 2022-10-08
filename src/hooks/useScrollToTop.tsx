@@ -1,10 +1,10 @@
 import { useEffect } from 'react'
 
 export function useScrollToTop() {
-  const { pathname } = window.location
+  const { pathname } = window && window.location
 
   useEffect(() => {
-    window.scrollTo({
+    window && window.scrollTo({
       top: 0,
       left: 0
     })
