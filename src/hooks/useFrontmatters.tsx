@@ -2,14 +2,13 @@ import { useEffect } from 'react'
 import type { Frontmatter } from '../../types/frontmatter'
 
 export function useFrontmatters(setter: (newVal: Frontmatter[]) => void) {
+  const { pathname } = window && window.location
   useEffect(() => {
-    const location = window && window.location
-
     const promises: Promise<Frontmatter>[] = []
 
     const mdxFiles = import.meta.glob<boolean, string, Frontmatter>('../../pages/**/*.mdx')
 
-    const path = `../../pages/${location.pathname.split('/')[1]}/`
+    const path = `../../pages/${pathname.split('/')[1]}/`
 
     for (const key in mdxFiles) {
       if (key.includes(path)) {
@@ -24,5 +23,5 @@ export function useFrontmatters(setter: (newVal: Frontmatter[]) => void) {
       results.sort((a, b) => Date.parse(b.date) - Date.parse(a.date))
       setter(results)
     })
-  }, [])
+  }, [pathname])
 }
