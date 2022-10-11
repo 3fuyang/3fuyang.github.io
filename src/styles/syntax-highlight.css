@@ -165,3 +165,7 @@ code.hljs {
   color: #a14f55;
   background-color: #ffeef0
 }
+
+.hljs-subst {
+  color: #c69;
+}

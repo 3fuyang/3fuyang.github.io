@@ -46,7 +46,7 @@ JavaScript 是一门**单线程同步**编程语言，任务只能在主线程�
 > console.log('end')
 > ```
 >
-> 上述代码中，当引擎遇到`microtask1`时，将其加入微任务队列，但此时**不会扫描**到`microtask2`；在执行完脚本后，取出`microtask1`执行，此时才扫描到`microtask2`，将其加入微任务队列。
+> 上述代码中，当引擎遇到`microtask1`时，将其加入微任务队列，但此时不会<del>扫描</del>将`microtask2`注册到微任务队列中（因为前一个 promise 还未落定）；在执行完脚本后，取出`microtask1`执行，此时才扫描到`microtask2`，将其加入微任务队列。
 
 由于执行微任务可以引入新的微任务，且这些微任务都会在当前宏任务下执行完毕，所以微任务可能一直占用当前的引擎，**无限阻塞**接下来的宏任务。
 
@@ -89,3 +89,51 @@ JavaScript 是一门**单线程同步**编程语言，任务只能在主线程�
 不常见的：
 
 + Node.js 中的`process.nextTick()`的回调。
+
+## 什么是**空**的执行栈？
+
+上文中提到，微任务只在当前宏任务完成，且**执行栈为空**时，开始执行。
+
+> Microtasks execute in order, and are executed:
+> + after every callback, as long as **no other JavaScript is mid-execution**
+> + at the end of each task.
+
+对执行栈的认识离不开**作用域**（Scoping）这个概念，一般来说，我们认为执行栈以**函数调用**为单位，将其以**上下文帧**的形式压入栈中,
+每一帧包含函数的**作用域**。
+
+在我的理解里，如果出现**闭包**（或其他对上层作用域的引用）时，那个包含被引用值的上下文就**无法**出栈，即使它的函数体已经被完全执行（evaluated）,
+其上下文依然存在执行栈中，这种情况下的执行栈是否该被认为是空？
+
+下面是一个该情境的例子：
+
+``` js
+// script.js
+let ref = 1
+
+new Promise((resolve) => {
+  console.log('executor fire')
+
+  setTimeout(() => resolve(ref))
+
+  console.log('executor done')
+}).then((val) => {
+  console.log(`promise 1: ${val}`)
+})
+  
+Promise.resolve(2).then((val) => console.log(`promise 2: ${val}`))
+  
+console.log('script ends')
+
+// output:
+// 1. executor fire
+// 2. executor done
+// 3. script ends
+// 4. promise 2: 2
+// 5. promise 1: 1
+```
+
+其中，在 script 中产生的 timeout 宏任务引用了 script 作用域中的`ref`变量，那么在 evaluate 完 script 后,
+script 作用域还保留在执行栈中，但第二个 promise 产生的微任务却被执行了。并且由于第二个 promise 是一个初始化时就已经 fulfilled
+的`Promise.resolve()`，所以其`then()`回调在自上而下执行 script 时就已经被推入微任务队列。
+
+上面的结果可以说明，一个执行上下文帧在执行栈中**保留**并不代表 JS 代码**正在执行**（mid-execution），关于作用域与上下文的知识，自己还需要更深入地了解。
