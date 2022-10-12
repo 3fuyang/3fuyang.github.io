@@ -240,9 +240,17 @@
   border-radius: .3rem;
 }
 
+.prose .niya {
+  max-width: 7em;
+  margin: 0 auto;
+}
+
 @media (max-width: 1200px) {
   .prose img {
-    max-width: 15em;
+    max-width: 8em;
+  }
+  .prose .niya {
+    max-width: 5em;
   }
 }
 
