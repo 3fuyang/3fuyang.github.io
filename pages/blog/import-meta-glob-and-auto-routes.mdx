@@ -37,7 +37,16 @@ Flog（即这个网站）一开始是借助 [vite-plugin-pages](https://github.c
 
 ## 将数组转为树
 
-Todo
+用外部变量`result: RouteObject[]`存储最终结果，算法主要用到栈的思想，大致思路如下：
+<br/>
+1. 根据文件路径`path`，将组件数组（`{ element: FC, path: string}[]`）**排序**（`import.meta.glob`返回的结果已是有序）；
+2. 在循环外，使用一个外部**栈型**变量`currDirs`记录上一个已处理组件的**父路由**（即包含`children`属性的路由）；
+3. 遍历文件数组：
+    1. 对每一个文件，用其`path`从前往后匹配`currDirs`，记录最大匹配索引：
+        + 匹配成功：不作特殊处理;
+        + 部分匹配或匹配失败：将`currDirs`栈顶层匹配失败的路由对象出栈，如果`currDirs`被**清空**，将其**栈底**元素推入`result`中。
+    2. 根据该文件的`path`继续（重新）构建`currDirs`;
+    3. 为文件生成`RouteObject`，推入栈顶父路由的`children`中。
 
 ## 打包体积对比
 
