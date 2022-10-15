@@ -1,0 +1,5 @@
+import{a as l,j as a,F as o}from"./index.d2838246.js";const i="Farewell My Lovely",r="1min",s="en",d="2022-10-05T15:47:00.000+00:00",h="/essay/farewell-my-lovely";function t(n){const e=Object.assign({nav:"nav",ol:"ol",li:"li",a:"a",h1:"h1",p:"p"},n.components);return a(o,{children:[l(e.nav,{className:"toc",children:l(e.ol,{className:"toc-level toc-level-1",children:l(e.li,{className:"toc-item toc-item-h1",children:l(e.a,{className:"toc-link toc-link-h1",href:"#farewell-my-lovely",children:"Farewell My Lovely"})})})}),`
+`,l(e.h1,{id:"farewell-my-lovely",children:"Farewell My Lovely"}),`
+`,l(e.p,{children:"Sad birthday to you."}),`
+`,a(e.p,{children:["And farewell, ",l(e.a,{href:"https://www.ign.com/articles/disco-elysium-developers-involuntarily-left-zaum-responds",children:"ZA/UM"}),"."]}),`
+`,l(e.p,{children:"R.I.P."})]})}function m(n={}){const{wrapper:e}=n.components||{};return e?l(e,Object.assign({},n,{children:l(t,n)})):t(n)}export{d as date,m as default,r as duration,s as lang,h as path,i as title};
