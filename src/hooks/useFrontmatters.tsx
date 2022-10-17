@@ -1,12 +1,12 @@
 import { useEffect } from 'react'
 import type { Frontmatter } from '../../types/frontmatter'
 
+const mdxFiles = import.meta.glob<boolean, string, Frontmatter>('../../pages/**/*.mdx')
+
 export function useFrontmatters(setter: (newVal: Frontmatter[]) => void) {
   const { pathname } = window && window.location
   useEffect(() => {
     const promises: Promise<Frontmatter>[] = []
-
-    const mdxFiles = import.meta.glob<boolean, string, Frontmatter>('../../pages/**/*.mdx')
 
     const path = `../../pages/${pathname.split('/')[1]}/`
 
