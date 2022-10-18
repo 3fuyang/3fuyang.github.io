@@ -94,4 +94,29 @@ watch(obj, async () => {
 })
 ```
 
-todo
+Vue 3 为这种情况专门提供了一个类似于 cleanup 函数的`onInvalidate`，它是`watch`回调的第三个可选参数，是一个用来**注册回调函数**的函数。
+
+`onInvalidate`的原理是：在`watch`内部每次检测到变更后，在副作用函数执行**之前**，会先调用通过`onInvalidate`注册的回调函数。
+
+很容易想到，这和上面 React Effects 的 cleanup 函数原理几乎一模一样。
+
+``` js
+watch(obj, async (newValue, oldValue, onInvalidate) => {
+  let expired = false
+
+  // 副作用重新执行之前，执行该回调
+  onInvalidate(() => {
+    // 闭包
+    expired = true
+  })
+
+  const res = await fetch('/path/to/request')
+  // 
+  if (!expired) {
+    finalData = res
+  }
+})
+```
+
+两者的解决方法几乎**一模一样**，区别只在于 Vue 注册 cleanup 函数的 API 形式较为特殊，是传递给`watch`的回调函数的一个类似于 hook 的可选参数,
+比起 React 更加的**集成**，但都应用了**闭包**的思维。
