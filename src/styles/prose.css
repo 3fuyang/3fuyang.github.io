@@ -247,7 +247,16 @@
 
 @media (max-width: 1200px) {
   .prose img {
-    max-width: 8em;
+    max-width: 24em;
+  }
+  .prose .niya {
+    max-width: 6em;
+  }
+}
+
+@media (max-width: 640px) {
+  .prose img {
+    max-width: 16em;
   }
   .prose .niya {
     max-width: 5em;
