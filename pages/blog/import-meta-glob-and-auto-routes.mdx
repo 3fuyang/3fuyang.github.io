@@ -18,7 +18,10 @@ Flog（即这个网站）一开始是借助 [vite-plugin-pages](https://github.c
 为了写 [Flog 与 SSG](https://3fuyang.github.io/blog/ssg-in-flog#自动路由) 这篇博客，我去查阅了一些 SSG 框架的文档，其中在 [VitePress](https://vitepress.vuejs.org/)
 的官方文档中得知其自动路由是**仅通过一个脚本**实现的。
 
-<img alt="flog-and-ssg" src="/images/import-meta-glob-and-auto-routes/flog-and-ssg.png" className="invertable" />
+<figure>
+  <img width="947" height="256" alt="routing-strategy-in-vitepress" src="/images/import-meta-glob-and-auto-routes/flog-and-ssg.png" className="invertable" />
+  <figcaption>VitePress 的路由方案</figcaption>
+</figure>
 
 当然，VitePress 想强调的是它**没有使用** Vue Router 这样集成的依赖，而是通过**原生**的 history 对象或其他 API 实现了更为**轻量级**的路由。
 但我从这里受到的启发是，我也可以编写一个脚本，在不使用`vite-plugin-pages`这样的集成插件的前提下，去自动地生成路由。
@@ -51,9 +54,17 @@ Flog（即这个网站）一开始是借助 [vite-plugin-pages](https://github.c
 ## 打包体积对比
 
 Before:
-<img alt="before-65-189-785-bytes" src="/images/import-meta-glob-and-auto-routes/before.png" className="invertable" />
+
+<figure>
+  <img width="358" height="119" alt="before-65-189-785-bytes" src="/images/import-meta-glob-and-auto-routes/before.png" className="invertable" />
+  <figcaption>Before</figcaption>
+</figure>
 
 After:
-<img alt="after-65-123-330-bytes" src="/images/import-meta-glob-and-auto-routes/after.png" className="invertable" />
+
+<figure>
+  <img width="358" height="119" alt="after-65-123-330-bytes" src="/images/import-meta-glob-and-auto-routes/after.png" className="invertable" />
+  <figcaption>After</figcaption>
+</figure>
 
 可以看到，移除`vite-plugin-pages`后，应用的打包体积优化了整整...**64 KB**！

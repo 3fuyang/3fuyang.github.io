@@ -41,7 +41,10 @@ path: /blog/critical-rendering-path
 
 当布局计算完成后，页面终于会被**渲染**，也就是被绘制成屏幕上的一个个**像素点**（pixel）。
 
-<img alt="Critical rendering path" src="/images/critical-rendering-path/render.png" aria-hidden="true" className="invertable" />
+<figure>
+  <img width="729" height="207" alt="Critical rendering path" src="/images/critical-rendering-path/render.png" className="invertable" />
+  <figcaption>关键渲染路径 流程图</figcaption>
+</figure>
 
 OK，这里有一张示意图，它大致上和前面的描述符合，并且注意 DOM 和 CSSOM 被浏览器并行构建。
 
@@ -111,10 +114,13 @@ CSSOM 包含了 DOM 的**所有样式信息**，它的加载是**阻塞**的，[
 
 概念上，CSS **不会改变 DOM 树**，好像没有必要暂停 HTML 解析等待样式表加载完毕。
 
->那么，问题来了，CSS 的**伪元素（pseudo-element）**会不会改变 DOM 结构？毕竟它们是那么神奇，在需求不复杂的情况下，完全可以实现一些“以假乱真”的 DOM 效果。
+>那么，问题来了，CSS 的**伪元素**（pseudo-element）会不会改变 DOM 结构？毕竟它们是那么神奇，在需求不复杂的情况下，完全可以实现一些“以假乱真”的 DOM 效果。
 >
 >不过，答案好像是 **No**。
-><img alt="css-does-not-mutate-dom" src="/images/critical-rendering-path/css-mutate-dom.png" aria-hidden="true" className="invertable" />
+><figure>
+>  <img width="1073" height="679" alt="css-does-not-mutate-dom" src="/images/critical-rendering-path/css-mutate-dom.png" aria-hidden="true" className="invertable" />
+>  <figcaption>CSS 不能修改 DOM</figcaption>
+></figure>
 >
 >查询之后，可以知道用 JS 获取伪元素的方法是`window.getComputedStyle()`，所以伪元素本身依旧是纯 CSS 规则，而不是 DOM。
 

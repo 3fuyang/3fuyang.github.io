@@ -1,7 +1,7 @@
 
 export default function Footer() {
   return (
-    <footer className="mt10 mb6 op50 flex max-w-45em m-auto box-border">
+    <footer className="mt10 mb6 op80 flex max-w-45em m-auto box-border">
       <span className="text-sm">
         <a href="/" rel="noreferrer" target="_blank" className="b-b-1 b-gray-300 hover:b-gray-500 transition duration-200">
           License

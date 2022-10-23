@@ -5,7 +5,7 @@
   -fg-deeper: #000;
 
   --a: rgb(14, 116, 144);
-  --a-dark: #82b0c7;
+  --a-dark: #aac8e4;
 
   color: var(--fg);
   line-height: 1.75;
@@ -21,23 +21,18 @@
 }
 
 .prose a {
-  color: var(--fg-deeper);
+  border-bottom: 1px solid;
   text-decoration: none;
-  border-bottom: 1px solid rgba(125, 125, 125, 0.3);
-  transition: border .8s ease;
-}
-
-.dark .prose a {
-  border-bottom-color: #666;
 }
 
 .prose a:hover {
-  border-bottom-color: var(--a);
+  border-color: var(--a);
+  font-weight: bold;
 }
 
 .dark .prose a:hover {
-  border-bottom-color: var(--a-dark);
-}
+  border-color: var(--a-dark);
+} 
 
 .prose strong {
   padding: 0 .1em;
@@ -194,7 +189,7 @@
   text-transform: uppercase;
   margin-top: 20px;
   margin-bottom: 10px;
-  opacity: 0.5;
+  opacity: .8;
   font-weight: 500;
   letter-spacing: 2px;
 }
@@ -204,7 +199,7 @@
 }
 
 .prose .toc {
-  opacity: .6;
+  opacity: .8;
   position: fixed;
   top: 5rem;
   right: .6rem;
@@ -225,7 +220,7 @@
     width: auto;
     max-height: fit-content;
     max-width: fit-content;
-    margin-top: 1rem;
+    margin: 1rem 0;
   }
 }
 
@@ -234,10 +229,15 @@
 }
 
 .prose img {
-  margin: 1em auto;
+  margin: 1em auto 0;
   max-width: 35em;
   border: 1px solid #eee;
   border-radius: .3rem;
+}
+
+.prose figcaption {
+  text-align: center;
+  margin-bottom: 1em;
 }
 
 .prose .niya {
@@ -247,7 +247,7 @@
 
 @media (max-width: 1200px) {
   .prose img {
-    max-width: 24em;
+    max-width: 80%;
   }
   .prose .niya {
     max-width: 6em;
@@ -256,7 +256,7 @@
 
 @media (max-width: 640px) {
   .prose img {
-    max-width: 16em;
+    max-width: 100%;
   }
   .prose .niya {
     max-width: 5em;

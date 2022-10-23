@@ -22,9 +22,17 @@ path: /blog/vue-node-mysql-deployment
 2. 使用上面设置的密码通过 “**远程连接 —— Workbench”**，进入 shell 命令行
 3. 根据 ECS 操作系统用对应的**命令**安装 “宝塔 Linux 面板”，复制 “**外网面板地址**”，进入面板（**注意**：需先配置 ECS 实例**安全组**，放行 **8888 端口**）
    1. **配置安全组方法**：进入 ECS 安全组规则配置页面，选择 “**入方向**” 手动添加如下规则：
-   2. <img src="/images/vue-node-mysql-deployment/1.png" alt="ecs-security-rules" />
-   3. 为了后续部署方便，通过**快速添加**为以下常用端口添加规则：
-   4. <img src="/images/vue-node-mysql-deployment/2.png" alt="quick-add" />
+   2. 
+   <figure>
+     <img width="1339" height="179" src="/images/vue-node-mysql-deployment/1.png" alt="ecs-security-rules" />
+     <figcaption>配置安全组规则</figcaption>
+   </figure>
+   3. 为了后续部署方便，通过**快速添加**为以下常用端口添加规则
+   4. 
+    <figure>
+        <img width="897" height="628" src="/images/vue-node-mysql-deployment/2.png" alt="quick-add" />
+        <figcaption>配置常用端口</figcaption>
+    </figure>
    5. 此外，将**前端与后端应用**使用的端口号分别手动添加到规则中
 4. 在宝塔面板的**软件商店**中，选择**极速安装** Nginx@、MySQL@5.5、TomCat@7
 4. 远程连接中使用`/etc/init.d/bt default`查看宝塔面板用户名、密码
@@ -43,7 +51,10 @@ path: /blog/vue-node-mysql-deployment
 3. 删除依赖文件 **node_module**，以减小文件夹的体积。
 4. 将前、后端代码文件夹复制到 Tomcat 如下文件夹（**不一定是该位置，根据需要而定**）中（dist & back-end）：
 
-<img src="/images/vue-node-mysql-deployment/3.png" alt="backend-dir" style={{zoom: .8}} />
+<figure>
+  <img width="977" height="601" src="/images/vue-node-mysql-deployment/3.png" alt="backend-dir" style={{zoom: .8}} />
+  <figcaption>上传后端文件</figcaption>
+</figure>
 
 ### 四、数据库配置
 
