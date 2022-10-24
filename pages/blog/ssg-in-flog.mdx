@@ -77,7 +77,11 @@ SSG 自动路由的思路很简单, 就是用脚本在编译时读取某些目�
 而是另写一个　LOC < 200　的脚本。
 
 <figure>
-  <img width="947" height="256" alt="vitepress-router" src="/images/ssg-in-flog/vitepress-router.png" aria-hidden="true" className="invertable" />
+  <picture>
+    <source type="image/avif" srcSet="/images/ssg-in-flog/vitepress-router.avif" />
+    <source type="image/webp" srcSet="/images/ssg-in-flog/vitepress-router.webp" />
+    <img width="947" height="256" alt="vitepress-router" src="/images/ssg-in-flog/vitepress-router.jpg" aria-hidden="true" className="invertable" />
+  </picture>
   <figcaption>VitePress 的路由方案</figcaption>
 </figure>
 
@@ -182,19 +186,31 @@ React 环境下的`vite-plugin-pages`将生成 React Router 式的 routes, 那�
 且它们将在**每次请求模块**时被调用。
 
 <figure>
-  <img width="718" height="185" alt="vite-universal-plugins" src="/images/ssg-in-flog/vite-universal-plugins.png" className="invertable"/>
+  <picture>
+    <source type="image/avif" srcSet="/images/ssg-in-flog/vite-universal-plugins.avif" />
+    <source type="image/webp" srcSet="/images/ssg-in-flog/vite-universal-plugins.webp" />
+    <img width="718" height="185" alt="vite-universal-plugins" src="/images/ssg-in-flog/vite-universal-plugins.jpg" className="invertable"/>
+  </picture>
   <figcaption>Vite 中 universal plugins 的执行顺序</figcaption>
 </figure>
 
 这不符合我们 "先解析`.mdx`文件，再生成 React 路由" 的直观想法，
 
 <figure>
-  <img width="739" height="802" alt="rollup-plugin-hooks" src="/images/ssg-in-flog/rollup-plugin-hooks.png" className="invertable"/>
+  <picture>
+    <source type="image/avif" srcSet="/images/ssg-in-flog/rollup-plugin-hooks.avif" />
+    <source type="image/webp" srcSet="/images/ssg-in-flog/rollup-plugin-hooks.webp" />
+    <img width="739" height="802" alt="rollup-plugin-hooks" src="/images/ssg-in-flog/rollup-plugin-hooks.jpg" className="invertable"/>
+  </picture>
   <figcaption>Rollup 的插件 hooks 执行流程图</figcaption>
 </figure>
 
 <figure>
-  <img width="380" height="95" alt="figure-label" src="/images/ssg-in-flog/figure-label.png" className="invertable"/>
+  <picture>
+    <source type="image/avif" srcSet="/images/ssg-in-flog/figure-label.avif" />
+    <source type="image/webp" srcSet="/images/ssg-in-flog/figure-label.webp" />
+    <img width="380" height="95" alt="figure-label" src="/images/ssg-in-flog/figure-label.jpg" className="invertable"/>
+  </picture>
   <figcaption>Rollup 插件 hooks 类型</figcaption>
 </figure>
 

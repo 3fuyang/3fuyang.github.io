@@ -51,7 +51,11 @@ JavaScript 是一门**单线程同步**编程语言，任务只能在主线程�
 由于执行微任务可以引入新的微任务，且这些微任务都会在当前宏任务下执行完毕，所以微任务可能一直占用当前的引擎，**无限阻塞**接下来的宏任务。
 
 <figure>
-  <img width="837" height="199" src="/images/js-event-loop/warning.png" alt="warning" rel="noreferrer" className="invertable" />
+  <picture>
+    <source type="image/avif" srcSet="/images/js-event-loop/warning.avif" />
+    <source type="image/webp" srcSet="/images/js-event-loop/warning.webp" />
+    <img width="837" height="199" src="/images/js-event-loop/warning.jpg" alt="warning" rel="noreferrer" className="invertable" />
+  </picture>
   <figcaption>微任务可以产生新的微任务，阻塞后续宏任务</figcaption>
 </figure>
 
@@ -88,7 +92,11 @@ JavaScript 是一门**单线程同步**编程语言，任务只能在主线程�
 > **注意**：当前宏任务下有`pending`状态的`MutationObserver`回调时，**不会为其他`MutationObserver`回调再创建新的微任务**。
 >
 ><figure>
->  <img width="849" height="609" alt="mid-execution" rel="noreferrer" src="/images/js-event-loop/mid-execution.png" />
+>  <picture>
+>    <source type="image/avif" srcSet="/images/js-event-loop/mid-execution.avif" />
+>    <source type="image/webp" srcSet="/images/js-event-loop/mid-execution.webp" />
+>    <img width="849" height="609" alt="mid-execution" rel="noreferrer" src="/images/js-event-loop/mid-execution.jpg" />
+>  </picture>
 >  <figcaption>MutationObserver 的特殊异步处理</figcaption>
 ></figure>
 
