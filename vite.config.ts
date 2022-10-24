@@ -48,7 +48,7 @@ export default defineConfig({
       devOptions: {
         enabled: true
       },
-      includeAssets: ['fwio.svg', 'fwio-apple-touch.png', 'images/**/*.png', 'images/**/*.webp', 'images/**/*.avif'],
+      includeAssets: ['fwio.svg', 'fwio-apple-touch.png', 'images/**/*.jpg', 'images/**/*.webp', 'images/**/*.avif'],
       manifest: {
         name: 'Flog',
         short_name: 'Flog',
