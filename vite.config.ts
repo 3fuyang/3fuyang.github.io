@@ -3,6 +3,7 @@ import mdx from '@mdx-js/rollup'
 import react from '@vitejs/plugin-react'
 import Unocss from 'unocss/vite'
 import { VitePWA } from 'vite-plugin-pwa'
+import { visualizer } from 'rollup-plugin-visualizer'
 
 // MDX plugins
 import rehypeHighlight from 'rehype-highlight'
@@ -77,6 +78,10 @@ export default defineConfig({
       workbox: {
         maximumFileSizeToCacheInBytes: 3e6
       }
+    }),
+    // bundle visualizer (make sure it the last plugin)
+    visualizer({
+      filename: 'bundle-stats.html'
     })
   ]
 })
