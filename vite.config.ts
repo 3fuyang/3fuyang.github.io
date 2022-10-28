@@ -14,6 +14,16 @@ import a11yEmoji from '@fec/remark-a11y-emoji'
 import remarkFrontmatter from 'remark-frontmatter'
 import remarkMdxFrontmatter from 'remark-mdx-frontmatter'
 
+/* // inline plugin
+function VitePluginReactAutoRoutes() {
+  return {
+    name: 'vite-plugin-react-auto-routes',
+    resolveId() {
+
+    }
+  }
+} */
+
 // https://vitejs.dev/config/
 export default defineConfig({
   build: {
@@ -48,7 +58,7 @@ export default defineConfig({
       devOptions: {
         enabled: true
       },
-      includeAssets: ['fwio.svg', 'fwio-apple-touch.png', 'images/**/*.jpg', 'images/**/*.webp', 'images/**/*.avif'],
+      includeAssets: ['fwio.svg', 'seagull.svg', 'fwio-apple-touch.png', 'images/**/*.jpg', 'images/**/*.webp', 'images/**/*.avif'],
       manifest: {
         name: 'Flog',
         short_name: 'Flog',

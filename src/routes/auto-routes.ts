@@ -1,5 +1,5 @@
 import { createElement, type FC, type ReactNode } from 'react'
-import type { RouteObject } from 'react-router'
+import type { RouteObject } from 'react-router-dom'
 
 const rawPages = import.meta.glob<boolean, string, FC>(
   [

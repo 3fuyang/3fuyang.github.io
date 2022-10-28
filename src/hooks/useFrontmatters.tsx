@@ -1,18 +1,27 @@
 import { useEffect } from 'react'
 import type { Frontmatter } from '../../types/frontmatter'
-import { frontmatters } from '../models/frontmatters'
+
+const mdxFiles = import.meta.glob<boolean, string, Frontmatter>('../../pages/**/*.mdx')
 
 export function useFrontmatters(setter: (newVal: Frontmatter[]) => void) {
-  // pathname: e.g. /blog
   const { pathname } = window && window.location
-
   useEffect(() => {
-    const filteredFms = frontmatters
-      // filter the frontmatters with the current Browser path
-      .filter((fm) => fm.path.startsWith(pathname))
-      // sort the posts by date desc order
-      .sort((a, b) => Date.parse(b.date) - Date.parse(a.date))
+    const promises: Promise<Frontmatter>[] = []
 
-    setter(filteredFms)
+    const path = `../../pages/${pathname.split('/')[1]}/`
+
+    for (const key in mdxFiles) {
+      if (key.includes(path)) {
+        promises.push(mdxFiles[key]().then(({ title, date, duration, lang, path }) => {
+          return { title, duration, date, lang, path }
+        }))
+      }
+    }
+
+    Promise.all(promises).then((results) => {
+      // sort the posts by date desc order
+      results.sort((a, b) => Date.parse(b.date) - Date.parse(a.date))
+      setter(results)
+    })
   }, [pathname])
 }

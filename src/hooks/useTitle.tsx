@@ -1,12 +1,18 @@
 import { useEffect } from 'react'
-import { frontmatters } from '../models/frontmatters'
+import type { Frontmatter } from '../../types/frontmatter'
 
 export function useTitle(routePath: string) {
 
   useEffect(() => {
-    for (const fm of frontmatters) {
-      if (routePath !== '/' && fm.path.includes(routePath)) {
-        document.title = fm.title
+    const mdxFiles = import.meta.glob<boolean, string, Frontmatter>('../../pages/**/*.mdx')
+
+    for (const key in mdxFiles) {
+      if (routePath !== '/' && key.includes(routePath)) {
+        mdxFiles[key]().then(({ title }) => {
+          if (title) {
+            document.title = title
+          }
+        })
       }
     }
 
