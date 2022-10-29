@@ -5,7 +5,7 @@ import transformerVariantGroup from '@unocss/transformer-variant-group'
 
 export default defineConfig({
   shortcuts: {
-    'link': 'op70 hover:op100 transition-opacity duration-200'
+    'link': 'will-change-opacity op70 hover:op100 transition-opacity duration-200'
   },
   presets: [
     presetUno(),

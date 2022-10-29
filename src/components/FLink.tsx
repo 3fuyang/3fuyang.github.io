@@ -14,7 +14,7 @@ export default function FLink(props: FLinkProps) {
       return isActive ? 'link op100' : 'link'
     }}>
       <span className="lt-md:hidden">{props.title}</span>
-      <props.icon className="md:hidden w5 h5 link" />
+      <props.icon className="md:hidden w5 h5" />
     </NavLink>
   )
 }
