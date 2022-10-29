@@ -34,7 +34,7 @@ String.prototype.charCodeAt(index: number): number
 String.prototype.codePointAt(index: number): number
 ```
 
-关于它们的区别，[MDX](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/charCodeAt) 解释道： UTF-16 码元(code unit)只匹配能用**一个 UTF-16 码元**表示的 Unicode 码位(code point)。
+关于它们的区别，[MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/charCodeAt) 解释道： UTF-16 码元(code unit)只匹配能用**一个 UTF-16 码元**表示的 Unicode 码位(code point)。
 如果一个 Unicode 码位不能只用一个 UTF-16 码元表示，那么`charCodeAt()`只返回第一个码元对应的码位,
 而`codePointAt()`返回完整的码位。
 
