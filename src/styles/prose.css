@@ -21,17 +21,19 @@
 }
 
 .prose a {
+  will-change: filter;
   border-bottom: 1px solid;
   text-decoration: none;
 }
 
 .prose a:hover {
   border-color: var(--a);
-  font-weight: bold;
+  filter: drop-shadow(0 0 1em var(--fg));
 }
 
 .dark .prose a:hover {
   border-color: var(--a-dark);
+  filter: drop-shadow(0 0 .25em var(--fg));
 } 
 
 .prose strong {
@@ -199,6 +201,7 @@
 }
 
 .prose .toc {
+  will-change: opacity;
   opacity: .8;
   position: fixed;
   top: 5rem;
