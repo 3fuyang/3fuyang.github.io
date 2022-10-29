@@ -14,16 +14,6 @@ import a11yEmoji from '@fec/remark-a11y-emoji'
 import remarkFrontmatter from 'remark-frontmatter'
 import remarkMdxFrontmatter from 'remark-mdx-frontmatter'
 
-/* // inline plugin
-function VitePluginReactAutoRoutes() {
-  return {
-    name: 'vite-plugin-react-auto-routes',
-    resolveId() {
-
-    }
-  }
-} */
-
 // https://vitejs.dev/config/
 export default defineConfig({
   build: {

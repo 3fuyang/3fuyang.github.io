@@ -1,10 +1,8 @@
 import { createElement, FC } from 'react'
 import { RouteObject, useRoutes } from 'react-router-dom'
-//import routes from '~react-pages'
 import { NotFound } from '../components/NotFound'
 import PostWrapper from '../components/PostWrapper'
 import manualRoutes from './auto-routes'
-//import './auto-routes'
 
 function parseRoutes(routes: RouteObject[]) {
   routes.forEach((route) => {
