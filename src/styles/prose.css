@@ -114,6 +114,7 @@
 }
 
 .prose blockquote {
+  will-change: opacity;
   font-weight: 500;
   font-style: italic;
   color: inherit;
