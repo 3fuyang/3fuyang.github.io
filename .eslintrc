@@ -59,7 +59,7 @@
   },
   "rules": {
     // 部分适配 @unocss/preset-attributify
-    "react/no-unknown-property": ["error", { "ignore": ["flex", "hover", "active", "border", "transition"] }],
+    "react/no-unknown-property": ["error", { "ignore": ["flex", "hover", "active", "border", "transition", "gap", "animate"] }],
     // 允许空内容的interface
     "@typescript-eslint/no-empty-interface": "off",
     // JSX 自关闭标签尾空格
