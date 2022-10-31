@@ -39,7 +39,7 @@ const fLinks: FLinkProps[] = [
 
 const NavBar: FC = () => {
   return (
-    <header className="flex px5 py3 items-center relative">
+    <header className="flex px5 py3 items-center sticky top-0 z1 backdrop-filter backdrop-blur backdrop-saturate-50">
       <Link to="/" className="select-none outline-none" title="Fwio">
         <GiSeagull className="h-10 wa color-cyan-9 dark:color-#83BEEC" aria-hidden />
       </Link>
