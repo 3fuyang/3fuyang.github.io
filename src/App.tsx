@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react'
+import { lazy, Suspense, useEffect, useMemo } from 'react'
 import { BrowserRouter as Router } from 'react-router-dom'
 
 const ErrorBoundary = lazy(() => import('./components/ErrorBoundary'))
@@ -9,6 +9,37 @@ const Skeleton = lazy(() => import('./components/Skeleton'))
 const RenderedRoutes = lazy(() => import('./routes/RenderedRoutes'))
 
 function App() {
+  const extraHeight = useMemo(() => {
+    // transform 3.5rem to pixels
+    return (
+      window &&
+      Number(
+        window
+          .getComputedStyle(document.documentElement)
+          .fontSize
+          .match(/(.*)px/)![1]
+      ) * 3.5
+    )
+  }, [])
+
+  useEffect(() => {
+    const hashChangeHandler = (e: HashChangeEvent) => {
+      e.preventDefault()
+      const el = document.querySelector(`${decodeURIComponent(new URL(e.newURL).hash)}`)
+      if (el) {
+        const offsetTop = (el as HTMLElement).offsetTop
+        window.scrollTo({
+          top: offsetTop + extraHeight
+        })
+      }
+    }
+
+    window.addEventListener('hashchange', hashChangeHandler)
+
+    return () => {
+      window.removeEventListener('hashchange', hashChangeHandler)
+    }
+  }, [])
 
   return (
     <ErrorBoundary>
