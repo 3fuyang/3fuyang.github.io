@@ -188,6 +188,15 @@
   line-height: 1.5;
 }
 
+.prose h5 {
+  color: inherit;
+  font-weight: 600;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  line-height: 1.5;
+  font-style: italic;
+}
+
 .prose h6 {
   text-transform: uppercase;
   margin-top: 20px;
@@ -222,6 +231,8 @@
   .prose .toc {
     position: static;
     width: auto;
+    max-height: -moz-fit-content;
+    max-width: -moz-fit-content;
     max-height: fit-content;
     max-width: fit-content;
     margin: 1rem 0;
@@ -274,4 +285,32 @@
 .dark .prose .invertable {
   filter: invert(.9);
   border-color: #eee;
+}
+
+.prose table {
+  width: 100%;
+}
+
+.prose table th {
+  background: #FAFAFC;
+  font-weight: bold;
+}
+
+.dark .prose table th {
+  background: rgba(38, 38, 42, 1);
+}
+
+.prose table th,
+.prose table td {
+  border: 1px solid rgba(239, 239, 245, 1);
+  text-align: center;
+}
+
+.dark .prose table th,
+.dark .prose table td {
+  border-color: rgb(128, 128, 128);
+}
+
+.dark .prose table strong {
+  color: rgba(255, 255, 255, 0.82);
 }
