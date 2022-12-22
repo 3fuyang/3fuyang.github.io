@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite'
 import mdx from '@mdx-js/rollup'
-import react from '@vitejs/plugin-react'
+import react from '@vitejs/plugin-react-swc'
 import Unocss from 'unocss/vite'
 import { VitePWA } from 'vite-plugin-pwa'
 import { visualizer } from 'rollup-plugin-visualizer'
