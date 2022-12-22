@@ -45,7 +45,7 @@ const NavBar: FC = () => {
       </Link>
       <div className="spacer flex-1" />
       <nav flex="~ gap-6 md:gap-8 items-center">
-        {fLinks.map((fLink) => <FLink to={fLink.to} title={fLink.title} icon={fLink.icon} key={fLink.title} />)}
+        {fLinks.map((fLink) => <FLink {...fLink} key={fLink.title} />)}
         <a href="https://github.com/3fuyang" className="link" target="_blank" rel="noreferrer" title="Github">
           <GoMarkGithub className="h5 w5" />
         </a>
