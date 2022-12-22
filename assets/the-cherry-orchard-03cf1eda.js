@@ -1,0 +1,7 @@
+import{j as e}from"./jsx-runtime-f0839969.js";const n="樱桃园 & 海鸥 & 四姐妹",c="2min",l="zh",h="2022-08-08T17:47:00.000+00:00",i="/essay/the-cherry-orchard";function r(t){const s=Object.assign({nav:"nav",ol:"ol",li:"li",a:"a",h1:"h1",p:"p",h2:"h2"},t.components);return e.exports.jsxs(e.exports.Fragment,{children:[e.exports.jsx(s.nav,{className:"toc",children:e.exports.jsx(s.ol,{className:"toc-level toc-level-1",children:e.exports.jsxs(s.li,{className:"toc-item toc-item-h1",children:[e.exports.jsx(s.a,{className:"toc-link toc-link-h1",href:"#the-cherry-orchad",children:"The Cherry Orchad"}),e.exports.jsxs(s.ol,{className:"toc-level toc-level-2",children:[e.exports.jsx(s.li,{className:"toc-item toc-item-h2",children:e.exports.jsx(s.a,{className:"toc-link toc-link-h2",href:"#the-seagull",children:"The Seagull"})}),e.exports.jsx(s.li,{className:"toc-item toc-item-h2",children:e.exports.jsx(s.a,{className:"toc-link toc-link-h2",href:"#four-sisters",children:"Four Sisters"})})]})]})})}),`
+`,e.exports.jsx(s.h1,{id:"the-cherry-orchad",children:"The Cherry Orchad"}),`
+`,e.exports.jsx(s.p,{children:"Anton Chekov"}),`
+`,e.exports.jsx(s.h2,{id:"the-seagull",children:"The Seagull"}),`
+`,e.exports.jsx(s.p,{children:"Anton Chekov"}),`
+`,e.exports.jsx(s.h2,{id:"four-sisters",children:"Four Sisters"}),`
+`,e.exports.jsx(s.p,{children:"Anton Chekov"})]})}function a(t={}){const{wrapper:s}=t.components||{};return s?e.exports.jsx(s,Object.assign({},t,{children:e.exports.jsx(r,t)})):r(t)}export{h as date,a as default,c as duration,l as lang,i as path,n as title};

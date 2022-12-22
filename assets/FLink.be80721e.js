@@ -1,1 +1,0 @@
-import{j as i,N as n,a}from"./index.d2eb5bd1.js";function s(t){return i(n,{title:t.title,to:t.to,className:({isActive:e})=>e?"link op100":"link",children:[a("span",{className:"lt-md:hidden",children:t.title}),a(t.icon,{className:"md:hidden w5 h5"})]})}export{s as default};
