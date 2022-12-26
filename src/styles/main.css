@@ -36,11 +36,11 @@ body {
 }
 
 ::-webkit-scrollbar {
-  width: .5rem;
+  width: 5px;
 }
 
 ::-webkit-scrollbar:horizontal {
-  height: .375rem;
+  height: 5px;
 }
 
 ::-webkit-scrollbar-track,
