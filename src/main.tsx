@@ -9,8 +9,6 @@ import './styles/syntax-highlight.css'
 
 const root = document.getElementById('root')
 
-root && (root.className = 'text-gray-700 dark:text-gray-200 scroll-smooth')
-
 createRoot(root as HTMLElement).render(
   <StrictMode>
     <App />
