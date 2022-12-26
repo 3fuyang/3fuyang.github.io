@@ -1,8 +1,10 @@
+import { memo } from 'react'
+
 interface SProps {
   type?: 'card' | 'text'
 }
 
-export default function Skeleton({ type = 'text' }: SProps) {
+function Skeleton({ type = 'text' }: SProps) {
   return (
     <article className="prose fixed" flex="~ col" animate="pulse">
 
@@ -14,3 +16,5 @@ export default function Skeleton({ type = 'text' }: SProps) {
     </article>
   )
 }
+
+export default memo(Skeleton)

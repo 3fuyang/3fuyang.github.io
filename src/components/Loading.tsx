@@ -1,6 +1,11 @@
 import { RiLoaderLine } from 'react-icons/ri'
+import { memo } from 'react'
 
-export default function Loading({ msg }: { msg: string }) {
+interface LProps {
+  msg: string
+}
+
+function Loading({ msg }: LProps) {
   return (
     <article
       className="justify-center items-center fixed top-1/2 left-1/2 -translate-1/2"
@@ -16,3 +21,5 @@ export default function Loading({ msg }: { msg: string }) {
     </article>
   )
 }
+
+export default memo(Loading)

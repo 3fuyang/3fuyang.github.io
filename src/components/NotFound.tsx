@@ -1,5 +1,6 @@
+import { memo } from 'react'
 
-export function NotFound() {
+function NotFound() {
   return (
     <article className="m-auto text-4xl max-w-45rem font-extrabold tracking-wide">
       UN JOUR <br />
@@ -9,3 +10,5 @@ export function NotFound() {
     </article>
   )
 }
+
+export default memo(NotFound)

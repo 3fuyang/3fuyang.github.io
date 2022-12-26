@@ -1,13 +1,12 @@
-import { FC, lazy } from 'react'
+import { FC, memo } from 'react'
 import { Link } from 'react-router-dom'
 import type { FLinkProps } from './FLink'
 import { GoMarkGithub } from 'react-icons/go'
 import { AiOutlineFileText } from 'react-icons/ai'
 import { GiBookshelf, GiSeagull, GiNotebook } from 'react-icons/gi'
 import { MdAppRegistration, MdOutlineAlbum } from 'react-icons/md'
-
-const FLink = lazy(() => import('./FLink'))
-const ToggleTheme = lazy(() => import('./ToggleTheme'))
+import FLink from './FLink'
+import ToggleTheme from './ToggleTheme'
 
 const fLinks: FLinkProps[] = [
   {
@@ -46,7 +45,7 @@ const NavBar: FC = () => {
       <div className="spacer flex-1" />
       <nav flex="~ gap-6 md:gap-8 items-center">
         {fLinks.map((fLink) => <FLink {...fLink} key={fLink.title} />)}
-        <a href="https://github.com/3fuyang" className="link" target="_blank" rel="noreferrer" title="Github">
+        <a href="https://github.com/3fuyang" className="link" target="_blank" rel="noreferrer noopener" title="Github">
           <GoMarkGithub className="h5 w5" />
         </a>
         <ToggleTheme />
@@ -55,4 +54,4 @@ const NavBar: FC = () => {
   )
 }
 
-export default NavBar
+export default memo(NavBar)

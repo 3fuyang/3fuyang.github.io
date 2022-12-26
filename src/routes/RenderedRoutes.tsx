@@ -1,8 +1,9 @@
-import { createElement, FC } from 'react'
+import { createElement, FC, memo, lazy } from 'react'
 import { RouteObject, useRoutes } from 'react-router-dom'
-import { NotFound } from '../components/NotFound'
 import PostWrapper from '../components/PostWrapper'
 import manualRoutes from './auto-routes'
+
+const NotFound = lazy(() => import('../components/NotFound'))
 
 function parseRoutes(routes: RouteObject[]) {
   routes.forEach((route) => {
@@ -19,10 +20,10 @@ function parseRoutes(routes: RouteObject[]) {
     path: '*',
     element: <NotFound />
   })
+
+  return routes
 }
 
-parseRoutes(manualRoutes)
+const RenderedRoutes = () => useRoutes(parseRoutes(manualRoutes))
 
-const RenderedRoutes: FC = () =>  useRoutes(manualRoutes)
-
-export default RenderedRoutes
+export default memo(RenderedRoutes)

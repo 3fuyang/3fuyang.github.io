@@ -1,5 +1,6 @@
+import { memo } from 'react'
 
-export default function Footer() {
+function Footer() {
   return (
     <footer className="mt10 mb6 op80 flex max-w-45em m-auto box-border">
       <span className="text-sm">
@@ -13,3 +14,5 @@ export default function Footer() {
     </footer>
   )
 }
+
+export default memo(Footer)

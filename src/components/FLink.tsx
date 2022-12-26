@@ -1,5 +1,6 @@
 import type { IconType } from 'react-icons'
 import { NavLink } from 'react-router-dom'
+import { memo } from 'react'
 
 export interface FLinkProps {
   to: string
@@ -7,7 +8,7 @@ export interface FLinkProps {
   icon: IconType
 }
 
-export default function FLink(props: FLinkProps) {
+function FLink(props: FLinkProps) {
 
   return (
     <NavLink title={props.title} to={props.to} className={({ isActive }) => {
@@ -18,3 +19,5 @@ export default function FLink(props: FLinkProps) {
     </NavLink>
   )
 }
+
+export default memo(FLink)
