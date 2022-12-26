@@ -10,7 +10,7 @@ const RenderedRoutes = lazy(() => import('./routes/RenderedRoutes'))
 
 function App() {
   const extraHeight = useMemo(() => {
-    // transform 3.5rem to pixels
+    // transform 2.5rem to pixels
     return (
       window &&
       Number(
@@ -18,7 +18,7 @@ function App() {
           .getComputedStyle(document.documentElement)
           .fontSize
           .match(/(.*)px/)![1]
-      ) * 3.5
+      ) * 2.5
     )
   }, [])
 
