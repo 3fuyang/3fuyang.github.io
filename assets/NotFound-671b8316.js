@@ -1,0 +1,1 @@
+import{r,j as t}from"./jsx-runtime-f0839969.js";function e(){return t.exports.jsxs("article",{className:"m-auto text-4xl max-w-45rem font-extrabold tracking-wide",children:["UN JOUR ",t.exports.jsx("br",{}),"JE SERAI ",t.exports.jsx("br",{}),"DE RETOUR ",t.exports.jsx("br",{}),"PRÈS DE TOI"]})}const s=r.exports.memo(e);export{s as default};

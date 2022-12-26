@@ -1,1 +1,0 @@
-import{j as e}from"./jsx-runtime-f0839969.js";import{N as n}from"./index-440f9357.js";function l(t){return e.exports.jsxs(n,{title:t.title,to:t.to,className:({isActive:i})=>i?"link op100":"link",children:[e.exports.jsx("span",{className:"lt-md:hidden",children:t.title}),e.exports.jsx(t.icon,{className:"md:hidden w5 h5"})]})}export{l as default};
