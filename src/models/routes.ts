@@ -2,43 +2,208 @@
 
 import { createElement } from 'react'
 import PostWrapper from '../components/PostWrapper'
-import Page_0 from '../../pages/index.mdx'
-import Page_1 from '../../pages/demos/index'
-import Page_2 from '../../pages/essay/farewell-my-lovely.mdx'
-import Page_3 from '../../pages/essay/index'
-import Page_4 from '../../pages/essay/the-cherry-orchard.mdx'
-import Page_5 from '../../pages/notes/function-length.mdx'
-import Page_6 from '../../pages/notes/index'
-import Page_7 from '../../pages/notes/js-array-fill.mdx'
-import Page_8 from '../../pages/notes/js-logical-operator.mdx'
-import Page_9 from '../../pages/notes/js-string-and-regexp.mdx'
-import Page_10 from '../../pages/notes/overload-in-ts.mdx'
-import Page_11 from '../../pages/notes/regexp-test-undefined.mdx'
-import Page_12 from '../../pages/notes/string-to-ascii.mdx'
-import Page_13 from '../../pages/notes/this-in-js-prototype-function.mdx'
-import Page_14 from '../../pages/notes/ts-non-null-operator.mdx'
-import Page_15 from '../../pages/blog/client-session-storage.mdx'
-import Page_16 from '../../pages/blog/critical-rendering-path.mdx'
-import Page_17 from '../../pages/blog/csrf-and-xss.mdx'
-import Page_18 from '../../pages/blog/deep-clone-in-js.mdx'
-import Page_19 from '../../pages/blog/empty-object-in-ts.mdx'
-import Page_20 from '../../pages/blog/how-to-win-at-cors.mdx'
-import Page_21 from '../../pages/blog/import-meta-glob-and-auto-routes.mdx'
-import Page_22 from '../../pages/blog/index'
-import Page_23 from '../../pages/blog/js-event-loop.mdx'
-import Page_24 from '../../pages/blog/promise-a-plus.mdx'
-import Page_25 from '../../pages/blog/race-condition-in-vue-and-react.mdx'
-import Page_26 from '../../pages/blog/ssg-in-flog.mdx'
-import Page_27 from '../../pages/blog/tsconfig-notes.mdx'
-import Page_28 from '../../pages/blog/vue-node-mysql-deployment.mdx'
-import Page_29 from '../../pages/blog/webpack4-migration-rfc.mdx'
-import Page_30 from '../../pages/projects/index'
+const Page_0 = (await import('../../pages/index.mdx')).default
+const Page_1 = (await import('../../pages/blog/client-session-storage.mdx'))
+  .default
+const Page_2 = (await import('../../pages/blog/critical-rendering-path.mdx'))
+  .default
+const Page_3 = (await import('../../pages/blog/csrf-and-xss.mdx')).default
+const Page_4 = (await import('../../pages/blog/deep-clone-in-js.mdx')).default
+const Page_5 = (await import('../../pages/blog/empty-object-in-ts.mdx'))
+  .default
+const Page_6 = (await import('../../pages/blog/how-to-win-at-cors.mdx'))
+  .default
+const Page_7 = (
+  await import('../../pages/blog/import-meta-glob-and-auto-routes.mdx')
+).default
+const Page_8 = (await import('../../pages/blog/index')).default
+const Page_9 = (await import('../../pages/blog/js-event-loop.mdx')).default
+const Page_10 = (await import('../../pages/blog/promise-a-plus.mdx')).default
+const Page_11 = (
+  await import('../../pages/blog/race-condition-in-vue-and-react.mdx')
+).default
+const Page_12 = (await import('../../pages/blog/ssg-in-flog.mdx')).default
+const Page_13 = (await import('../../pages/blog/tsconfig-notes.mdx')).default
+const Page_14 = (await import('../../pages/blog/vue-node-mysql-deployment.mdx'))
+  .default
+const Page_15 = (await import('../../pages/blog/webpack4-migration-rfc.mdx'))
+  .default
+const Page_16 = (await import('../../pages/demos/index')).default
+const Page_17 = (await import('../../pages/essay/farewell-my-lovely.mdx'))
+  .default
+const Page_18 = (await import('../../pages/essay/index')).default
+const Page_19 = (await import('../../pages/essay/the-cherry-orchard.mdx'))
+  .default
+const Page_20 = (await import('../../pages/notes/function-length.mdx')).default
+const Page_21 = (await import('../../pages/notes/index')).default
+const Page_22 = (await import('../../pages/notes/js-array-fill.mdx')).default
+const Page_23 = (await import('../../pages/notes/js-logical-operator.mdx'))
+  .default
+const Page_24 = (await import('../../pages/notes/js-string-and-regexp.mdx'))
+  .default
+const Page_25 = (await import('../../pages/notes/overload-in-ts.mdx')).default
+const Page_26 = (await import('../../pages/notes/regexp-test-undefined.mdx'))
+  .default
+const Page_27 = (await import('../../pages/notes/string-to-ascii.mdx')).default
+const Page_28 = (
+  await import('../../pages/notes/this-in-js-prototype-function.mdx')
+).default
+const Page_29 = (await import('../../pages/notes/ts-non-null-operator.mdx'))
+  .default
+const Page_30 = (await import('../../pages/projects/index')).default
 
 const routes = [
   {
     caseSensitive: true,
     path: '/',
     element: createElement(PostWrapper, { path: '/' }, createElement(Page_0))
+  },
+  {
+    caseSensitive: true,
+    path: 'blog',
+    children: [
+      {
+        caseSensitive: true,
+        path: 'client-session-storage',
+        element: createElement(
+          PostWrapper,
+          { path: 'client-session-storage' },
+          createElement(Page_1)
+        )
+      },
+      {
+        caseSensitive: true,
+        path: '',
+        children: [
+          {
+            caseSensitive: true,
+            path: 'critical-rendering-path',
+            element: createElement(
+              PostWrapper,
+              { path: 'critical-rendering-path' },
+              createElement(Page_2)
+            )
+          },
+          {
+            caseSensitive: true,
+            path: 'csrf-and-xss',
+            element: createElement(
+              PostWrapper,
+              { path: 'csrf-and-xss' },
+              createElement(Page_3)
+            )
+          },
+          {
+            caseSensitive: true,
+            path: 'deep-clone-in-js',
+            element: createElement(
+              PostWrapper,
+              { path: 'deep-clone-in-js' },
+              createElement(Page_4)
+            )
+          },
+          {
+            caseSensitive: true,
+            path: 'empty-object-in-ts',
+            element: createElement(
+              PostWrapper,
+              { path: 'empty-object-in-ts' },
+              createElement(Page_5)
+            )
+          },
+          {
+            caseSensitive: true,
+            path: 'how-to-win-at-cors',
+            element: createElement(
+              PostWrapper,
+              { path: 'how-to-win-at-cors' },
+              createElement(Page_6)
+            )
+          },
+          {
+            caseSensitive: true,
+            path: 'import-meta-glob-and-auto-routes',
+            element: createElement(
+              PostWrapper,
+              { path: 'import-meta-glob-and-auto-routes' },
+              createElement(Page_7)
+            )
+          },
+          {
+            caseSensitive: true,
+            path: '',
+            element: createElement(
+              PostWrapper,
+              { path: '/' },
+              createElement(Page_8)
+            )
+          },
+          {
+            caseSensitive: true,
+            path: 'js-event-loop',
+            element: createElement(
+              PostWrapper,
+              { path: 'js-event-loop' },
+              createElement(Page_9)
+            )
+          },
+          {
+            caseSensitive: true,
+            path: 'promise-a-plus',
+            element: createElement(
+              PostWrapper,
+              { path: 'promise-a-plus' },
+              createElement(Page_10)
+            )
+          },
+          {
+            caseSensitive: true,
+            path: 'race-condition-in-vue-and-react',
+            element: createElement(
+              PostWrapper,
+              { path: 'race-condition-in-vue-and-react' },
+              createElement(Page_11)
+            )
+          },
+          {
+            caseSensitive: true,
+            path: 'ssg-in-flog',
+            element: createElement(
+              PostWrapper,
+              { path: 'ssg-in-flog' },
+              createElement(Page_12)
+            )
+          },
+          {
+            caseSensitive: true,
+            path: 'tsconfig-notes',
+            element: createElement(
+              PostWrapper,
+              { path: 'tsconfig-notes' },
+              createElement(Page_13)
+            )
+          },
+          {
+            caseSensitive: true,
+            path: 'vue-node-mysql-deployment',
+            element: createElement(
+              PostWrapper,
+              { path: 'vue-node-mysql-deployment' },
+              createElement(Page_14)
+            )
+          },
+          {
+            caseSensitive: true,
+            path: 'webpack4-migration-rfc',
+            element: createElement(
+              PostWrapper,
+              { path: 'webpack4-migration-rfc' },
+              createElement(Page_15)
+            )
+          }
+        ]
+      }
+    ]
   },
   {
     caseSensitive: true,
@@ -50,7 +215,7 @@ const routes = [
         element: createElement(
           PostWrapper,
           { path: '/' },
-          createElement(Page_1)
+          createElement(Page_16)
         )
       }
     ]
@@ -65,7 +230,7 @@ const routes = [
         element: createElement(
           PostWrapper,
           { path: 'farewell-my-lovely' },
-          createElement(Page_2)
+          createElement(Page_17)
         )
       },
       {
@@ -78,7 +243,7 @@ const routes = [
             element: createElement(
               PostWrapper,
               { path: '/' },
-              createElement(Page_3)
+              createElement(Page_18)
             )
           },
           {
@@ -87,7 +252,7 @@ const routes = [
             element: createElement(
               PostWrapper,
               { path: 'the-cherry-orchard' },
-              createElement(Page_4)
+              createElement(Page_19)
             )
           }
         ]
@@ -104,7 +269,7 @@ const routes = [
         element: createElement(
           PostWrapper,
           { path: 'function-length' },
-          createElement(Page_5)
+          createElement(Page_20)
         )
       },
       {
@@ -117,7 +282,7 @@ const routes = [
             element: createElement(
               PostWrapper,
               { path: '/' },
-              createElement(Page_6)
+              createElement(Page_21)
             )
           },
           {
@@ -126,7 +291,7 @@ const routes = [
             element: createElement(
               PostWrapper,
               { path: 'js-array-fill' },
-              createElement(Page_7)
+              createElement(Page_22)
             )
           },
           {
@@ -135,7 +300,7 @@ const routes = [
             element: createElement(
               PostWrapper,
               { path: 'js-logical-operator' },
-              createElement(Page_8)
+              createElement(Page_23)
             )
           },
           {
@@ -144,7 +309,7 @@ const routes = [
             element: createElement(
               PostWrapper,
               { path: 'js-string-and-regexp' },
-              createElement(Page_9)
+              createElement(Page_24)
             )
           },
           {
@@ -153,7 +318,7 @@ const routes = [
             element: createElement(
               PostWrapper,
               { path: 'overload-in-ts' },
-              createElement(Page_10)
+              createElement(Page_25)
             )
           },
           {
@@ -162,7 +327,7 @@ const routes = [
             element: createElement(
               PostWrapper,
               { path: 'regexp-test-undefined' },
-              createElement(Page_11)
+              createElement(Page_26)
             )
           },
           {
@@ -171,7 +336,7 @@ const routes = [
             element: createElement(
               PostWrapper,
               { path: 'string-to-ascii' },
-              createElement(Page_12)
+              createElement(Page_27)
             )
           },
           {
@@ -180,7 +345,7 @@ const routes = [
             element: createElement(
               PostWrapper,
               { path: 'this-in-js-prototype-function' },
-              createElement(Page_13)
+              createElement(Page_28)
             )
           },
           {
@@ -189,153 +354,6 @@ const routes = [
             element: createElement(
               PostWrapper,
               { path: 'ts-non-null-operator' },
-              createElement(Page_14)
-            )
-          }
-        ]
-      }
-    ]
-  },
-  {
-    caseSensitive: true,
-    path: 'blog',
-    children: [
-      {
-        caseSensitive: true,
-        path: 'client-session-storage',
-        element: createElement(
-          PostWrapper,
-          { path: 'client-session-storage' },
-          createElement(Page_15)
-        )
-      },
-      {
-        caseSensitive: true,
-        path: '',
-        children: [
-          {
-            caseSensitive: true,
-            path: 'critical-rendering-path',
-            element: createElement(
-              PostWrapper,
-              { path: 'critical-rendering-path' },
-              createElement(Page_16)
-            )
-          },
-          {
-            caseSensitive: true,
-            path: 'csrf-and-xss',
-            element: createElement(
-              PostWrapper,
-              { path: 'csrf-and-xss' },
-              createElement(Page_17)
-            )
-          },
-          {
-            caseSensitive: true,
-            path: 'deep-clone-in-js',
-            element: createElement(
-              PostWrapper,
-              { path: 'deep-clone-in-js' },
-              createElement(Page_18)
-            )
-          },
-          {
-            caseSensitive: true,
-            path: 'empty-object-in-ts',
-            element: createElement(
-              PostWrapper,
-              { path: 'empty-object-in-ts' },
-              createElement(Page_19)
-            )
-          },
-          {
-            caseSensitive: true,
-            path: 'how-to-win-at-cors',
-            element: createElement(
-              PostWrapper,
-              { path: 'how-to-win-at-cors' },
-              createElement(Page_20)
-            )
-          },
-          {
-            caseSensitive: true,
-            path: 'import-meta-glob-and-auto-routes',
-            element: createElement(
-              PostWrapper,
-              { path: 'import-meta-glob-and-auto-routes' },
-              createElement(Page_21)
-            )
-          },
-          {
-            caseSensitive: true,
-            path: '',
-            element: createElement(
-              PostWrapper,
-              { path: '/' },
-              createElement(Page_22)
-            )
-          },
-          {
-            caseSensitive: true,
-            path: 'js-event-loop',
-            element: createElement(
-              PostWrapper,
-              { path: 'js-event-loop' },
-              createElement(Page_23)
-            )
-          },
-          {
-            caseSensitive: true,
-            path: 'promise-a-plus',
-            element: createElement(
-              PostWrapper,
-              { path: 'promise-a-plus' },
-              createElement(Page_24)
-            )
-          },
-          {
-            caseSensitive: true,
-            path: 'race-condition-in-vue-and-react',
-            element: createElement(
-              PostWrapper,
-              { path: 'race-condition-in-vue-and-react' },
-              createElement(Page_25)
-            )
-          },
-          {
-            caseSensitive: true,
-            path: 'ssg-in-flog',
-            element: createElement(
-              PostWrapper,
-              { path: 'ssg-in-flog' },
-              createElement(Page_26)
-            )
-          },
-          {
-            caseSensitive: true,
-            path: 'tsconfig-notes',
-            element: createElement(
-              PostWrapper,
-              { path: 'tsconfig-notes' },
-              createElement(Page_27)
-            )
-          },
-          {
-            caseSensitive: true,
-            path: 'vue-node-mysql-deployment',
-            element: createElement(
-              PostWrapper,
-              { path: 'vue-node-mysql-deployment' },
-              createElement(Page_28)
-            )
-          },
-          {
-            caseSensitive: true,
-            path: 'webpack4-migration-rfc',
-            element: createElement(
-              PostWrapper,
-              { path: 'webpack4-migration-rfc' },
               createElement(Page_29)
             )
           }

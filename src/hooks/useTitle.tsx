@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 
 const { default: frontmatters } = await import('../models/frontmatters')
 
-export function useTitle(routePath: string) {
+const useTitle = (routePath: string) => {
   const path = window && location.pathname
 
   useEffect(() => {
@@ -19,3 +19,5 @@ export function useTitle(routePath: string) {
   }, [path])
 
 }
+
+export { useTitle }

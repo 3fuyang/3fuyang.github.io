@@ -31,7 +31,9 @@ const pages: Page[] = rawPaths.map(({ path, name }) => {
   const extName = /\.mdx$/.test(name) ? name : name.split('.')[0]
   const importName = `Page_${counter++}`
 
-  imports.push(`import ${importName} from '../../${path.replace(name, extName)}'`)
+  imports.push(
+    `const ${importName} =  (await import('../../${path.replace(name, extName)}')).default`
+  )
 
   return {
     name,
