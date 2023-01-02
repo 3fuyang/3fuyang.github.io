@@ -4,10 +4,12 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
+    "dev": "npm run page && vite",
+    "build": "npm run page && tsc && vite build",
+    "build-directly": "tsc && vite build",
     "preview": "vite preview",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "page": "tsx scripts/auto-routes.ts && prettier src/models/routes.ts --write && eslint src/models/routes.ts --fix"
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -28,7 +30,9 @@
     "@vitejs/plugin-react-swc": "^3.0.0",
     "eslint": "^8.29.0",
     "eslint-plugin-react": "^7.31.11",
+    "fast-glob": "^3.2.12",
     "lxgw-wenkai-webfont": "^1.6.0",
+    "prettier": "^2.8.1",
     "rehype-highlight": "^6.0.0",
     "rehype-slug": "^5.1.0",
     "rehype-toc": "^3.0.2",
