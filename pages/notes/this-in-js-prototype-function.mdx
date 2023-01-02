@@ -44,3 +44,11 @@ f.myBind({a: 2})(4)
 ```
 
 这样，所返回箭头函数的`this`将由`myBind()`在**运行时**确定，也正好就是实例化的**函数对象**。
+
+export default function Layout({children}) {
+  return (
+    <article className="prose">
+      {children}
+    </article>
+  )
+}

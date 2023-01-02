@@ -41,3 +41,11 @@ path: /notes/js-logical-operator
 而不关注整个逻辑运算表达式所返回的结果。
 
 但总的来说，解开对逻辑运算符的这个误解还是对我帮助很大，能写出更简洁的程序不说，至少不会再**错误推断**别人的代码了...
+
+export default function Layout({children}) {
+  return (
+    <article className="prose">
+      {children}
+    </article>
+  )
+}

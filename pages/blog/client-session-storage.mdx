@@ -19,3 +19,11 @@ Session storage 一般被理解为**会话**期存储，只要对应 tab 页不�
 通过`window.history`接口或者重新赋值`window.location.href`回到该站点，session storage **依然存在**。
 
 注意，打开一个**新 tab 页**进入到该站点时，是无法访问其他同源 tab 页创建的 session storage 的。
+
+export default function Layout({children}) {
+  return (
+    <article className="prose">
+      {children}
+    </article>
+  )
+}

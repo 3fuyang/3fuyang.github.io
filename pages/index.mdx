@@ -45,3 +45,11 @@ Welcome to my personal blog, basically including 5 modules:
 - 😄 Pronouns: ...
 - ⚡ Fun fact: ... */
 }
+
+export default function Layout({children}) {
+  return (
+    <article className="prose">
+      {children}
+    </article>
+  )
+}

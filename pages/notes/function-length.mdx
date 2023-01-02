@@ -29,3 +29,11 @@ function curry<T>(func: (...args: any[]) => T) {
   return curried
 }
 ```
+
+export default function Layout({children}) {
+  return (
+    <article className="prose">
+      {children}
+    </article>
+  )
+}

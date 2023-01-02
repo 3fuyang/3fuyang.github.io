@@ -121,3 +121,11 @@ watch(obj, async (newValue, oldValue, onInvalidate) => {
 
 两者的解决方法几乎**一模一样**，区别只在于 Vue 注册 cleanup 函数的 API 形式较为特殊，是传递给`watch`的回调函数的一个类似于 hook 的可选参数,
 比起 React 更加的**集成**，但都应用了**闭包**的思维。
+
+export default function Layout({children}) {
+  return (
+    <article className="prose">
+      {children}
+    </article>
+  )
+}

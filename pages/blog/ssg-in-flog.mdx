@@ -269,3 +269,11 @@ export default routes
 
 + `configResolved`在 Vite 配置解析完毕后执行, 用于读取和存储配置的解析结果, 在插件中它根据 Vite 应用的环境(React, Solid ...)做出不同的反应。
 + `configureServer`用于配置 **dev server**, 它最常见的用例是为 server 添加**自定义的中间件**, 在该插件中, 主要用于设置 **HMR**。
+
+export default function Layout({children}) {
+  return (
+    <article className="prose">
+      {children}
+    </article>
+  )
+}

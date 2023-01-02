@@ -136,3 +136,11 @@ CSSOM 包含了 DOM 的**所有样式信息**，它的加载是**阻塞**的，[
 **但是**，有些情况下，**scripts** 可能在 HTML 解析途中需要**样式信息**，这时，如果样式表还没有被加载完毕，那么脚本就可能获得**错误**的信息。
 
 因此，对 CSS 文件的**请求**和**解析**通常都是**阻塞**渲染的，而且最重要的是，不完整的 CSSOM 会**阻塞 script 元素**的加载。
+
+export default function Layout({children}) {
+  return (
+    <article className="prose">
+      {children}
+    </article>
+  )
+}

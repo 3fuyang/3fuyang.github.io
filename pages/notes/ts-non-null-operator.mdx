@@ -26,3 +26,11 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   </div>
 `
 ```
+
+export default function Layout({children}) {
+  return (
+    <article className="prose">
+      {children}
+    </article>
+  )
+}

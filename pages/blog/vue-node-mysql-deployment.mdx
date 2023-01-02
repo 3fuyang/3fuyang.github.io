@@ -170,3 +170,11 @@ path: /blog/vue-node-mysql-deployment
 ### 后端数据库名称大小写问题
 
 + 在**本地调试后端**时，**connection.query() 方法**中的 **SQL 语句**对大小写不敏感，但部署到服务器上后，后端对**大小写敏感**，需要注意两者一致。
+
+export default function Layout({children}) {
+  return (
+    <article className="prose">
+      {children}
+    </article>
+  )
+}

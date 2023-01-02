@@ -223,3 +223,11 @@ Access-Control-Allow-Headers: fancy, here-we
 > 预检响应对状态码的限制造成了一些**陷阱**。对于一个像`/artists/Pip-Blom`这样的 API，如果对应资源 'Pip Blom' 不在数据库中，你可能想要返回 404 来**明确告知**客户端它请求了不存在的资源。但如果这个请求需要一个预检请求，那么其响应状态码只能是 **200-299**，即使最终的主响应会是 404。
 
 如果主请求**方法**和**头部**都被允许，那么主请求将被发送。
+
+export default function Layout({children}) {
+  return (
+    <article className="prose">
+      {children}
+    </article>
+  )
+}

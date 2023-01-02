@@ -37,3 +37,11 @@ result.groups // 命名捕获组对象(key 是名称,val 是捕获组)
 - 判断**是否匹配**：`RegExp.prototype.test()`
 - 找出所有匹配的字符串，而**不关心捕获组**：`String.prototype.match()`
 - 查找在字符串中匹配的**索引**：`String.prototype.search()`
+
+export default function Layout({children}) {
+  return (
+    <article className="prose">
+      {children}
+    </article>
+  )
+}

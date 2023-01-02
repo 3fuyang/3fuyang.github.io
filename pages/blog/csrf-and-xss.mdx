@@ -28,3 +28,11 @@ path: /blog/csrf-and-xss
 XSS 攻击一般由不对**传入后端**的数据做合适的校验引起的，类似于 sql 注入攻击。
 
 同样，防止 XSS 攻击需要在后端对传入的数据做相应处理。如果使用了 cookie，那么将其设置为`HttpOnly`的，可以防止用户 token 被劫持。
+
+export default function Layout({children}) {
+  return (
+    <article className="prose">
+      {children}
+    </article>
+  )
+}

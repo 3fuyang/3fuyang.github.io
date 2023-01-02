@@ -152,3 +152,11 @@ script 作用域还保留在执行栈中，但第二个 promise 产生的微任�
 的`Promise.resolve()`，所以其`then()`回调在自上而下执行 script 时就已经被推入微任务队列。
 
 上面的结果可以说明，一个执行上下文帧在执行栈中**保留**并不代表 JS 代码**正在执行**（mid-execution），关于作用域与上下文的知识，自己还需要更深入地了解。
+
+export default function Layout({children}) {
+  return (
+    <article className="prose">
+      {children}
+    </article>
+  )
+}

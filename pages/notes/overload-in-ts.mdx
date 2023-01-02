@@ -19,3 +19,11 @@ TypeScript 中的函数重载（Function Overload）较为特别，其允许的�
 所以 TS 中函数重载的意义主要在于，使 IDE 能够提供**函数重载**这种思维模式的**代码提示**。
 
 完全符合 TypeScript 作为 JavaScript 的**注释**的角色，除了`class`和`enum`外不具备任何**运行时**功能。
+
+export default function Layout({children}) {
+  return (
+    <article className="prose">
+      {children}
+    </article>
+  )
+}

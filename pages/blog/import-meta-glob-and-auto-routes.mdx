@@ -81,3 +81,11 @@ After:
 </figure>
 
 可以看到，移除`vite-plugin-pages`后，应用的打包体积优化了整整...**64 KB**！
+
+export default function Layout({children}) {
+  return (
+    <article className="prose">
+      {children}
+    </article>
+  )
+}

@@ -126,3 +126,11 @@ Promise 解析流程（promise pesolution procedure）是一个**抽象操作**�
 > **注意**：规约中**并未**提到 promise 本身的**状态迁移方法**（即我们熟悉的 ECMAScript 中的`resolve`和`reject`）该如何实现，
 > 在 ECMAScript 中，promise 构造函数中的`resolve`也会对 thenable 类型的结果值进行**解包**（unwrap）,
 > 所以可以大致将上面的`[[Resolve]](promise, x)`视作 promise 的`resolve`以及`reject`方法**内部**需要实现的逻辑。
+
+export default function Layout({children}) {
+  return (
+    <article className="prose">
+      {children}
+    </article>
+  )
+}

@@ -49,3 +49,11 @@ String.prototype.codePointAt(index: number): number
   </picture>
   <figcaption>charCodeAt 和 charPointAt 的区别</figcaption>
 </figure>
+
+export default function Layout({children}) {
+  return (
+    <article className="prose">
+      {children}
+    </article>
+  )
+}

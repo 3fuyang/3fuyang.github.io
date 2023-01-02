@@ -87,3 +87,11 @@ type AnyOf<T extends readonly any[]> =
 
 最后吐槽一下，当时在 bing、google、stackoverflow 上搜了很久 ts 中空字符字面量怎么表示，但一直没查到,
 大概是英语水平不行吧，单凭敲几个关键词还是不能准确检索。
+
+export default function Layout({children}) {
+  return (
+    <article className="prose">
+      {children}
+    </article>
+  )
+}

@@ -11,8 +11,8 @@ export default function PostWrapper(props: PropsWithChildren<PWprops>) {
   useScrollToTop()
 
   return (
-    <article className="prose">
+    <>
       {props.children}
-    </article>
+    </>
   )
 }
