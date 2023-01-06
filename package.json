@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "npm run page && vite",
-    "build": "npm run page && tsc && vite build",
-    "build-directly": "tsc && vite build",
+    "build:routes": "npm run page && tsc && vite build",
+    "build:bare": "tsc && vite build",
     "preview": "vite preview",
     "lint": "eslint .",
     "page": "tsx scripts/auto-routes.ts && prettier src/models/routes.ts --write && eslint src/models/routes.ts --fix"
