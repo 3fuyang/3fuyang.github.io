@@ -2,7 +2,7 @@
 .prose {
   --fg: #555;
   --fg-deep: #222;
-  -fg-deeper: #000;
+  --fg-deeper: #000;
 
   --a: rgb(14, 116, 144);
   --a-dark: #aac8e4;
