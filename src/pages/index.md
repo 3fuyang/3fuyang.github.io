@@ -18,7 +18,7 @@ layout: ~/layouts/MarkdownLayout.astro
   <figcaption>My name is Fwio, and this is my face.</figcaption>
 </figure>
 
-Welcome! I write websites and tools.
+Welcome!
 
 This blog basically inlcudes following five parts:
 - 📑 **Blog** - Some technical articles.
@@ -30,4 +30,8 @@ This blog basically inlcudes following five parts:
 <br/>
 
 * 🌱 Currently, I'm learning [Astro](https://astro.build/), [Solid](https://www.solidjs.com/) and [Rust](https://www.rust-lang.org/).
+* I enjoy
+  * 🕵️ Detective novels written by Raymond Chandler and Ross Macdonald.
+  * 🎞️ Stories about memory loss, like those by Kazuo Ishiguro and Patrick Modiano.
+  * 🍒 And Chekov's plays.
 * 📧 How to reach me: 624835339@qq.com
