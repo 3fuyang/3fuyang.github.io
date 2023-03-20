@@ -317,12 +317,12 @@
 
 .prose pre {
   border-radius: 4px;
-  padding: 1em;
+  padding: 1.2em 1em;
   border: 1px solid #d1d5db;
   font-size: 0.75em;
   margin: 1em 0;
 }
 
 .dark .prose pre {
-  border-color: #4e4e4e;
+  border-color: #2e2e2e;
 }
