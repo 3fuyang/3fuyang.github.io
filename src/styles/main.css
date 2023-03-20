@@ -1,5 +1,4 @@
 /* Define background and scrollbar style. */
-@import 'lxgw-wenkai-webfont/style.css';
 
 :root {
   --c-bg: #fff;
@@ -10,7 +9,7 @@
 
 html {
   background-color: var(--c-bg);
-  transition: background-color .2s ease;
+  transition: background-color 0.2s ease;
 }
 
 html.dark {
@@ -21,14 +20,8 @@ html.dark {
 }
 
 body {
-  font-family: 'LXGW WenKai', ui-monospace,
-    SFMono-Regular,
-    Menlo,
-    Monaco,
-    Consolas,
-    "Liberation Mono",
-    "Courier New",
-    monospace;
+  font-family: 'LXGW WenKai', ui-monospace, SFMono-Regular, Menlo, Monaco,
+    Consolas, 'Liberation Mono', 'Courier New', monospace;
 }
 
 * {

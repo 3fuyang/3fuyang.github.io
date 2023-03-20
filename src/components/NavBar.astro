@@ -1,0 +1,58 @@
+---
+import FLink from './FLink.astro'
+import ToggleTheme from './ToggleTheme'
+
+const fLinks = [
+  {
+    to: '/blog',
+    title: 'Blog',
+    icon: 'i-ant-design-file-text-outline',
+  },
+  {
+    to: '/notes',
+    title: 'Notes',
+    icon: 'i-game-icons-notebook',
+  },
+  {
+    to: '/essay',
+    title: 'Essay',
+    icon: 'i-game-icons-bookshelf',
+  },
+  {
+    to: '/projects',
+    title: 'Projects',
+    icon: 'i-material-symbols-app-registration',
+  },
+  {
+    to: '/demos',
+    title: 'Demos',
+    icon: 'i-material-symbols-album-outline',
+  },
+]
+---
+
+<header
+  class="flex px5 py3 items-center sticky top-0 z1 backdrop-filter backdrop-blur backdrop-saturate-50"
+>
+  <a href="/" class="select-none outline-none" title="Fwio">
+    <div
+      class="i-game-icons-egyptian-bird h-10 w-10 color-cyan-9 dark:color-cyan-6"
+      aria-hidden
+    >
+    </div>
+  </a>
+  <div class="spacer flex-1"></div>
+  <nav class="flex gap-6 md:gap-8 items-center">
+    {fLinks.map((fLink) => <FLink {...fLink} />)}
+    <a
+      href="https://github.com/3fuyang"
+      class="link"
+      target="_blank"
+      rel="noreferrer noopener"
+      title="Github"
+    >
+      <div class="i-octicon-mark-github h5 w5"></div>
+    </a>
+    <ToggleTheme client:only="react" />
+  </nav>
+</header>

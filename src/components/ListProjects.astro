@@ -1,0 +1,71 @@
+---
+interface Project {
+  logo: string
+  title: string
+  src: string
+  intro: string
+  type: 'vue' | 'react'
+}
+
+const projects: Project[] = [
+  {
+    logo: 'i-bi-cart',
+    title: 'TJ Flea',
+    src: 'https://github.com/3fuyang/flea-market',
+    intro:
+      'A classic online flea market for TJSSE software enginnering course.',
+    type: 'vue',
+  },
+  {
+    logo: 'i-game-icons-plague-doctor-profile',
+    title: 'Flog',
+    src: 'https://github.com/3fuyang/3fuyang.github.io',
+    intro: "Means Fwio's blog.",
+    type: 'react',
+  },
+  {
+    logo: 'i-simple-icons-jest',
+    title: 'Libre Testing',
+    src: 'https://github.com/3fuyang/libre-testing',
+    intro: 'An automatic testing platform for TJSSE software testing course.',
+    type: 'vue',
+  },
+]
+
+function getLangLogo(type: Project['type']) {
+  switch (type) {
+    case 'vue':
+      return 'i-fa-brands-vuejs  color-green-7 dark:color-emerald-5'
+    case 'react':
+      return 'i-fa-brands-react color-cyan-5 dark:color-cyan-4'
+  }
+}
+---
+
+<section class="m-auto max-w-45em md:justify-between md:flex md:flex-wrap">
+  {
+    projects.map(({ src, type, title, intro, logo }) => (
+      <article
+        class:list={[
+          'relative dark:shadow-gray-5 box-border rounded-md p3 md:w-20/41 h-40 op80 mb4',
+          'hover:op100 hover:shadow-md',
+          'active:op100 active:shadow-md',
+          'transition',
+          'border border-gray-4',
+        ]}
+      >
+        <a href={src} target="_blank" rel="noreferrer">
+          <header aria-hidden="true" class="absolute bottom-1 right-1">
+            <div class:list={['w-6 h-6', getLangLogo(type)]} />
+          </header>
+          <div
+            aria-hidden="true"
+            class:list={['w-10 h-10 color-gray-6 dark:color-gray-3', logo]}
+          />
+          <h2 class="font-bold text-xl truncate">{title}</h2>
+          <main class="overflow-auto box-border h-18">{intro}</main>
+        </a>
+      </article>
+    ))
+  }
+</section>
