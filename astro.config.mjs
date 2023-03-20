@@ -6,6 +6,7 @@ import vitesseDark from './src/styles/vitesse-dark.json'
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://3fuyang.github.io',
   markdown: {
     shikiConfig: {
       theme: vitesseDark,
