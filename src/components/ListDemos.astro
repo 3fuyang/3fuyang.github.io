@@ -1,0 +1,83 @@
+---
+interface Demo {
+  icon: string
+  title: string
+  src: string
+  intro: string
+  type: 'js' | 'ts' | 'vue' | 'react'
+}
+
+const demos: Demo[] = [
+  {
+    icon: 'i-simple-icons-unocss',
+    title: 'Pure Demo',
+    src: 'https://github.com/3fuyang/pure-demo',
+    intro: 'Demo of some pure front-end skills.',
+    type: 'vue',
+  },
+  {
+    icon: 'i-simple-icons-jsonwebtokens',
+    title: 'Authorization Demo',
+    src: 'https://github.com/3fuyang/authorization_demo',
+    intro:
+      'A demo to implement JWT(JSON Web Token), including both the front end and the back end.',
+    type: 'vue',
+  },
+  {
+    icon: 'i-codicon-list-tree',
+    title: 'Virtual List',
+    src: 'https://github.com/3fuyang/virtual-list',
+    intro:
+      'A very rough implementation of a virtual list, a.k.a. virtual scroller, with React hooks.',
+    type: 'react',
+  },
+  {
+    icon: 'i-game-icons-puzzle',
+    title: 'Type Challenges',
+    src: 'https://gist.github.com/3fuyang/fe7fe44b6d7a2d7996577ab9c6324adc',
+    intro: 'Just resolutions to type challenges.',
+    type: 'ts',
+  },
+]
+
+function getLangLogo(type: Demo['type']) {
+  switch (type) {
+    case 'vue':
+      return 'i-fa-brands-vuejs  color-green-7 dark:color-emerald-5'
+    case 'react':
+      return 'i-fa-brands-react color-cyan-5 dark:color-cyan-4'
+    case 'ts':
+      return 'i-simple-icons-typescript color-blue-5 dark:color-blue-4'
+    case 'js':
+      return 'i-simple-icons-javascript color-amber-5 dark:color-amber-4'
+  }
+}
+---
+
+<section class="m-auto max-w-45em md:justify-between md:flex md:flex-wrap">
+  {
+    demos.map(({ src, type, title, intro, icon }) => (
+      <article
+        class:list={[
+          'relative dark:shadow-gray-5 box-border rounded-md p3 md:w-20/41 h-40 op80 mb4',
+          'hover:op100 hover:shadow-md',
+          'active:op100 active:shadow-md',
+          'transition',
+          'border border-gray-4',
+        ]}
+      >
+        <a href={src} target="_blank" rel="noreferrer">
+          <header aria-hidden="true" class="absolute bottom-1 right-1">
+            <div class:list={['w-6 h-6', getLangLogo(type)]} />
+          </header>
+          <div
+            aria-hidden="true"
+            class:list={['w-10 h-10 color-gray-6 dark:color-gray-3', icon]}
+          />
+          <h2 class="font-bold text-xl truncate">{title}</h2>
+          <main class="overflow-auto box-border h-18">{intro}</main>
+        </a>
+      </article>
+    ))
+  }
+</section>

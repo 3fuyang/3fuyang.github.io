@@ -1,0 +1,18 @@
+---
+import { getCollection } from 'astro:content'
+
+import BaseLayout from '~/layouts/BaseLayout.astro'
+import ListPosts from '~/components/ListPosts.astro'
+
+const allBlogPosts = await getCollection('notes')
+
+const posts = allBlogPosts.map(({ slug, data }) => ({
+  slug: `/notes/${slug}`,
+  title: data.title,
+  date: data.date,
+}))
+---
+
+<BaseLayout title="Notes | Fwio">
+  <ListPosts {...{ posts }} />
+</BaseLayout>

@@ -1,0 +1,32 @@
+---
+export interface Props {
+  posts: {
+    slug: string
+    title: string
+    date: Date
+  }[]
+}
+
+const { posts } = Astro.props
+---
+
+<section class="max-w-45em m-auto">
+  {
+    posts.map(({ slug, title, date }) => (
+      <article class="mt-8">
+        <a
+          href={slug}
+          class:list={[
+            'block box-border rounded-sm op70 dark:op80 hover:op100 focus:op100 ml-4 p-1 hover:drop-shadow focus:drop-shadow',
+            'border-r-4 border-#878584 hover:border-blue-4 dark:hover:border-blue-5 focus:border-blue-4 dark:focus:border-blue-5 lt-md:border-blue-4',
+            'flex flex-col',
+            'transition',
+          ]}
+        >
+          <span class="text-3xl font-bold truncate">{title}</span>
+          <span>{new Date(date).toLocaleDateString()}</span>
+        </a>
+      </article>
+    ))
+  }
+</section>

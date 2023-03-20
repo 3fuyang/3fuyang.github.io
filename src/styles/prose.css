@@ -33,11 +33,11 @@
 
 .dark .prose a:hover {
   border-color: var(--a-dark);
-  filter: drop-shadow(0 0 .25em var(--fg));
-} 
+  filter: drop-shadow(0 0 0.25em var(--fg));
+}
 
 .prose strong {
-  padding: 0 .1em;
+  padding: 0 0.1em;
   color: var(--fg-deep);
   font-weight: bold;
 }
@@ -48,69 +48,69 @@
   margin: 3em 0;
 }
 
-.prose ol[type="A"] {
+.prose ol[type='A'] {
   --list-counter-style: upper-alpha;
 }
 
-.prose ol[type="a"] {
+.prose ol[type='a'] {
   --list-counter-style: lower-alpha;
 }
 
-.prose ol[type="A s"] {
+.prose ol[type='A s'] {
   --list-counter-style: upper-alpha;
 }
 
-.prose ol[type="a s"] {
+.prose ol[type='a s'] {
   --list-counter-style: lower-alpha;
 }
 
-.prose ol[type="I"] {
+.prose ol[type='I'] {
   --list-counter-style: upper-roman;
 }
 
-.prose ol[type="i"] {
+.prose ol[type='i'] {
   --list-counter-style: lower-roman;
 }
 
-.prose ol[type="I s"] {
+.prose ol[type='I s'] {
   --list-counter-style: upper-roman;
 }
 
-.prose ol[type="i s"] {
+.prose ol[type='i s'] {
   --list-counter-style: lower-roman;
 }
 
-.prose ol[type="1"] {
+.prose ol[type='1'] {
   --list-counter-style: decimal;
 }
 
-.prose ol>li {
+.prose ol > li {
   position: relative;
   padding-left: 1.75em;
 }
 
-.prose ol>li::before {
-  content: counter(list-item, var(--list-counter-style, decimal)) ".";
+.prose ol > li::before {
+  content: counter(list-item, var(--list-counter-style, decimal)) '.';
   position: absolute;
   font-weight: normal;
   color: #6b7280;
   left: 0;
 }
 
-.prose ul>li {
+.prose ul > li {
   position: relative;
   padding-left: 1.75em;
 }
 
-.prose ul>li::before {
-  content: "";
+.prose ul > li::before {
+  content: '';
   position: absolute;
   background-color: #d1d5db;
   border-radius: 50%;
-  width: .375em;
-  height: .375em;
-  top: calc(.875em - .1875em);
-  left: .25em;
+  width: 0.375em;
+  height: 0.375em;
+  top: calc(0.875em - 0.1875em);
+  left: 0.25em;
 }
 
 .prose blockquote {
@@ -118,15 +118,15 @@
   font-weight: 500;
   font-style: italic;
   color: inherit;
-  border-left-width: .25rem;
+  border-left-width: 0.25rem;
   border-color: #d1d5db;
-  quotes: "\201C""\201D""\2018""\2019";
+  quotes: '\201C''\201D''\2018''\2019';
   line-height: 1.5em;
-  padding: .5em 1.5em;
+  padding: 0.5em 1.5em;
   padding-left: 1em;
   margin: 1.6em 0;
-  opacity: .8;
-  transition: all .25s ease-out;
+  opacity: 0.8;
+  transition: all 0.25s ease-out;
 }
 
 .dark .prose blockquote {
@@ -137,11 +137,11 @@
   opacity: 1;
 }
 
-.prose blockquote> :first-child {
+.prose blockquote > :first-child {
   margin-top: 0;
 }
 
-.prose blockquote> :last-child {
+.prose blockquote > :last-child {
   margin-bottom: 0;
 }
 
@@ -201,21 +201,21 @@
   text-transform: uppercase;
   margin-top: 20px;
   margin-bottom: 10px;
-  opacity: .8;
+  opacity: 0.8;
   font-weight: 500;
   letter-spacing: 2px;
 }
 
 .prose p {
-  margin: .6em 0 0;
+  margin: 0.6em 0 0;
 }
 
 .prose .toc {
   will-change: opacity;
-  opacity: .8;
+  opacity: 0.8;
   position: fixed;
   top: 5rem;
-  right: .6rem;
+  right: 0.6rem;
   z-index: 10;
   overflow-y: auto;
   overflow-x: hidden;
@@ -224,7 +224,7 @@
   max-height: 31.25rem;
   max-width: 13rem;
 
-  transition: all .5s ease-out;
+  transition: all 0.5s ease-out;
 }
 
 @media (max-width: 1200px) {
@@ -247,7 +247,7 @@
   margin: 1em auto 0;
   max-width: 35em;
   border: 1px solid #eee;
-  border-radius: .3rem;
+  border-radius: 0.3rem;
 }
 
 .prose figcaption {
@@ -283,7 +283,7 @@
 }
 
 .dark .prose .invertable {
-  filter: invert(.9);
+  filter: invert(0.9);
   border-color: #eee;
 }
 
@@ -292,7 +292,7 @@
 }
 
 .prose table th {
-  background: #FAFAFC;
+  background: #fafafc;
   font-weight: bold;
 }
 
@@ -313,4 +313,16 @@
 
 .dark .prose table strong {
   color: rgba(255, 255, 255, 0.82);
+}
+
+.prose pre {
+  border-radius: 4px;
+  padding: 1em;
+  border: 1px solid #d1d5db;
+  font-size: 0.75em;
+  margin: 1em 0;
+}
+
+.dark .prose pre {
+  border-color: #4e4e4e;
 }
