@@ -6,11 +6,13 @@ import ListPosts from '~/components/ListPosts.astro'
 
 const allBlogPosts = await getCollection('blog')
 
-const posts = allBlogPosts.map(({ slug, data }) => ({
-  slug: `/blog/${slug}`,
-  title: data.title,
-  date: data.date,
-}))
+const posts = allBlogPosts
+  .map(({ slug, data: { title, date } }) => ({
+    slug: `/blog/${slug}`,
+    title,
+    date,
+  }))
+  .sort((a, b) => Number(b.date) - Number(a.date))
 ---
 
 <BaseLayout title="Blog | Fwio">
