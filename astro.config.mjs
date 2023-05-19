@@ -12,5 +12,10 @@ export default defineConfig({
       theme: vitesseDark,
     },
   },
-  integrations: [react(), UnoCSS()],
+  integrations: [
+    react(),
+    UnoCSS({
+      injectReset: true,
+    }),
+  ],
 })
