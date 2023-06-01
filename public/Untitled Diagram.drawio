@@ -1,176 +1,179 @@
-<mxfile host="app.diagrams.net" modified="2023-05-13T03:40:20.251Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.35" etag="8SM44ay35O1BeGCJmBmk" version="21.2.9" type="github">
+<mxfile host="app.diagrams.net" modified="2023-06-01T12:51:47.816Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36" etag="wWWzEH3AfAXLrQbFiRDu" version="21.3.6" type="github">
   <diagram name="Page-1" id="wQUGXdMJ6Q_dD7qGj5Qh">
-    <mxGraphModel dx="892" dy="521" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1026" dy="599" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="BIzshJUT_aMa5dCBa4wF-1" value="&lt;font style=&quot;font-size: 14px;&quot; face=&quot;宋体&quot;&gt;视图层&lt;br&gt;（&lt;/font&gt;&lt;font face=&quot;Times New Roman&quot; style=&quot;font-size: 14px;&quot;&gt;View&lt;/font&gt;&lt;font style=&quot;font-size: 14px;&quot; face=&quot;宋体&quot;&gt;）&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="BIzshJUT_aMa5dCBa4wF-1" value="&lt;font style=&quot;font-size: 14px;&quot; face=&quot;宋体&quot;&gt;视图层&lt;br&gt;（&lt;/font&gt;&lt;font face=&quot;Times New Roman&quot; style=&quot;font-size: 14px;&quot;&gt;View&lt;/font&gt;&lt;font style=&quot;font-size: 14px;&quot; face=&quot;宋体&quot;&gt;）&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="40" y="60" width="120" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="BIzshJUT_aMa5dCBa4wF-3" value="&lt;font style=&quot;font-size: 14px;&quot; face=&quot;Times New Roman&quot;&gt;Web&lt;/font&gt; &lt;font face=&quot;宋体&quot; style=&quot;font-size: 14px;&quot;&gt;界面&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="BIzshJUT_aMa5dCBa4wF-3" value="&lt;font style=&quot;font-size: 14px;&quot; face=&quot;Times New Roman&quot;&gt;Web&lt;/font&gt;&lt;font face=&quot;Times New Roman&quot;&gt; &lt;/font&gt;&lt;font face=&quot;宋体&quot; style=&quot;font-size: 14px;&quot;&gt;界面&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="190" y="60" width="500" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="BIzshJUT_aMa5dCBa4wF-10" value="&lt;font style=&quot;font-size: 14px;&quot; face=&quot;宋体&quot;&gt;控制器层（&lt;/font&gt;&lt;font face=&quot;Times New Roman&quot; style=&quot;font-size: 14px;&quot;&gt;Controller&lt;/font&gt;&lt;font style=&quot;font-size: 14px;&quot; face=&quot;宋体&quot;&gt;）&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="BIzshJUT_aMa5dCBa4wF-10" value="&lt;font style=&quot;font-size: 14px;&quot; face=&quot;宋体&quot;&gt;控制器层（&lt;/font&gt;&lt;font face=&quot;Times New Roman&quot; style=&quot;font-size: 14px;&quot;&gt;Controller&lt;/font&gt;&lt;font style=&quot;font-size: 14px;&quot; face=&quot;宋体&quot;&gt;）&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="40" y="160" width="120" height="170" as="geometry" />
         </mxCell>
-        <mxCell id="BIzshJUT_aMa5dCBa4wF-67" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="BIzshJUT_aMa5dCBa4wF-11" target="BIzshJUT_aMa5dCBa4wF-39">
+        <mxCell id="BIzshJUT_aMa5dCBa4wF-67" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" parent="1" source="BIzshJUT_aMa5dCBa4wF-11" target="BIzshJUT_aMa5dCBa4wF-39" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="BIzshJUT_aMa5dCBa4wF-68" value="&lt;font face=&quot;宋体&quot; style=&quot;font-size: 14px;&quot;&gt;调用业务逻辑&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="BIzshJUT_aMa5dCBa4wF-67">
+        <mxCell id="BIzshJUT_aMa5dCBa4wF-68" value="&lt;font face=&quot;宋体&quot; style=&quot;font-size: 14px;&quot;&gt;调用业务逻辑&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="BIzshJUT_aMa5dCBa4wF-67" vertex="1" connectable="0">
           <mxGeometry x="-0.0667" relative="1" as="geometry">
             <mxPoint x="1" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="BIzshJUT_aMa5dCBa4wF-11" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="BIzshJUT_aMa5dCBa4wF-11" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="190" y="160" width="500" height="170" as="geometry" />
         </mxCell>
-        <mxCell id="BIzshJUT_aMa5dCBa4wF-19" value="&lt;span style=&quot;font-size: 14px;&quot;&gt;&lt;font face=&quot;宋体&quot;&gt;数据层&lt;br&gt;（&lt;/font&gt;&lt;font face=&quot;Times New Roman&quot;&gt;Data&lt;/font&gt;&lt;font face=&quot;宋体&quot;&gt;）&lt;/font&gt;&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="BIzshJUT_aMa5dCBa4wF-19" value="&lt;span style=&quot;font-size: 14px;&quot;&gt;&lt;font face=&quot;宋体&quot;&gt;数据层&lt;br&gt;（&lt;/font&gt;&lt;font face=&quot;Times New Roman&quot;&gt;Data&lt;/font&gt;&lt;font face=&quot;宋体&quot;&gt;）&lt;/font&gt;&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="40" y="769.9900000000001" width="120" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="BIzshJUT_aMa5dCBa4wF-77" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="BIzshJUT_aMa5dCBa4wF-20" target="BIzshJUT_aMa5dCBa4wF-55">
+        <mxCell id="BIzshJUT_aMa5dCBa4wF-77" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" parent="1" source="BIzshJUT_aMa5dCBa4wF-20" target="BIzshJUT_aMa5dCBa4wF-55" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="BIzshJUT_aMa5dCBa4wF-78" value="&lt;font face=&quot;宋体&quot; style=&quot;font-size: 14px;&quot;&gt;读取数据&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="BIzshJUT_aMa5dCBa4wF-77">
+        <mxCell id="BIzshJUT_aMa5dCBa4wF-78" value="&lt;font face=&quot;宋体&quot; style=&quot;font-size: 14px;&quot;&gt;读取数据&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="BIzshJUT_aMa5dCBa4wF-77" vertex="1" connectable="0">
           <mxGeometry x="0.1" y="-2" relative="1" as="geometry">
             <mxPoint x="1" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="BIzshJUT_aMa5dCBa4wF-20" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="BIzshJUT_aMa5dCBa4wF-20" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="190" y="769.9900000000001" width="500" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="BIzshJUT_aMa5dCBa4wF-25" value="&lt;span style=&quot;font-size: 14px;&quot;&gt;&lt;font face=&quot;宋体&quot;&gt;数据库&lt;/font&gt;&lt;/span&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="1">
+        <mxCell id="BIzshJUT_aMa5dCBa4wF-25" value="&lt;span style=&quot;font-size: 14px;&quot;&gt;&lt;font face=&quot;宋体&quot;&gt;数据库&lt;/font&gt;&lt;/span&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" parent="1" vertex="1">
           <mxGeometry x="252.5" y="774.9900000000001" width="55" height="70" as="geometry" />
         </mxCell>
-        <mxCell id="BIzshJUT_aMa5dCBa4wF-30" value="&lt;font style=&quot;font-size: 14px;&quot; face=&quot;宋体&quot;&gt;用户信息控制器&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="BIzshJUT_aMa5dCBa4wF-30" value="&lt;font style=&quot;font-size: 14px;&quot; face=&quot;宋体&quot;&gt;用户信息控制器&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="210" y="180" width="140" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="BIzshJUT_aMa5dCBa4wF-34" value="&lt;font style=&quot;font-size: 14px;&quot; face=&quot;宋体&quot;&gt;相册管理控制器&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="BIzshJUT_aMa5dCBa4wF-34" value="&lt;font style=&quot;font-size: 14px;&quot; face=&quot;宋体&quot;&gt;相册管理控制器&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="370" y="180" width="140" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="BIzshJUT_aMa5dCBa4wF-35" value="&lt;font style=&quot;font-size: 14px;&quot; face=&quot;宋体&quot;&gt;照片管理控制器&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="BIzshJUT_aMa5dCBa4wF-35" value="&lt;font style=&quot;font-size: 14px;&quot; face=&quot;宋体&quot;&gt;照片管理控制器&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="530" y="180" width="140" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="BIzshJUT_aMa5dCBa4wF-36" value="&lt;font style=&quot;font-size: 14px;&quot; face=&quot;宋体&quot;&gt;标签管理控制器&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="BIzshJUT_aMa5dCBa4wF-36" value="&lt;font style=&quot;font-size: 14px;&quot; face=&quot;宋体&quot;&gt;标签管理控制器&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="210" y="230" width="140" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="BIzshJUT_aMa5dCBa4wF-37" value="&lt;font style=&quot;font-size: 14px;&quot; face=&quot;宋体&quot;&gt;分享管理控制器&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="BIzshJUT_aMa5dCBa4wF-37" value="&lt;font style=&quot;font-size: 14px;&quot; face=&quot;宋体&quot;&gt;分享管理控制器&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="370" y="230" width="140" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="BIzshJUT_aMa5dCBa4wF-38" value="&lt;span style=&quot;font-size: 14px;&quot;&gt;&lt;font face=&quot;宋体&quot;&gt;服务层&lt;br&gt;（&lt;/font&gt;&lt;font face=&quot;Times New Roman&quot;&gt;Service&lt;/font&gt;&lt;font face=&quot;宋体&quot;&gt;）&lt;/font&gt;&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="BIzshJUT_aMa5dCBa4wF-38" value="&lt;span style=&quot;font-size: 14px;&quot;&gt;&lt;font face=&quot;宋体&quot;&gt;服务层&lt;br&gt;（&lt;/font&gt;&lt;font face=&quot;Times New Roman&quot;&gt;Service&lt;/font&gt;&lt;font face=&quot;宋体&quot;&gt;）&lt;/font&gt;&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="40" y="379.98999999999995" width="120" height="170" as="geometry" />
         </mxCell>
-        <mxCell id="BIzshJUT_aMa5dCBa4wF-69" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="BIzshJUT_aMa5dCBa4wF-39" target="BIzshJUT_aMa5dCBa4wF-11">
+        <mxCell id="BIzshJUT_aMa5dCBa4wF-69" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" parent="1" source="BIzshJUT_aMa5dCBa4wF-39" target="BIzshJUT_aMa5dCBa4wF-11" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="BIzshJUT_aMa5dCBa4wF-70" value="&lt;font style=&quot;font-size: 14px;&quot; face=&quot;宋体&quot;&gt;返回数据对象&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="BIzshJUT_aMa5dCBa4wF-69">
+        <mxCell id="BIzshJUT_aMa5dCBa4wF-70" value="&lt;font style=&quot;font-size: 14px;&quot; face=&quot;宋体&quot;&gt;返回数据对象&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="BIzshJUT_aMa5dCBa4wF-69" vertex="1" connectable="0">
           <mxGeometry x="-0.1" y="-1" relative="1" as="geometry">
             <mxPoint x="1" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="BIzshJUT_aMa5dCBa4wF-71" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="BIzshJUT_aMa5dCBa4wF-39" target="BIzshJUT_aMa5dCBa4wF-55">
+        <mxCell id="BIzshJUT_aMa5dCBa4wF-71" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" parent="1" source="BIzshJUT_aMa5dCBa4wF-39" target="BIzshJUT_aMa5dCBa4wF-55" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="BIzshJUT_aMa5dCBa4wF-72" value="&lt;font style=&quot;font-size: 14px;&quot; face=&quot;宋体&quot;&gt;调用对象方法&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="BIzshJUT_aMa5dCBa4wF-71">
+        <mxCell id="BIzshJUT_aMa5dCBa4wF-72" value="&lt;font style=&quot;font-size: 14px;&quot; face=&quot;宋体&quot;&gt;调用对象方法&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="BIzshJUT_aMa5dCBa4wF-71" vertex="1" connectable="0">
           <mxGeometry x="-0.1667" y="-2" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="BIzshJUT_aMa5dCBa4wF-39" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="BIzshJUT_aMa5dCBa4wF-39" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="190" y="379.98999999999995" width="500" height="170" as="geometry" />
         </mxCell>
-        <mxCell id="BIzshJUT_aMa5dCBa4wF-42" value="&lt;font style=&quot;font-size: 14px;&quot; face=&quot;宋体&quot;&gt;用户信息服务&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="BIzshJUT_aMa5dCBa4wF-42" value="&lt;font style=&quot;font-size: 14px;&quot; face=&quot;宋体&quot;&gt;用户信息服务&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="210" y="399.98999999999995" width="140" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="BIzshJUT_aMa5dCBa4wF-43" value="&lt;font style=&quot;font-size: 14px;&quot; face=&quot;宋体&quot;&gt;相册管理服务&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="BIzshJUT_aMa5dCBa4wF-43" value="&lt;font style=&quot;font-size: 14px;&quot; face=&quot;宋体&quot;&gt;相册管理服务&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="370" y="399.98999999999995" width="140" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="BIzshJUT_aMa5dCBa4wF-44" value="&lt;font style=&quot;font-size: 14px;&quot; face=&quot;宋体&quot;&gt;照片管理服务&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="BIzshJUT_aMa5dCBa4wF-44" value="&lt;font style=&quot;font-size: 14px;&quot; face=&quot;宋体&quot;&gt;照片管理服务&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="530" y="399.98999999999995" width="140" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="BIzshJUT_aMa5dCBa4wF-45" value="&lt;font style=&quot;font-size: 14px;&quot; face=&quot;宋体&quot;&gt;标签管理服务&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="BIzshJUT_aMa5dCBa4wF-45" value="&lt;font style=&quot;font-size: 14px;&quot; face=&quot;宋体&quot;&gt;标签管理服务&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="210" y="449.98999999999995" width="140" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="BIzshJUT_aMa5dCBa4wF-46" value="&lt;font style=&quot;font-size: 14px;&quot; face=&quot;宋体&quot;&gt;分享管理服务&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="BIzshJUT_aMa5dCBa4wF-46" value="&lt;font style=&quot;font-size: 14px;&quot; face=&quot;宋体&quot;&gt;分享管理服务&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="370" y="449.98999999999995" width="140" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="BIzshJUT_aMa5dCBa4wF-47" value="&lt;font face=&quot;宋体&quot;&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;通知管理服务&lt;/span&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="BIzshJUT_aMa5dCBa4wF-47" value="&lt;font face=&quot;宋体&quot;&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;通知管理服务&lt;/span&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="530" y="449.98999999999995" width="140" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="BIzshJUT_aMa5dCBa4wF-49" value="&lt;font style=&quot;border-color: var(--border-color); font-size: 14px;&quot; face=&quot;宋体&quot;&gt;阿里云&amp;nbsp;&lt;/font&gt;&lt;font style=&quot;border-color: var(--border-color); font-size: 14px;&quot; face=&quot;Times New Roman&quot;&gt;STS&lt;/font&gt;&lt;font style=&quot;border-color: var(--border-color); font-size: 14px;&quot; face=&quot;宋体&quot;&gt;&amp;nbsp;服务&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="BIzshJUT_aMa5dCBa4wF-49" value="&lt;font style=&quot;border-color: var(--border-color); font-size: 14px;&quot; face=&quot;宋体&quot;&gt;阿里云&lt;/font&gt;&lt;font face=&quot;Times New Roman&quot; style=&quot;border-color: var(--border-color); font-size: 14px;&quot;&gt;&amp;nbsp;&lt;/font&gt;&lt;font style=&quot;border-color: var(--border-color); font-size: 14px;&quot; face=&quot;Times New Roman&quot;&gt;STS&lt;/font&gt;&lt;font face=&quot;Times New Roman&quot; style=&quot;border-color: var(--border-color); font-size: 14px;&quot;&gt;&amp;nbsp;&lt;/font&gt;&lt;font style=&quot;border-color: var(--border-color); font-size: 14px;&quot; face=&quot;宋体&quot;&gt;服务&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="210" y="499.99" width="140" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="BIzshJUT_aMa5dCBa4wF-51" value="&lt;font face=&quot;宋体&quot;&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;通知管理控制器&lt;/span&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="BIzshJUT_aMa5dCBa4wF-51" value="&lt;font face=&quot;宋体&quot;&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;通知管理控制器&lt;/span&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="530" y="230" width="140" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="BIzshJUT_aMa5dCBa4wF-52" value="&lt;span style=&quot;font-size: 14px;&quot;&gt;&lt;font face=&quot;宋体&quot;&gt;缓存&lt;/font&gt;&lt;/span&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="1">
+        <mxCell id="BIzshJUT_aMa5dCBa4wF-52" value="&lt;span style=&quot;font-size: 14px;&quot;&gt;&lt;font face=&quot;宋体&quot;&gt;缓存&lt;/font&gt;&lt;/span&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" parent="1" vertex="1">
           <mxGeometry x="412.5" y="774.9900000000001" width="55" height="70" as="geometry" />
         </mxCell>
-        <mxCell id="BIzshJUT_aMa5dCBa4wF-53" value="&lt;span style=&quot;font-size: 14px;&quot;&gt;&lt;font face=&quot;宋体&quot;&gt;文件&lt;/font&gt;&lt;/span&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="1">
+        <mxCell id="BIzshJUT_aMa5dCBa4wF-53" value="&lt;span style=&quot;font-size: 14px;&quot;&gt;&lt;font face=&quot;宋体&quot;&gt;文件&lt;/font&gt;&lt;/span&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" parent="1" vertex="1">
           <mxGeometry x="572.5" y="774.9900000000001" width="55" height="70" as="geometry" />
         </mxCell>
-        <mxCell id="BIzshJUT_aMa5dCBa4wF-54" value="&lt;span style=&quot;font-size: 14px;&quot;&gt;&lt;font face=&quot;宋体&quot;&gt;模型层&lt;br&gt;（&lt;/font&gt;&lt;font face=&quot;Times New Roman&quot;&gt;Model&lt;/font&gt;&lt;font face=&quot;宋体&quot;&gt;）&lt;/font&gt;&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="BIzshJUT_aMa5dCBa4wF-54" value="&lt;span style=&quot;font-size: 14px;&quot;&gt;&lt;font face=&quot;宋体&quot;&gt;模型层&lt;br&gt;（&lt;/font&gt;&lt;font face=&quot;Times New Roman&quot;&gt;Model&lt;/font&gt;&lt;font face=&quot;宋体&quot;&gt;）&lt;/font&gt;&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="40" y="599.9900000000001" width="120" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="BIzshJUT_aMa5dCBa4wF-73" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="BIzshJUT_aMa5dCBa4wF-55" target="BIzshJUT_aMa5dCBa4wF-39">
+        <mxCell id="BIzshJUT_aMa5dCBa4wF-73" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" parent="1" source="BIzshJUT_aMa5dCBa4wF-55" target="BIzshJUT_aMa5dCBa4wF-39" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="BIzshJUT_aMa5dCBa4wF-74" value="&lt;font face=&quot;宋体&quot; style=&quot;font-size: 14px;&quot;&gt;返回数据对象&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="BIzshJUT_aMa5dCBa4wF-73">
+        <mxCell id="BIzshJUT_aMa5dCBa4wF-74" value="&lt;font face=&quot;宋体&quot; style=&quot;font-size: 14px;&quot;&gt;返回数据对象&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="BIzshJUT_aMa5dCBa4wF-73" vertex="1" connectable="0">
           <mxGeometry y="-1" relative="1" as="geometry">
             <mxPoint x="1" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="BIzshJUT_aMa5dCBa4wF-75" value="&lt;font style=&quot;font-size: 14px;&quot; face=&quot;宋体&quot;&gt;写入数据&lt;/font&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="BIzshJUT_aMa5dCBa4wF-55" target="BIzshJUT_aMa5dCBa4wF-20">
+        <mxCell id="BIzshJUT_aMa5dCBa4wF-75" value="&lt;font style=&quot;font-size: 14px;&quot; face=&quot;宋体&quot;&gt;写入数据&lt;/font&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" parent="1" source="BIzshJUT_aMa5dCBa4wF-55" target="BIzshJUT_aMa5dCBa4wF-20" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="BIzshJUT_aMa5dCBa4wF-55" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="BIzshJUT_aMa5dCBa4wF-55" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="190" y="599.9900000000001" width="500" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="BIzshJUT_aMa5dCBa4wF-56" value="&lt;font style=&quot;font-size: 14px;&quot; face=&quot;宋体&quot;&gt;用户模型&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="210" y="619.9900000000001" width="140" height="30" as="geometry" />
+        <mxCell id="BIzshJUT_aMa5dCBa4wF-56" value="&lt;font style=&quot;font-size: 14px;&quot; face=&quot;宋体&quot;&gt;用户模型&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="210" y="619.99" width="140" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="BIzshJUT_aMa5dCBa4wF-57" value="&lt;font style=&quot;font-size: 14px;&quot; face=&quot;宋体&quot;&gt;相册模型&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="BIzshJUT_aMa5dCBa4wF-57" value="&lt;font style=&quot;font-size: 14px;&quot; face=&quot;宋体&quot;&gt;相册模型&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="370" y="619.9900000000001" width="140" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="BIzshJUT_aMa5dCBa4wF-58" value="&lt;font style=&quot;font-size: 14px;&quot; face=&quot;宋体&quot;&gt;照片模型&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="BIzshJUT_aMa5dCBa4wF-58" value="&lt;font style=&quot;font-size: 14px;&quot; face=&quot;宋体&quot;&gt;照片模型&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="530" y="619.9900000000001" width="140" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="BIzshJUT_aMa5dCBa4wF-59" value="&lt;font style=&quot;font-size: 14px;&quot; face=&quot;宋体&quot;&gt;标签模型&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="BIzshJUT_aMa5dCBa4wF-59" value="&lt;font style=&quot;font-size: 14px;&quot; face=&quot;宋体&quot;&gt;标签模型&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="210" y="669.9900000000001" width="140" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="BIzshJUT_aMa5dCBa4wF-60" value="&lt;font style=&quot;font-size: 14px;&quot; face=&quot;宋体&quot;&gt;分享模型&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="BIzshJUT_aMa5dCBa4wF-60" value="&lt;font style=&quot;font-size: 14px;&quot; face=&quot;宋体&quot;&gt;分享模型&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="370" y="669.9900000000001" width="140" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="BIzshJUT_aMa5dCBa4wF-63" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.265;entryY=0;entryDx=0;entryDy=0;exitX=0.265;exitY=0.98;exitDx=0;exitDy=0;exitPerimeter=0;entryPerimeter=0;" edge="1" parent="1" source="BIzshJUT_aMa5dCBa4wF-3" target="BIzshJUT_aMa5dCBa4wF-11">
+        <mxCell id="BIzshJUT_aMa5dCBa4wF-63" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.265;entryY=0;entryDx=0;entryDy=0;exitX=0.265;exitY=0.98;exitDx=0;exitDy=0;exitPerimeter=0;entryPerimeter=0;" parent="1" source="BIzshJUT_aMa5dCBa4wF-3" target="BIzshJUT_aMa5dCBa4wF-11" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="323" y="100" as="sourcePoint" />
             <mxPoint x="323" y="150" as="targetPoint" />
             <Array as="points" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="BIzshJUT_aMa5dCBa4wF-64" value="&lt;font face=&quot;宋体&quot;&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;请求数据&lt;/span&gt;&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="BIzshJUT_aMa5dCBa4wF-63">
+        <mxCell id="BIzshJUT_aMa5dCBa4wF-64" value="&lt;font face=&quot;宋体&quot;&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;请求数据&lt;/span&gt;&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="BIzshJUT_aMa5dCBa4wF-63" vertex="1" connectable="0">
           <mxGeometry x="0.4713" y="1" relative="1" as="geometry">
             <mxPoint y="-12" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="BIzshJUT_aMa5dCBa4wF-65" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="BIzshJUT_aMa5dCBa4wF-11" target="BIzshJUT_aMa5dCBa4wF-3">
+        <mxCell id="BIzshJUT_aMa5dCBa4wF-65" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" parent="1" source="BIzshJUT_aMa5dCBa4wF-11" target="BIzshJUT_aMa5dCBa4wF-3" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="380" y="270" as="sourcePoint" />
             <mxPoint x="430" y="220" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="BIzshJUT_aMa5dCBa4wF-66" value="&lt;font face=&quot;宋体&quot; style=&quot;font-size: 14px;&quot;&gt;返回响应&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="BIzshJUT_aMa5dCBa4wF-65">
+        <mxCell id="BIzshJUT_aMa5dCBa4wF-66" value="&lt;font face=&quot;宋体&quot; style=&quot;font-size: 14px;&quot;&gt;返回响应&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="BIzshJUT_aMa5dCBa4wF-65" vertex="1" connectable="0">
           <mxGeometry x="0.1111" y="-1" relative="1" as="geometry">
             <mxPoint x="1" y="3" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="BIzshJUT_aMa5dCBa4wF-79" value="&lt;font style=&quot;border-color: var(--border-color); font-size: 14px;&quot; face=&quot;宋体&quot;&gt;阿里云&amp;nbsp;&lt;/font&gt;&lt;font style=&quot;border-color: var(--border-color); font-size: 14px;&quot; face=&quot;Times New Roman&quot;&gt;STS&lt;/font&gt;&lt;font style=&quot;border-color: var(--border-color); font-size: 14px;&quot; face=&quot;宋体&quot;&gt;&amp;nbsp;控制器&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="BIzshJUT_aMa5dCBa4wF-79" value="&lt;font style=&quot;border-color: var(--border-color); font-size: 14px;&quot; face=&quot;宋体&quot;&gt;阿里云&lt;/font&gt;&lt;font face=&quot;Times New Roman&quot; style=&quot;border-color: var(--border-color); font-size: 14px;&quot;&gt;&amp;nbsp;&lt;/font&gt;&lt;font style=&quot;border-color: var(--border-color); font-size: 14px;&quot; face=&quot;Times New Roman&quot;&gt;STS&lt;/font&gt;&lt;font face=&quot;Times New Roman&quot; style=&quot;border-color: var(--border-color); font-size: 14px;&quot;&gt;&amp;nbsp;&lt;/font&gt;&lt;font style=&quot;border-color: var(--border-color); font-size: 14px;&quot; face=&quot;宋体&quot;&gt;控制器&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="210" y="280" width="140" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="BIzshJUT_aMa5dCBa4wF-80" value="&lt;font style=&quot;font-size: 14px;&quot; face=&quot;宋体&quot;&gt;图片处理服务&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="BIzshJUT_aMa5dCBa4wF-80" value="&lt;font style=&quot;font-size: 14px;&quot; face=&quot;宋体&quot;&gt;图片处理服务&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="370" y="499.99" width="140" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="BIzshJUT_aMa5dCBa4wF-81" value="&lt;font style=&quot;font-size: 14px;&quot; face=&quot;宋体&quot;&gt;通知模型&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="530" y="669.9900000000001" width="140" height="30" as="geometry" />
+        <mxCell id="ZZt6GLErpQM3vJvve2uh-1" value="&lt;font style=&quot;font-size: 14px;&quot; face=&quot;宋体&quot;&gt;邮件服务&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="530" y="500" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ZZt6GLErpQM3vJvve2uh-2" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;……&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="575" y="669.99" width="50" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
