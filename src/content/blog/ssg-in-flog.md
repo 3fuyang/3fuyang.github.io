@@ -79,14 +79,7 @@ SSG 自动路由的思路很简单, 就是用脚本在编译时读取某些目�
 这可能也是为什么 Vitepress 的路由生成都不使用 [Vue Router](https://router.vuejs.org/),
 而是另写一个　 LOC < 200 　的脚本。
 
-<figure>
-  <picture>
-    <source type="image/avif" srcSet="/images/ssg-in-flog/vitepress-router.avif" />
-    <source type="image/webp" srcSet="/images/ssg-in-flog/vitepress-router.webp" />
-    <img width="947" height="256" alt="vitepress-router" src="/images/ssg-in-flog/vitepress-router.jpg" aria-hidden="true" className="invertable" />
-  </picture>
-  <figcaption>VitePress 的路由方案</figcaption>
-</figure>
+![VitePress 的路由方案](../../assets/ssg-in-flog/vitepress-router.webp)
 
 这对 React 来说应该更为简单, 因为 React Router 的实现比 Vue Router 更为简洁, 虽然这也意味着开发者需要自己做更多的 dirty work。
 
@@ -189,34 +182,13 @@ React 环境下的`vite-plugin-pages`将生成 React Router 式的 routes, 那�
 我们主要考察 Rollup build hooks, Vite 官方文档显示：`vite-plugin-pages`的`resolveId`和`load`会在`@mdx-js/rollup`的`transform`之前执行,
 且它们将在**每次请求模块**时被调用。
 
-<figure>
-  <picture>
-    <source type="image/avif" srcSet="/images/ssg-in-flog/vite-universal-plugins.avif" />
-    <source type="image/webp" srcSet="/images/ssg-in-flog/vite-universal-plugins.webp" />
-    <img width="718" height="185" alt="vite-universal-plugins" src="/images/ssg-in-flog/vite-universal-plugins.jpg" className="invertable"/>
-  </picture>
-  <figcaption>Vite 中 universal plugins 的执行顺序</figcaption>
-</figure>
+![Vite 中 universal plugins 的执行顺序](../../assets/ssg-in-flog/vite-plugin-pages-hooks.webp)
 
 这不符合我们 "先解析`.mdx`文件，再生成 React 路由" 的直观想法，
 
-<figure>
-  <picture>
-    <source type="image/avif" srcSet="/images/ssg-in-flog/rollup-plugin-hooks.avif" />
-    <source type="image/webp" srcSet="/images/ssg-in-flog/rollup-plugin-hooks.webp" />
-    <img width="739" height="802" alt="rollup-plugin-hooks" src="/images/ssg-in-flog/rollup-plugin-hooks.jpg" className="invertable"/>
-  </picture>
-  <figcaption>Rollup 的插件 hooks 执行流程图</figcaption>
-</figure>
+![Rollup 的插件 hooks 执行流程图](../../assets/ssg-in-flog/rollup-plugin-hooks.webp)
 
-<figure>
-  <picture>
-    <source type="image/avif" srcSet="/images/ssg-in-flog/figure-label.avif" />
-    <source type="image/webp" srcSet="/images/ssg-in-flog/figure-label.webp" />
-    <img width="380" height="95" alt="figure-label" src="/images/ssg-in-flog/figure-label.jpg" className="invertable"/>
-  </picture>
-  <figcaption>Rollup 插件 hooks 类型</figcaption>
-</figure>
+![Rollup 插件 hooks 类型](../../assets/ssg-in-flog/figure-label.webp)
 
 上图中，Rollup 的官方文档指出 build hooks 有多种类型，其不同之处主要体现在**异步、调度**上：
 

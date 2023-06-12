@@ -1,8 +1,9 @@
 import { defineConfig } from 'astro/config'
 import react from '@astrojs/react'
-import UnoCSS from '@unocss/astro'
-
+import UnoCSS from 'unocss/astro'
 import vitesseDark from './src/styles/vitesse-dark.json'
+
+import mdx from '@astrojs/mdx'
 
 // https://astro.build/config
 export default defineConfig({
@@ -17,5 +18,9 @@ export default defineConfig({
     UnoCSS({
       injectReset: true,
     }),
+    mdx(),
   ],
+  experimental: {
+    assets: true,
+  },
 })

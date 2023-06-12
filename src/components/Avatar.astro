@@ -1,0 +1,14 @@
+---
+
+interface Props {
+  src: string
+  alt: string
+}
+
+const { src, alt } = Astro.props
+---
+
+<img
+  class="!max-w-28 !mx-a !my-0 !lg:max-w-24"
+  {...{ src, alt }}
+>

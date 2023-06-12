@@ -22,23 +22,9 @@ duration: 10min
 2. 使用上面设置的密码通过 “**远程连接 —— Workbench”**，进入 shell 命令行
 3. 根据 ECS 操作系统用对应的**命令**安装 “宝塔 Linux 面板”，复制 “**外网面板地址**”，进入面板（**注意**：需先配置 ECS 实例**安全组**，放行 **8888 端口**）
    1. **配置安全组方法**：进入 ECS 安全组规则配置页面，选择 “**入方向**” 手动添加如下规则：
-   2. <figure>
-          <picture>
-          <source type="image/avif" srcSet="/images/vue-node-mysql-deployment/1.avif" />
-          <source type="image/webp" srcSet="/images/vue-node-mysql-deployment/1.webp" />
-          <img width="1339" height="179" src="/images/vue-node-mysql-deployment/1.jpg" alt="ecs-security-rules" />
-          </picture>
-          <figcaption>配置安全组规则</figcaption>
-      </figure>
+   2. ![配置安全组规则](../../assets/vue-node-mysql-deployment/ecs-security-rules.webp)
    3. 为了后续部署方便，通过**快速添加**为以下常用端口添加规则
-   4. <figure>
-          <picture>
-              <source type="image/avif" srcSet="/images/vue-node-mysql-deployment/2.avif" />
-              <source type="image/webp" srcSet="/images/vue-node-mysql-deployment/2.webp" />
-              <img width="897" height="628" src="/images/vue-node-mysql-deployment/2.jpg" alt="quick-add" />
-          </picture>
-          <figcaption>配置常用端口</figcaption>
-      </figure>
+   4. ![配置常用端口](../../assets/vue-node-mysql-deployment/quick-add.webp)
    5. 此外，将**前端与后端应用**使用的端口号分别手动添加到规则中
 4. 在宝塔面板的**软件商店**中，选择**极速安装** Nginx@、MySQL@5.5、TomCat@7
 5. 远程连接中使用`/etc/init.d/bt default`查看宝塔面板用户名、密码
@@ -57,14 +43,7 @@ duration: 10min
 3. 删除依赖文件 **node_module**，以减小文件夹的体积。
 4. 将前、后端代码文件夹复制到 Tomcat 如下文件夹（**不一定是该位置，根据需要而定**）中（dist & back-end）：
 
-<figure>
-  <picture>
-    <source type="image/avif" srcSet="/images/vue-node-mysql-deployment/3.avif" />
-    <source type="image/webp" srcSet="/images/vue-node-mysql-deployment/3.webp" />
-    <img width="977" height="601" src="/images/vue-node-mysql-deployment/3.jpg" alt="backend-dir" style={{zoom: .8}} />
-  </picture>
-  <figcaption>上传后端文件</figcaption>
-</figure>
+![上传后端文件](../../assets/vue-node-mysql-deployment/backend-dir.webp)
 
 ### 四、数据库配置
 
@@ -97,14 +76,9 @@ duration: 10min
    $pm2 start main.js --name="name"
    ```
 10. 启动成功后，看到如下结果：
-<figure>
-    <picture>
-        <source type="image/avif" srcSet="/images/vue-node-mysql-deployment/4.avif" />
-        <source type="image/webp" srcSet="/images/vue-node-mysql-deployment/4.webp" />
-        <img width="1100" height="152" src="/images/vue-node-mysql-deployment/4.jpg" alt="pm2 start" />       
-    </picture>
-    <figcaption>pm2 持久化运行后端</figcaption>
-</figure>
+
+    ![pm2 持久化运行后端](../../assets/vue-node-mysql-deployment/4.webp)
+
 11. **附录—— pm2 常用命令**：
     1. **查看所有进程**：`$pm2 list`
     2. **查看某进程详细信息**：`$pm2 info [proc_id]`
@@ -119,17 +93,17 @@ duration: 10min
 
 1. 进入宝塔面板——软件商店—— Nginx 设置——配置修改，在 **http** 块（**注意**：不是 **server** 块）内增加以下**反向代理**代码：
 2. ```js
-    server{
-        // 前端网页端口号
-        listen <port>;
-        // ECS 服务器外网IP地址
-        server_name localhost <host>;
-        location / {
-        // 前端目录
-        root <dir>;
-        try_files $uri $uri/ /index.html;
-        }
-    }
+   server{
+       // 前端网页端口号
+       listen <port>;
+       // ECS 服务器外网IP地址
+       server_name localhost <host>;
+       location / {
+       // 前端目录
+       root <dir>;
+       try_files $uri $uri/ /index.html;
+       }
+   }
    ```
 3. 保存修改，回到服务，先点击**重载配置**，再点击**重启**：
    1. 如果此时运行失败，出现：`bind() to 0.0.0.0:80 failed (98:Adress already in use)`错误，是由于**端口号被占用**。
@@ -138,20 +112,20 @@ duration: 10min
    1. 主页可以正常访问，但**调用后端接口**时，提示错误 **We're sorry but XX doesn't work properly without JavaScript enabled**，原因是 **Nginx 配置异常，没有正确转发后端接口地址**。
    2. 需要在 Nginx 中配置**转发访问后端的具体地址**：
    3. ```js
-       server{
-           listen <port>; # 前端页面端口
-           server_name localhost <host>; # 服务器 IP
-           error_page 404 /index.html;	# 防止出现 404 Not Found 页面
+      server{
+          listen <port>; # 前端页面端口
+          server_name localhost <host>; # 服务器 IP
+          error_page 404 /index.html;	# 防止出现 404 Not Found 页面
 
-           location / {
-               root /www/server/tomcat/webapps/dist; # Vue 项目路径
-               try_files $uri $uri/ /index.html;
-           }
-           ## 配置后端反向代理
-           location ~ /api/ {
-               proxy_pass <back-end-origin>; # 后端运行地址
-           }
-       }
+          location / {
+              root /www/server/tomcat/webapps/dist; # Vue 项目路径
+              try_files $uri $uri/ /index.html;
+          }
+          ## 配置后端反向代理
+          location ~ /api/ {
+              proxy_pass <back-end-origin>; # 后端运行地址
+          }
+      }
       ```
 
    4. 保存，重载配置并重启 Nginx 服务即可。

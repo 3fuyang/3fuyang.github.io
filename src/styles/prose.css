@@ -255,26 +255,15 @@
   margin-bottom: 1em;
 }
 
-.prose .niya {
-  max-width: 7em;
-  margin: 0 auto;
-}
-
 @media (max-width: 1200px) {
   .prose img {
     max-width: 80%;
-  }
-  .prose .niya {
-    max-width: 6em;
   }
 }
 
 @media (max-width: 640px) {
   .prose img {
     max-width: 100%;
-  }
-  .prose .niya {
-    max-width: 5em;
   }
 }
 
@@ -319,7 +308,7 @@
   border-radius: 4px;
   padding: 1.2em 1em;
   border: 1px solid #d1d5db;
-  font-size: .8em;
+  font-size: 0.8em;
   margin: 1em 0;
 }
 

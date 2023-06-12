@@ -12,14 +12,7 @@ duration: 4min
 对 [AnyOf](https://github.com/type-challenges/type-challenges/blob/main/questions/00949-medium-anyof/README.md)
 这道迷惑了很久：
 
-<figure>
-  <picture>
-    <source type="image/avif" srcSet="/images/empty-object-in-ts/anyof.avif" />
-    <source type="image/webp" srcSet="/images/empty-object-in-ts/anyof.webp" />
-    <img width="1346" height="513" src="/images/empty-object-in-ts/anyof.png" alt="description of AnyOf" className="invertable" />
-  </picture>
-  <figcaption>The description of AnyOf in Type Chanllenges</figcaption>
-</figure>
+![The description of AnyOf in Type Chanllenges](../../assets/empty-object-in-ts/anyof.webp)
 
 我最开始的题解如下，将 falsy 的类型统一成一个 tuple，再判断每个元素是否为 trusy。
 

@@ -41,14 +41,7 @@ duration: 8min
 
 当布局计算完成后，页面终于会被**渲染**，也就是被绘制成屏幕上的一个个**像素点**（pixel）。
 
-<figure>
-  <picture>
-    <source type="image/avif" srcSet="/images/critical-rendering-path/render.avif" />
-    <source type="image/webp" srcSet="/images/critical-rendering-path/render.webp" />
-    <img width="729" height="207" alt="Critical rendering path" src="/images/critical-rendering-path/render.jpg" className="invertable" />
-  </picture>
-  <figcaption>关键渲染路径 流程图</figcaption>
-</figure>
+![Critical rendering path](../../assets/critical-rendering-path/render.webp)
 
 OK，这里有一张示意图，它大致上和前面的描述符合，并且注意 DOM 和 CSSOM 被浏览器并行构建。
 
@@ -122,14 +115,7 @@ CSSOM 包含了 DOM 的**所有样式信息**，它的加载是**阻塞**的，[
 >
 > 不过，答案好像是 **No**。
 >
-> <figure>
->   <picture>
->    <source type="image/avif" srcSet="/images/critical-rendering-path/css-mutate-dom.avif" />
->    <source type="image/webp" srcSet="/images/critical-rendering-path/css-mutate-dom.webp" />
->    <img width="1073" height="679" alt="css-does-not-mutate-dom" src="/images/critical-rendering-path/css-mutate-dom.jpg" aria-hidden="true" className="invertable" />
->  </picture>
->  <figcaption>CSS 不能修改 DOM</figcaption>
-> </figure>
+> ![关键渲染路径流程图](../../assets/critical-rendering-path/css-mutate-dom.webp)
 >
 > 查询之后，可以知道用 JS 获取伪元素的方法是`window.getComputedStyle()`，所以伪元素本身依旧是纯 CSS 规则，而不是 DOM。
 

@@ -18,14 +18,7 @@ Flog（即这个网站）一开始是借助 [vite-plugin-pages](https://github.c
 为了写 [Flog 与 SSG](https://3fuyang.github.io/blog/ssg-in-flog#自动路由) 这篇博客，我去查阅了一些 SSG 框架的文档，其中在 [VitePress](https://vitepress.vuejs.org/)
 的官方文档中得知其自动路由是**仅通过一个脚本**实现的。
 
-<figure>
-  <picture>
-    <source type="image/avif" srcSet="/images/import-meta-glob-and-auto-routes/flog-and-ssg.avif" />
-    <source type="image/webp" srcSet="/images/import-meta-glob-and-auto-routes/flog-and-ssg.webp" />
-    <img width="947" height="256" alt="routing-strategy-in-vitepress" src="/images/import-meta-glob-and-auto-routes/flog-and-ssg.jpg" className="invertable" />
-  </picture>
-  <figcaption>VitePress 的路由方案</figcaption>
-</figure>
+![VitePress 的路由方案](../../assets//import-meta-glob-and-auto-routes/flog-and-ssg.webp)
 
 当然，VitePress 想强调的是它**没有使用** Vue Router 这样集成的依赖，而是通过**原生**的 history 对象或其他 API 实现了更为**轻量级**的路由。
 但我从这里受到的启发是，我也可以编写一个脚本，在不使用`vite-plugin-pages`这样的集成插件的前提下，去自动地生成路由。
@@ -62,24 +55,10 @@ Flog（即这个网站）一开始是借助 [vite-plugin-pages](https://github.c
 
 Before:
 
-<figure>
-  <picture>
-    <source type="image/avif" srcSet="/images/ssg-in-flog/vite-universal-plugins.avif" />
-    <source type="image/webp" srcSet="/images/import-meta-glob-and-auto-routes/before.webp" />
-    <img width="358" height="119" alt="before-65-189-785-bytes" src="/images/import-meta-glob-and-auto-routes/before.jpg" className="invertable" />
-  </picture>
-  <figcaption>Before</figcaption>
-</figure>
+![Before](../../assets/import-meta-glob-and-auto-routes/before.webp)
 
 After:
 
-<figure>
-  <picture>
-    <source type="image/avif" srcSet="/images/import-meta-glob-and-auto-routes/after.avif" />
-    <source type="image/webp" srcSet="/images/import-meta-glob-and-auto-routes/after.webp" />
-    <img width="358" height="119" alt="after-65-123-330-bytes" src="/images/import-meta-glob-and-auto-routes/after.jpg" className="invertable" />
-  </picture>
-  <figcaption>After</figcaption>
-</figure>
+![After](../../assets/import-meta-glob-and-auto-routes/after.webp)
 
 可以看到，移除`vite-plugin-pages`后，应用的打包体积优化了整整...**64 KB**！
