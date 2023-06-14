@@ -182,7 +182,7 @@ React 环境下的`vite-plugin-pages`将生成 React Router 式的 routes, 那�
 我们主要考察 Rollup build hooks, Vite 官方文档显示：`vite-plugin-pages`的`resolveId`和`load`会在`@mdx-js/rollup`的`transform`之前执行,
 且它们将在**每次请求模块**时被调用。
 
-![Vite 中 universal plugins 的执行顺序](../../assets/ssg-in-flog/vite-plugin-pages-hooks.webp)
+![Vite 中 universal plugins 的执行顺序](../../assets/ssg-in-flog/vite-universal-plugins.webp)
 
 这不符合我们 "先解析`.mdx`文件，再生成 React 路由" 的直观想法，
 

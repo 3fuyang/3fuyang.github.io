@@ -40,4 +40,4 @@ String.prototype.codePointAt(index: number): number
 
 [StackOverflow](https://stackoverflow.com/questions/36527642/difference-between-codepointat-and-charcodeat) 上有个精炼的总结：
 
-![charCodeAt 和 charPointAt 的区别](../../assets/string-to-ascii/stackoverflow.png)
+![charCodeAt 和 charPointAt 的区别](../../assets/string-to-ascii/stackoverflow.webp)
