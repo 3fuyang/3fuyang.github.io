@@ -1,4 +1,6 @@
 ---
+import { ViewTransitions } from 'astro:transitions'
+
 import NavBar from '~/components/NavBar.astro'
 import Footer from '~/components/Footer.astro'
 
@@ -13,19 +15,6 @@ const { title = 'Fwio' } = Astro.props
 
 <html lang="en-US">
   <head>
-    <script>
-      const prevTheme = localStorage.getItem('theme')
-
-      if (
-        prevTheme === 'dark' ||
-        (!prevTheme &&
-          window.matchMedia('(prefers-color-scheme: dark)').matches)
-      ) {
-        document.documentElement.classList.add('dark')
-      } else {
-        document.documentElement.classList.remove('dark')
-      }
-    </script>
     <title>{title}</title>
     <meta name="robots" content="index, follow" />
     <meta name="description" content="UN JOUR JE SERAI DE RETOUR PRÈS DE TOI" />
@@ -47,6 +36,7 @@ const { title = 'Fwio' } = Astro.props
       href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css"
     />
     <slot name="head" />
+    <ViewTransitions />
   </head>
   <body>
     <div class="text-gray-700 dark:text-gray-200 scroll-smooth">
@@ -64,3 +54,19 @@ const { title = 'Fwio' } = Astro.props
     </div>
   </body>
 </html>
+
+<script>
+  import { THEME, THEME_STORAGE_KEY } from '~/hooks/useDark'
+
+  const prevTheme = localStorage.getItem(THEME_STORAGE_KEY)
+
+  if (
+    prevTheme === THEME.dark ||
+    (!prevTheme &&
+      window.matchMedia('(prefers-color-scheme: dark)').matches)
+  ) {
+    document.documentElement.classList.add(THEME.dark)
+  } else {
+    document.documentElement.classList.remove(THEME.dark)
+  }
+</script>

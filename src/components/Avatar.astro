@@ -1,14 +1,15 @@
 ---
+import { Image } from 'astro:assets'
 
 interface Props {
-  src: string
+  src: ImageMetadata
   alt: string
 }
 
 const { src, alt } = Astro.props
 ---
 
-<img
-  class="!max-w-28 !mx-a !my-0 !lg:max-w-24"
+<Image
+  class="max-w-28 h-a mx-a my-0 lg:max-w-24 rounded b b-gray-6"
   {...{ src, alt }}
 >
