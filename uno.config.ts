@@ -1,6 +1,5 @@
 // Splitted from vite.config.ts, only to make the VSCode extension for UnoCSS work.
-import { defineConfig } from 'unocss'
-import { presetUno, presetAttributify, presetIcons, presetTypography } from 'unocss'
+import { defineConfig, presetUno, presetAttributify, presetIcons, presetTypography } from 'unocss'
 import transformerVariantGroup from '@unocss/transformer-variant-group'
 
 export default defineConfig({
