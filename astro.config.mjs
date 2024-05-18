@@ -18,6 +18,7 @@ export default defineConfig({
     react(),
     UnoCSS({
       injectReset: true,
+      presets: [presetTypography()],
     }),
     mdx(),
   ],
