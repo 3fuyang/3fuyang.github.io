@@ -1,23 +1,25 @@
 {
   "name": "flog",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.2.0",
   "type": "module",
   "scripts": {
+    "check": "astro check",
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "astro check && astro build",
     "preview": "astro preview",
     "lint": "prettier -w . && eslint --fix ."
   },
   "dependencies": {
-    "@astrojs/mdx": "^1.1.5",
+    "@astrojs/mdx": "^3.0.0",
     "@astrojs/react": "^3.3.4",
-    "@unocss/preset-icons": "^0.56.5",
-    "astro": "^3.6.5",
+    "@unocss/preset-icons": "^0.60.2",
+    "astro": "^4.8.6",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.7.0",
     "@iconify-json/ant-design": "^1.1.16",
     "@iconify-json/bi": "^1.1.23",
     "@iconify-json/codicon": "^1.1.49",
@@ -31,14 +33,15 @@
     "@types/react-dom": "^18.3.0",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "@typescript-eslint/parser": "^6.21.0",
-    "@unocss/reset": "^0.56.5",
-    "@unocss/transformer-variant-group": "^0.56.5",
+    "@unocss/reset": "^0.60.2",
+    "@unocss/transformer-variant-group": "^0.60.2",
     "eslint": "^8.57.0",
     "eslint-config-react-app": "^7.0.1",
-    "eslint-plugin-astro": "^0.29.1",
+    "eslint-plugin-astro": "^1.2.0",
     "prettier": "^3.2.5",
-    "prettier-plugin-astro": "^0.12.3",
+    "prettier-plugin-astro": "^0.13.0",
     "sharp": "^0.32.6",
-    "unocss": "^0.56.5"
+    "typescript": "^5.4.5",
+    "unocss": "^0.60.2"
   }
 }
