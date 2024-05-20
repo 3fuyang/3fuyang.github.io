@@ -38,8 +38,8 @@ type AnyOf<T extends readonly any[]> = T extends [infer L, ...infer R]
   ? L extends '' | [] | false | 0
     ? AnyOf<R>
     : keyof L extends undefined[]
-    ? AnyOf<R>
-    : true
+      ? AnyOf<R>
+      : true
   : false
 ```
 

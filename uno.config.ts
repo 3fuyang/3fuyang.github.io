@@ -1,5 +1,11 @@
 // Splitted from vite.config.ts, only to make the VSCode extension for UnoCSS work.
-import { defineConfig, presetUno, presetAttributify, presetIcons, presetTypography } from 'unocss'
+import {
+  defineConfig,
+  presetUno,
+  presetAttributify,
+  presetIcons,
+  presetTypography,
+} from 'unocss'
 import transformerVariantGroup from '@unocss/transformer-variant-group'
 
 export default defineConfig({
@@ -21,7 +27,7 @@ export default defineConfig({
           import('@iconify-json/mdi/icons.json').then((i) => i.default),
         'material-symbols': () =>
           import('@iconify-json/material-symbols/icons.json').then(
-            (i) => i.default
+            (i) => i.default,
           ),
         'game-icons': () =>
           import('@iconify-json/game-icons/icons.json').then((i) => i.default),
@@ -33,7 +39,7 @@ export default defineConfig({
           import('@iconify-json/fa-brands/icons.json').then((i) => i.default),
         'simple-icons': () =>
           import('@iconify-json/simple-icons/icons.json').then(
-            (i) => i.default
+            (i) => i.default,
           ),
         codicon: () =>
           import('@iconify-json/codicon/icons.json').then((i) => i.default),

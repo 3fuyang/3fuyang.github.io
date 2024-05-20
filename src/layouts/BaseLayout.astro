@@ -39,7 +39,7 @@ const { title = 'Fwio' } = Astro.props
     <ViewTransitions />
   </head>
   <body>
-    <div class="text-gray-700 dark:text-gray-200 scroll-smooth">
+    <div class="scroll-smooth text-gray-700 dark:text-gray-200">
       <NavBar />
       <main class="px7 py10">
         <slot />
@@ -49,7 +49,7 @@ const { title = 'Fwio' } = Astro.props
         aria-hidden="true"
         src="/seagull.svg"
         alt="seagull"
-        class="fixed top-1/2 left-1/2 -translate-1/2 max-w-2/5 md:max-w-1/6 ha aspect-1 op45 dark:op100 filter-invert-60 mix-blend-difference pointer-events-none"
+        class="pointer-events-none fixed left-1/2 top-1/2 aspect-1 ha max-w-2/5 op45 mix-blend-difference filter-invert-60 md:max-w-1/6 -translate-1/2 dark:op100"
       />
     </div>
   </body>

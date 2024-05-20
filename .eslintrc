@@ -1,5 +1,5 @@
 {
-  "extends": ["eslint:recommended", "plugin:astro/recommended"],
+  "extends": ["eslint:recommended", "plugin:astro/recommended", "@unocss"],
   "overrides": [
     {
       "files": ["*.astro"],
@@ -13,7 +13,7 @@
     {
       "files": ["*.ts", "*.tsx", "*.mjs"],
       "parser": "@typescript-eslint/parser",
-      "extends": ["react-app", "plugin:@typescript-eslint/recommended"]
+      "extends": ["plugin:react-hooks/recommended", "plugin:react/recommended", "plugin:react/jsx-runtime", "plugin:@typescript-eslint/recommended"]
     }
   ]
 }

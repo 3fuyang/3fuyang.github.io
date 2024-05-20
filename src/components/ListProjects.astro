@@ -58,7 +58,7 @@ function getLangLogo(type: Project['type']) {
 }
 ---
 
-<section class="m-auto max-w-45em md:justify-between md:flex md:flex-wrap">
+<section class="m-auto max-w-45em md:flex md:flex-wrap md:justify-between">
   {
     projects.map(({ src, type, title, intro, logo }) => (
       <article
@@ -78,8 +78,8 @@ function getLangLogo(type: Project['type']) {
             aria-hidden="true"
             class:list={['w-10 h-10 color-gray-6 dark:color-gray-3', logo]}
           />
-          <h2 class="font-bold text-xl truncate">{title}</h2>
-          <main class="overflow-auto box-border h-18">{intro}</main>
+          <h2 class="truncate text-xl font-bold">{title}</h2>
+          <main class="box-border h-18 overflow-auto">{intro}</main>
         </a>
       </article>
     ))

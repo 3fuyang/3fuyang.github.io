@@ -10,7 +10,7 @@ export interface Props {
 const { posts } = Astro.props
 ---
 
-<section class="max-w-45em m-auto">
+<section class="m-auto max-w-45em">
   {
     posts.map(({ slug, title, date }) => (
       <article class="mt-8">
@@ -23,7 +23,7 @@ const { posts } = Astro.props
             'transition',
           ]}
         >
-          <span class="text-3xl font-bold truncate">{title}</span>
+          <span class="truncate text-3xl font-bold">{title}</span>
           <span>{new Date(date).toLocaleDateString()}</span>
         </a>
       </article>
