@@ -4,7 +4,9 @@ import { getCollection } from 'astro:content'
 import MarkdownLayout from '~/layouts/MarkdownLayout.astro'
 
 export async function getStaticPaths() {
-  const allBlogPosts = await getCollection('notes')
+  const allBlogPosts = await getCollection('notes', ({ data }) => {
+    return import.meta.env.PROD ? !data.draft : true;
+  })
 
   return allBlogPosts.map(({ slug, render, data }) => ({
     params: {

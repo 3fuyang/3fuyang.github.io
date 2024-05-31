@@ -6,6 +6,7 @@ const postSchema = z.object({
   description: z.string().optional(),
   lang: z.string(),
   duration: z.string(),
+  draft: z.boolean().optional(),
 })
 
 const blogCollection = defineCollection({
