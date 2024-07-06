@@ -1,5 +1,6 @@
 ---
 import { ViewTransitions } from 'astro:transitions'
+import SpeedInsights from "@vercel/speed-insights/astro"
 
 import NavBar from '~/components/NavBar.astro'
 import Footer from '~/components/Footer.astro'
@@ -37,6 +38,7 @@ const { title = 'Fwio' } = Astro.props
     />
     <slot name="head" />
     <ViewTransitions />
+    <SpeedInsights />
   </head>
   <body>
     <div class="scroll-smooth text-gray-700 dark:text-gray-200">
