@@ -10,7 +10,7 @@ duration: 1min
 
 从[《The JWT Handbook》](https://auth0.com/resources/ebooks/jwt-handbook)看到的，对这两种网络攻击简单易懂的解释。
 
-## Cross Site Request Forgen (CSRF)
+## Cross Site Request Forgery (CSRF)
 
 **跨站点请求伪造**（Cross Site Request Forgery, CSRF），在用户**已经登录**的页面上，诱使客户端向目标站点发送请求。
 即攻击者**冒充**用户（通过劫持 cookie）发起了请求。
