@@ -1,11 +1,17 @@
 ---
 import { ViewTransitions } from 'astro:transitions'
 import SpeedInsights from "@vercel/speed-insights/astro"
+import { Image } from 'astro:assets';
 
+import Seagull from '../../public/seagull.svg'
 import NavBar from '~/components/NavBar.astro'
 import Footer from '~/components/Footer.astro'
 
 import '../styles/main.css'
+
+const { pathname } = Astro.url
+
+const isHome = pathname === '/'
 
 interface Props {
   title?: string
@@ -32,10 +38,6 @@ const { title = 'Fwio' } = Astro.props
     <link rel="icon" type="image/svg+xml" href="/fwio.svg" />
     <link rel="apple-touch-icon" href="/fwio-apple-touch.png" sizes="180x180" />
     <link rel="mask-icon" href="/fwio.svg" color="#FFFFFF" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css"
-    />
     <slot name="head" />
     <ViewTransitions />
     <SpeedInsights />
@@ -43,16 +45,19 @@ const { title = 'Fwio' } = Astro.props
   <body>
     <div class="scroll-smooth text-gray-700 dark:text-gray-200">
       <NavBar />
-      <main class="px7 py10">
+      <main class="px6 py10">
         <slot />
         <Footer />
       </main>
-      <img
-        aria-hidden="true"
-        src="/seagull.svg"
-        alt="seagull"
-        class="pointer-events-none fixed left-1/2 top-1/2 aspect-1 ha max-w-2/5 op45 mix-blend-difference filter-invert-60 md:max-w-1/6 -translate-1/2 dark:op100"
-      />
+      {isHome && (
+        <Image
+          aria-hidden
+          src={Seagull}
+          alt=""
+          fetchpriority="high"
+          class="pointer-events-none fixed left-1/2 top-1/2 aspect-1 ha max-w-2/5 op45 mix-blend-difference filter-invert-60 md:max-w-1/6 -translate-1/2 dark:op100"
+        />
+      )}
     </div>
   </body>
 </html>

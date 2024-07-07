@@ -18,11 +18,6 @@ html.dark {
   --c-scrollbar-active: #ebf0f1;
 }
 
-body {
-  font-family: 'LXGW WenKai', ui-monospace, SFMono-Regular, Menlo, Monaco,
-    Consolas, 'Liberation Mono', 'Courier New', monospace;
-}
-
 * {
   scrollbar-color: var(--c-scrollbar) var(--c-bg);
 }

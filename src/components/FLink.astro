@@ -2,15 +2,13 @@
 interface Props {
   to: string
   title: string
-  icon: string
 }
 
 const { pathname } = Astro.url
 
-const { to, title, icon } = Astro.props
+const { to, title } = Astro.props
 ---
 
 <a class:list={['link', pathname === to ? 'op100' : '']} href={to}>
-  <span class="lt-md:hidden">{title}</span>
-  <div class:list={['md:hidden w5 h5', icon]}></div>
+  <span>{title}</span>
 </a>

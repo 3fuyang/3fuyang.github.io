@@ -11,6 +11,8 @@ const { src, alt } = Astro.props
 ---
 
 <Image
-  class="mx-a my-0 h-a max-w-28 b b-gray-6 rounded lg:max-w-24"
+  fetchpriority="high"
+  loading='eager'
+  class="mx-a my-0 h-a max-w-28 rounded lg:max-w-24"
   {...{ src, alt }}
 >

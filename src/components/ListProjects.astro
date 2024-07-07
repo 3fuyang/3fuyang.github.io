@@ -1,87 +1,51 @@
 ---
 interface Project {
-  logo: string
   title: string
   src: string
   intro: string
-  type: 'vue' | 'react' | 'solid-js'
 }
 
 const projects: Project[] = [
   {
-    logo: 'i-bi-cart',
-    title: 'TJ Flea',
-    src: 'https://github.com/3fuyang/flea-market',
-    intro:
-      'A classic online flea market for TJSSE software enginnering course.',
-    type: 'vue',
-  },
-  {
-    logo: 'i-game-icons-plague-doctor-profile',
     title: 'Flog',
     src: 'https://github.com/3fuyang/3fuyang.github.io',
-    intro: "Means Fwio's blog.",
-    type: 'react',
+    intro: "Fwio's blog.",
   },
   {
-    logo: 'i-simple-icons-jest',
-    title: 'Libre Testing',
-    src: 'https://github.com/3fuyang/libre-testing',
-    intro: 'An automatic testing platform for TJSSE software testing course.',
-    type: 'vue',
+    title: 'Promise F',
+    src: 'https://github.com/3fuyang/promise-f',
+    intro:
+      'An implementation of Promise compatible with Promise/A+ specification.',
   },
   {
-    logo: 'i-simple-icons-eslint',
     title: 'Zhlint Playground',
     src: 'https://github.com/3fuyang/zhlint-demo',
     intro: 'An intuitive playground for zhlint.',
-    type: 'solid-js',
   },
   {
-    logo: 'i-simple-icons-tailwindcss',
     title: 'Tailwind Default Palette',
     src: 'https://github.com/3fuyang/tailwind-default-palette',
     intro: 'A tool to inspect the default palette of Tailwind CSS.',
-    type: 'solid-js',
   },
 ]
-
-function getLangLogo(type: Project['type']) {
-  switch (type) {
-    case 'vue':
-      return 'i-fa-brands-vuejs  color-green-7 dark:color-emerald-5'
-    case 'react':
-      return 'i-fa-brands-react color-cyan-5 dark:color-cyan-4'
-    case 'solid-js':
-      return 'i-simple-icons-solid color-sky-5 dark:color-sky-4'
-  }
-}
 ---
 
-<section class="m-auto max-w-45em md:flex md:flex-wrap md:justify-between">
+<section class="ma max-w-xl gap-4 md:flex md:flex-wrap md:justify-between">
   {
-    projects.map(({ src, type, title, intro, logo }) => (
-      <article
-        class:list={[
-          'relative dark:shadow-gray-5 box-border rounded-md p3 md:w-20/41 h-40 op80 mb4',
-          'hover:op100 hover:shadow-md',
-          'active:op100 active:shadow-md',
-          'transition',
-          'border border-gray-4',
-        ]}
-      >
-        <a href={src} target="_blank" rel="noreferrer">
-          <header aria-hidden="true" class="absolute bottom-1 right-1">
-            <div class:list={['w-6 h-6', getLangLogo(type)]} />
-          </header>
-          <div
-            aria-hidden="true"
-            class:list={['w-10 h-10 color-gray-6 dark:color-gray-3', logo]}
-          />
-          <h2 class="truncate text-xl font-bold">{title}</h2>
-          <main class="box-border h-18 overflow-auto">{intro}</main>
-        </a>
-      </article>
+    projects.map(({ src, title, intro }) => (
+      <a href={src} target="_blank" rel="noreferrer noopener">
+        <article
+          class:list={[
+            'box-border rounded-md p3 op75',
+            'hover:op100',
+            'active:op100',
+            'transition',
+          ]}
+        >
+          <h2 title={title} class="truncate text-xl font-bold">{title}</h2>
+          <main class="box-border overflow-auto">{intro}</main>
+        </article>
+      </a>
     ))
   }
 </section>
