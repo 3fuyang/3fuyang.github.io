@@ -48,3 +48,24 @@ html.dark {
 ::-webkit-scrollbar-thumb:active {
   background: var(--c-scrollbar-active);
 }
+
+a.prose-heading-anchor {
+  color: inherit;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  text-decoration-thickness: 2px;
+}
+
+a.prose-heading-anchor:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+  scroll-margin-block-start: 4rem;
+}

@@ -15,24 +15,26 @@ const isHome = pathname === '/'
 
 interface Props {
   title?: string
+  keywords?: string[]
+  description?: string
 }
 
-const { title = 'Fwio' } = Astro.props
+const { title = 'Fwio', keywords = ['fwio', 'blog' ,'ts' , 'typescript', 'vue', 'react'], description = 'UN JOUR JE SERAI DE RETOUR PRÈS DE TOI' } = Astro.props
 ---
 
 <html lang="en-US">
   <head>
     <title>{title}</title>
     <meta name="robots" content="index, follow" />
-    <meta name="description" content="UN JOUR JE SERAI DE RETOUR PRÈS DE TOI" />
+    <meta name="description" content={description} />
     <meta charset="UTF-8" />
     <meta name="theme-color" content="#ffffff" />
     <meta name="author" content="Fwio" />
     <meta name="generator" content={Astro.generator} />
     <meta
       name="keywords"
-      content="fwio,blog,ts,typescript,vue,react"
-      data-rh="true"
+      content={keywords.join(',')}
+      data-rh
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/fwio.svg" />
