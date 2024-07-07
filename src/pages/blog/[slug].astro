@@ -13,15 +13,17 @@ export async function getStaticPaths() {
     props: {
       render,
       title: `${data.title} | Fwio`,
+      keywords: data.keywords,
+      description: data.description,
     },
   }))
 }
 
-const { render, title } = Astro.props
+const { render, title, keywords, description } = Astro.props
 
 const { Content } = await render()
 ---
 
-<MarkdownLayout {...{ title }}>
+<MarkdownLayout {...{ title, keywords, description }}>
   <Content />
 </MarkdownLayout>

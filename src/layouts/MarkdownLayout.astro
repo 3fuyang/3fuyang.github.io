@@ -3,12 +3,14 @@ import BaseLayout from './BaseLayout.astro'
 
 interface Props {
   title?: string
+  keywords?: string[]
+  description?: string
 }
 
-const { title = 'Fwio' } = Astro.props
+const { title = 'Fwio', keywords, description } = Astro.props
 ---
 
-<BaseLayout {...{ title }}>
+<BaseLayout {...{ title, keywords, description }}>
   <article class="mx-a prose">
     <slot />
   </article>
