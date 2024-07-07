@@ -49,7 +49,7 @@ const { title = 'Fwio' } = Astro.props
         <slot />
         <Footer />
       </main>
-      {isHome && (
+      {!isHome && (
         <Image
           aria-hidden
           src={Seagull}

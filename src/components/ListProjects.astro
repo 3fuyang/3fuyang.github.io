@@ -30,7 +30,7 @@ const projects: Project[] = [
 ]
 ---
 
-<section class="ma max-w-xl gap-4 md:flex md:flex-wrap md:justify-between">
+<section class="ma max-w-xl flex flex-col gap-4">
   {
     projects.map(({ src, title, intro }) => (
       <a href={src} target="_blank" rel="noreferrer noopener">
@@ -42,7 +42,7 @@ const projects: Project[] = [
             'transition',
           ]}
         >
-          <h2 title={title} class="truncate text-xl font-bold">{title}</h2>
+          <h2 title={title} class="truncate text-xl font-bold tracking-wide">{title}</h2>
           <main class="box-border overflow-auto">{intro}</main>
         </article>
       </a>

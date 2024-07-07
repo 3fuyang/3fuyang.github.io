@@ -19,13 +19,14 @@ const { posts } = Astro.props
           <a
             href={slug}
             class:list={[
-              'block box-border rounded-sm op75 dark:op80 ml-4 p-1',
+              'block box-border rounded-sm ml-4 p-1',
+              'op75 dark:op80 focus:op100 hover:op100',
               'flex flex-col',
               'transition-all',
             ]}
           >
-            <h2 title={title} class="truncate text-xl font-medium focus:op100 hover:op100">{title}</h2>
-            <time class="text-sm" datetime={dateTime}>{dateTime}</time>
+            <h2 title={title} class="truncate text-xl font-medium tracking-wide">{title}</h2>
+            <time class="text-sm op75 dark:op80" datetime={dateTime}>{dateTime}</time>
           </a>
         </article>
       )
