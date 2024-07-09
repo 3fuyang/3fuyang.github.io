@@ -6,8 +6,6 @@ lang: zh
 date: 2022-08-31T15:23:00.000+08:00
 ---
 
-# JS 中字符串与 ASCII 码的相互转换
-
 ## ASCII 码转字符串
 
 使用`String.fromCharCode()`，传入一或若干个 ascii 码，返回对应字符组成的字符串。

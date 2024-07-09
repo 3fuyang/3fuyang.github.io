@@ -6,8 +6,6 @@ lang: zh
 duration: 4min
 ---
 
-# Promise/A+ 规范
-
 > I reprint this article in Chinese, just like Prettier.
 >
 > Reference:

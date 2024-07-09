@@ -6,8 +6,6 @@ lang: zh
 duration: 8min
 ---
 
-# 关键渲染路径（Critical rendering path）
-
 > 参考文献：
 >
 > - [Critical rendering path - Web Performance | MDN ](https://developer.mozilla.org/en-US/docs/Web/Performance/Critical_rendering_path)

@@ -6,8 +6,6 @@ lang: zh
 duration: 4min
 ---
 
-# JS 中关于正则表达式的字符串操作
-
 正则表达式是**专攻**字符串操作的工具，JavaScript 用于正则操作的方法主要有如下 6 个：
 
 - `String.prototype.search`

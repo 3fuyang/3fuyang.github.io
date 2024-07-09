@@ -6,8 +6,6 @@ lang: zh
 duration: 10min
 ---
 
-# Flog 与 SSG
-
 个人博客, 和官方文档一样, 是 **SSG(Static Site Generator)** 的典型用例。
 
 但写这个博客时没有用 [Vitepress](https://vitepress.vuejs.org/) 、 [Docusaurus](https://docusaurus.io/) 等 SSG 框架,

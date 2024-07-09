@@ -6,8 +6,6 @@ lang: zh
 duration: 4min
 ---
 
-# JavaScript 的事件循环（Event Loop）
-
 **参考资料**：
 
 - [Tasks, microtasks, queues and schedules - JakeArchibald.com](https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/?utm_source=html5weekly)

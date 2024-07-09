@@ -6,8 +6,6 @@ lang: zh
 duration: 10min
 ---
 
-# JavaScript 实现深拷贝（cloneDeep）
-
 JavaScript 只有两种不同的数据类型：**原始值**（primitive value）和**引用值**（reference value）。
 
 **深拷贝**（Deep Clone）就是对于引用值，要复制**内存**中对象的**结构**，而不是单纯复制其引用。

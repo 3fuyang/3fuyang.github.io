@@ -6,8 +6,6 @@ lang: zh
 duration: 10min
 ---
 
-# Vue + Node.js + MySQL 项目部署到 ECS 服务器
-
 ## 参考资料：
 
 - [【超详细小白教学】Vue+nodejs 电商项目部署指南](https://blog.csdn.net/weixin_43786756/article/details/112982951?utm_medium=distribute.pc_feed_404.none-task-blog-2~default~BlogCommendFromBaidu~Rate-1.control404&depth_1-utm_source=distribute.pc_feed_404.none-task-blog-2~default~BlogCommendFromBaidu~Rate-1.control40)

@@ -7,8 +7,6 @@ date: 2024-05-29T17:59:00.000+08:00
 draft: true
 ---
 
-# Stream Response
-
 ## Typical data flow in the web
 
 > HTTP responses typically send the **entire** payload to the client all at once. This approach can sometimes result in a slow user experience if the data is large or computationally intense.
@@ -27,7 +25,7 @@ Small chunks of data are emitted and processed **early** by the consumer, instea
 
 ### Readable Streams
 
-A `ReadableStream` represents an *underlying source* from which data is consumed.
+A `ReadableStream` represents an _underlying source_ from which data is consumed.
 
 Typically, `ReadableStream`s effectively operate in one of two modes: flowing(Push sources) and paused(Pull sources).
 
@@ -57,7 +55,7 @@ const readableStream = new ReadableStream({
 
     // Prevent any writing to the stream
     controller.close()
-  }
+  },
 })
 ```
 
@@ -76,7 +74,7 @@ const transformStream = new TransformStream({
     // Make the text uppercase,
     // encode it and add it back to the stream
     controller.enqueue(encoder.encode(text.toUpperCase()))
-  }
+  },
 })
 ```
 
@@ -88,7 +86,7 @@ Finally, we stream the data chunk by chunk as a web response.
 // Send the streamed response
 return new Response(readableStream.pipeThrough(transformStream), {
   headers: {
-    'Content-Type': 'text/html; charset=utf-8'
+    'Content-Type': 'text/html; charset=utf-8',
   },
 })
 ```

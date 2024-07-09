@@ -6,8 +6,6 @@ lang: zh
 duration: 2min
 ---
 
-# prototype 函数中的 this 绑定
-
 在重做山月前端面试基础中 [bind](https://q.shanyue.tech/fe/js/32.html) 一题时，由于对`this`理解不到位，写出如下**错误答案**：
 
 ```js

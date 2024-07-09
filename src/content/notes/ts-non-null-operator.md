@@ -6,8 +6,6 @@ lang: zh
 date: 2022-10-03T11:20:00.000+08:00
 ---
 
-# TS 非空断言操作符（Non-null Assertion Operator）
-
 后缀 ! （Postfix`!`），可将`null`和`undefinde`从 TS 对变量的类型检查中移除。
 
 常用于 **DOM** 的查找（query）结果。

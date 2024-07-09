@@ -6,8 +6,6 @@ lang: zh
 duration: 3min
 ---
 
-# 借助 import.meta.glob 编写自动路由脚本
-
 > 脚本源码：[auto-routes.ts](https://github.com/3fuyang/3fuyang.github.io/blob/master/src/routes/auto-routes.ts)
 
 ## 背景

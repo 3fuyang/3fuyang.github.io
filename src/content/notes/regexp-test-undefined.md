@@ -6,8 +6,6 @@ lang: zh
 date: 2022-09-25T18:31:00.000+08:00
 ---
 
-# RegExp.prototype.test(undefined)
-
 `undefined`在匹配**正则表达式**时居然会被视作**字符串**，这也太整蛊了...
 
 ```js

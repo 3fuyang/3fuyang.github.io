@@ -6,8 +6,6 @@ lang: zh
 duration: 4min
 ---
 
-# TS Config 简记
-
 Fwio
 
 > 总结一些 TSConfig 文件的选项意义。

@@ -7,8 +7,6 @@ lang: en
 duration: 2min
 ---
 
-# Adopt Oxlint
-
 Recently, I started exploring with [oxlint](https://oxc.rs/docs/guide/usage/linter.html), the increasingly popular JavaScript linter in the community, especially for its ability of replacing [ESLint](https://eslint.org/), which tends to be a performance bottleneck during CI runs for large projects.
 
 During the integration, I am definitely impressed with the extreme performance of this Rust-based linter, but also find that the current docs of oxlint are sometimes ambiguous and example-lacking. I take the chance to write down some notes for future reference and wish it could help others who are also interested in trying new JavaScript toolings.

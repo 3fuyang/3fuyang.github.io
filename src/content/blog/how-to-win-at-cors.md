@@ -6,8 +6,6 @@ lang: zh
 duration: 4min
 ---
 
-# How to win at CORS?
-
 > Reference: [How to win at CORS - JakeArchibald.com](https://jakearchibald.com/2021/cors/)
 
 CORS 的**本质**：为**在客户端**访问跨域资源，对 HTTP 请求（Request）和响应（Response）附加的一系列**头部信息**（`Access-Control-*`），以及 W3C 标准对此做的一些相关支持，统称为一个 CORS **标准**（Spec）。

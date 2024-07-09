@@ -11,8 +11,6 @@ duration: 10min
 - Reference Issues: none
 - Implemention PR:
 
-# Webpack 4 迁移 RFC
-
 ## Summary
 
 - 将项目的构建工具从`webpack 3`迁移至`webpack 4`，并将各相关 webpack 插件升级到`webpack 4`兼容版本。

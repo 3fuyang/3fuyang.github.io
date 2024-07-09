@@ -6,8 +6,6 @@ lang: zh
 duration: 3min
 ---
 
-# Vue 与 React 与竞态问题
-
 > ## Reference
 >
 > - [You Might Not Need An Effect](https://beta.reactjs.org/learn/you-might-not-need-an-effect#fetching-data)

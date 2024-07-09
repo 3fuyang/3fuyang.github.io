@@ -6,8 +6,6 @@ lang: zh
 duration: 1min
 ---
 
-# CSRF 和 XSS 攻击
-
 从[《The JWT Handbook》](https://auth0.com/resources/ebooks/jwt-handbook)看到的，对这两种网络攻击简单易懂的解释。
 
 ## Cross Site Request Forgery (CSRF)

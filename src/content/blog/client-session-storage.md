@@ -6,8 +6,6 @@ lang: zh
 duration: 1min
 ---
 
-# 客户端 Session Storage 的生命周期
-
 > Long may the holiday shine.
 
 最近实习分到一个在 Web 端嵌入 h5 页面的需求，具体实现中是以“跳转”（操纵`window.location`）的方式嵌入。

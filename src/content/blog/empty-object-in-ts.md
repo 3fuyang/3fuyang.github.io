@@ -6,8 +6,6 @@ lang: zh
 duration: 4min
 ---
 
-# TypeScript 中的"空对象字面值"
-
 在做 [type chanllenges](https://github.com/type-challenges/type-challenges) 时,
 对 [AnyOf](https://github.com/type-challenges/type-challenges/blob/main/questions/00949-medium-anyof/README.md)
 这道迷惑了很久：

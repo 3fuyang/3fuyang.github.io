@@ -14,12 +14,12 @@ const { pathname } = Astro.url
 const isHome = pathname === '/'
 
 interface Props {
-  title?: string
+  title: string
   keywords?: string[]
   description?: string
 }
 
-const { title = 'Fwio', keywords = ['fwio', 'blog' ,'ts' , 'typescript', 'vue', 'react'], description = 'UN JOUR JE SERAI DE RETOUR PRÈS DE TOI' } = Astro.props
+const { title, keywords = ['fwio', 'blog' ,'ts' , 'typescript', 'vue', 'react'], description = 'UN JOUR JE SERAI DE RETOUR PRÈS DE TOI' } = Astro.props
 ---
 
 <html lang="en-US">
@@ -34,7 +34,7 @@ const { title = 'Fwio', keywords = ['fwio', 'blog' ,'ts' , 'typescript', 'vue', 
     <meta
       name="keywords"
       content={keywords.join(',')}
-      data-rh
+      data-rh="true"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/fwio.svg" />

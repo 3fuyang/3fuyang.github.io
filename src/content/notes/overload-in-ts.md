@@ -6,8 +6,6 @@ lang: zh
 duration: 1min
 ---
 
-# TS 中的函数重载
-
 TypeScript 中的函数重载（Function Overload）较为特别，其允许的是**声明**（Declaration）重载，而不是**实现**（Implementation）重载。
 
 意即，不论在声明中对函数重载多少次，也仅允许有**唯一一个**实现，且这种实现必须**兼容**所有声明。
