@@ -8,6 +8,8 @@ import vercelStatic from '@astrojs/vercel/static'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeExternalLinks from 'rehype-external-links'
 
+import sentry from '@sentry/astro';
+
 // https://astro.build/config
 export default defineConfig({
   prefetch: true,
@@ -35,14 +37,17 @@ export default defineConfig({
       ],
     ],
   },
-  integrations: [
-    react(),
-    UnoCSS({
-      injectReset: true,
-      presets: [presetTypography()],
-    }),
-    mdx(),
-  ],
+  integrations: [react(), UnoCSS({
+    injectReset: true,
+    presets: [presetTypography()],
+  }), mdx(), sentry({
+    enabled: process.env.NODE_ENV === 'production',
+    dsn: process.env.SENTRY_DSN,
+    sourceMapsUploadOptions: {
+      project: process.env.SENTRY_PROJECT,
+      authToken: process.env.SENTRY_AUTH_TOKEN,
+    }
+  })],
   output: 'static',
   adapter: vercelStatic({
     webAnalytics: {
