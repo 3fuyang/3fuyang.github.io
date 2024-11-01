@@ -13,6 +13,8 @@ const { pathname } = Astro.url
 
 const isHome = pathname === '/'
 
+const isProd = process.env.NODE_ENV === 'production'
+
 interface Props {
   title: string
   keywords?: string[]
@@ -44,6 +46,23 @@ const { title, keywords = ['fwio', 'blog' ,'ts' , 'typescript', 'vue', 'react'],
     <ViewTransitions />
     <SpeedInsights />
   </head>
+  <>
+  {isProd && (
+    <>
+      <script
+        type="text/partytown"
+        src="https://www.googletagmanager.com/gtag/js?id=G-Z0VQSCZHJ1"
+      />
+      <script type="text/partytown">
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+      
+        gtag('config', 'G-Z0VQSCZHJ1');
+      </script>
+    </>
+  )}
+  </>
   <body>
     <div class="scroll-smooth text-gray-700 dark:text-gray-200">
       <NavBar />

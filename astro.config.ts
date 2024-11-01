@@ -8,7 +8,9 @@ import vercelStatic from '@astrojs/vercel/static'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeExternalLinks from 'rehype-external-links'
 
-import sentry from '@sentry/astro';
+import sentry from '@sentry/astro'
+
+import partytown from '@astrojs/partytown'
 
 // https://astro.build/config
 export default defineConfig({
@@ -37,17 +39,23 @@ export default defineConfig({
       ],
     ],
   },
-  integrations: [react(), UnoCSS({
-    injectReset: true,
-    presets: [presetTypography()],
-  }), mdx(), sentry({
-    enabled: process.env.NODE_ENV === 'production',
-    dsn: process.env.SENTRY_DSN,
-    sourceMapsUploadOptions: {
-      project: process.env.SENTRY_PROJECT,
-      authToken: process.env.SENTRY_AUTH_TOKEN,
-    }
-  })],
+  integrations: [
+    react(),
+    UnoCSS({
+      injectReset: true,
+      presets: [presetTypography()],
+    }),
+    mdx(),
+    sentry({
+      enabled: process.env.NODE_ENV === 'production',
+      dsn: process.env.SENTRY_DSN,
+      sourceMapsUploadOptions: {
+        project: process.env.SENTRY_PROJECT,
+        authToken: process.env.SENTRY_AUTH_TOKEN,
+      },
+    }),
+    partytown(),
+  ],
   output: 'static',
   adapter: vercelStatic({
     webAnalytics: {
