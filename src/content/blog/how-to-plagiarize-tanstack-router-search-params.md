@@ -67,12 +67,16 @@ export function stringifySearchWith(
         // If it is, then stringify it again.
         // Me: Wait, but why?
         // Saint Tanner: RTFM.
+        // Me: Okay, so this extra process on `string` is for
+        // `boolean` and `number` preservation, right?
+        // Saint Tanner: Yeah, you're getting there.
         parser(val)
         return stringify(val)
       } catch (err) {
         // silent
       }
     }
+    // Look, `number` and `boolean` didn't get passed to `stringify()`!
     return val
   }
 
@@ -255,15 +259,28 @@ export function decode(str: any, pfx?: string) {
 function toValue(mix: any) {
   // Here we filter out the `''` value early
   if (!mix) return ''
+
   // Decode first
   const str = decodeURIComponent(mix)
+
   // Boolean
   if (str === 'false') return false
   if (str === 'true') return true
+
   // Number
   return +str * 0 === 0 && +str + '' === str ? +str : str
 }
 ```
+
+这是一段前后联动紧密的代码，首先，`parseWithSearch()` 是反序列化器的工厂函数，尽管我们大可以将它视为一个自定义 parser 的 placeholder，它大放异彩的时刻可能还在未来。眼光回到现在，我们尚只需关注，在使用默认的 `JSON.parse()` 参数时，其返回的 parser 函数作为反序列化工程的入口，它如何工作：
+
+1. 举手之劳！去掉 search string 的前缀 `?`，否则将导致食物中毒；
+2. 精密的逻辑发生在上消化道 `decode()` 中，这位来自 `qss` 的大法官能够将 `encode` 产物正确地还原：
+    1. 相当原始地，`decode()` 首先将 `str` 根据分隔符 `&` 分割为各个 `key=value` 对，然后依次处理；
+    2. 对每个 `key=value`，`decode()` 会首先将 `key` 使用 `decodeURIComponent()` 解码，然后将 value 传递给神奇的 `toValue()`；
+    3. `toValue()` 名副其实，它救赎了 `stringifySearchWith()` 中对 `string` 的不公处理：它在补足对 `value` 的 `decodeURIComponent()` 后，专断地将 `string` 转化为 `number` 或 `boolean`；
+    3. 
+3. 下消化道则显得相当大刀阔斧，对 `decode()` 输出的 `query` 对象中的每个 `string` 类型的 `value`，`parseWithSearch()` 会将其传递给 parser `JSON.parse()`，以期获得 `string` 或者**任意复杂**的结构体。
 
 ## 相信你的输入，or not to be？
 
