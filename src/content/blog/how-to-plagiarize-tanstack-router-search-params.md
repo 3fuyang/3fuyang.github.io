@@ -163,7 +163,10 @@ export function encode(obj: any, pfx?: string) {
 
 ### 便秘的反序列化
 
-正如序列化像是一场拉稀，将任意的输入吞吐为难辨究竟的絮状物（字符串），反序列化则是一场便秘。
+正如序列化像是一场拉稀，将任意的输入吞吐为难辨究竟的絮状物（字符串），反序列化则是一场便秘：
+
+- `parseSearchWith()` - [searchParams.ts#L10 · TanStack/router](https://github.com/TanStack/router/blob/main/packages/react-router/src/searchParams.ts#L10)
+- `decode()` - [qss.ts#L66 · TanStack/router](https://github.com/TanStack/router/blob/main/packages/react-router/src/qss.ts#L66)
 
 ```ts
 type AnySearchSchema = {}
@@ -279,8 +282,13 @@ function toValue(mix: any) {
     1. 相当原始地，`decode()` 首先将 `str` 根据分隔符 `&` 分割为各个 `key=value` 对，然后依次处理；
     2. 对每个 `key=value`，`decode()` 会首先将 `key` 使用 `decodeURIComponent()` 解码，然后将 value 传递给神奇的 `toValue()`；
     3. `toValue()` 名副其实，它救赎了 `stringifySearchWith()` 中对 `string` 的不公处理：它在补足对 `value` 的 `decodeURIComponent()` 后，专断地将 `string` 转化为 `number` 或 `boolean`；
-    3. 
 3. 下消化道则显得相当大刀阔斧，对 `decode()` 输出的 `query` 对象中的每个 `string` 类型的 `value`，`parseWithSearch()` 会将其传递给 parser `JSON.parse()`，以期获得 `string` 或者**任意复杂**的结构体。
+
+### Recap
+
+为您敬上，这是一张粗略的序列化/反序列化流程图：
+
+![Search Params Serialization Flow](../../assets/how-to-plagiarize-tanstack-router-search-params/search-params-serialization.png)
 
 ## 相信你的输入，or not to be？
 
