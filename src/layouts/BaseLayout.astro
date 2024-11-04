@@ -13,7 +13,7 @@ const { pathname } = Astro.url
 
 const isHome = pathname === '/'
 
-const isProd = process.env.NODE_ENV === 'production'
+const isProd = import.meta.env.NODE_ENV === 'production'
 
 interface Props {
   title: string
