@@ -27,4 +27,23 @@ const { Content } = await render()
 <MarkdownLayout title={`${title} | Fwio`} {...{ keywords, description }}>
   <h1>{title}</h1>
   <Content />
+  <section class="mx-a mt-12 max-w-65ch">
+    <script
+      src="https://giscus.app/client.js"
+      data-repo="3fuyang/giscus"
+      data-repo-id="R_kgDONKr3yQ"
+      data-category="Announcements"
+      data-category-id="DIC_kwDONKr3yc4Cj_Yn"
+      data-mapping="pathname"
+      data-strict="0"
+      data-reactions-enabled="0"
+      data-emit-metadata="0"
+      data-input-position="bottom"
+      data-theme="preferred_color_scheme"
+      data-lang="en"
+      data-loading="lazy"
+      crossorigin="anonymous"
+      async
+    />
+  </section>
 </MarkdownLayout>
