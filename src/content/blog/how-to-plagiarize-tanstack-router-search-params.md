@@ -15,6 +15,8 @@ duration: 2min
 
 为了实践这高贵的理念，我已经不知好歹地在好几个工作上的 feature 中落地了尊崇 Search Params 的模式，这些可怜的 feature 断断续续、非正态地分布在估值一年的时间长河中，时至今日依然揣着它们脆弱的 De/Serializer 牌拐杖维持那份表面的优雅。是的，又一桩“use the platform”悲剧，让我们默哀三秒，然后踏入这场剽窃之旅。
 
+> TL;DR: [Code](#剽窃成果)
+
 ## 一桩事先张扬的剽窃
 
 如果你没有看明白上面自作聪明的揶揄，别担心，我从亲爱的 [TanStack Router](https://tanstack.com/router/latest/docs/framework/react/guide/search-params#why-not-just-use-urlsearchparams) 那找到了一份解释：
@@ -293,3 +295,90 @@ function toValue(mix: any) {
 ## 相信你的输入，or not to be？
 
 如果你不幸跟我一样，被迫得到 Search Params 的天启，而又曾被生性执拗的 [`URLSearchParams`](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams) 所辜负，那么你一定会对自己狭隘心胸中对 TypeScript 的愚忠感到羞愧。万幸，在这个后 Zod 时代，如果我们无视引入更多碳排放的道德谴责（是的，我们始终无视），像 [You-Know-Which](https://zod.dev/) 这样的 Runtime Validation 工具，将 Make TypeScript Great Again。
+
+如 [Validating Search Params](https://tanstack.com/router/latest/docs/framework/react/guide/search-params#validating-search-params) 所揭晓的，Tanstack Router 在实际使用中对 Search Params 的解析分为两步:
+
+1. **Unified Parser** - 即已经在上面得到剖析的 `parseSearchWith()`，默认情况下，所有 Search Params 统一先接受它的解析，但不可接受的是，它返回的类型永远是 `Record<string, unknown>`；
+2. **Custom Validation** - 开发者，也就是我们，能够自定义的 Validator（例如 [Zod]((https://zod.dev/)) 这样的 Schema-based Validator），以对 Search Params 进行更为精细、同时灵活的类型验证。
+
+![Type Validation](../../assets/how-to-plagiarize-tanstack-router-search-params/typed-search-params.png)
+
+## 剽窃成果
+
+有了以上这些条件，我们已经能够在垂垂老矣的 [React Router](https://reactrouter.com) 项目中，实现一套剽窃 Tanstack Router 的 Search Params API。
+
+```ts
+import { useLocation, useNavigate, type NavigateOptions } from 'react-router-dom'
+import { type ZodSchema, z } from 'zod'
+
+import { parseSearchWith, stringifySearchWith } from './wherever-you-put-them'
+
+const defaultParseSearch = parseSearchWith(JSON.parse)
+const defaultStringifySearch = stringifySearchWith(JSON.stringify)
+
+/**
+ * Helper hook to use typed Search Params with Zod Schema validation.
+ * @param searchZodSchema - The Zod Schema for the Search Params.
+ * @returns A tuple of typed Search Params and the setter.
+ */
+function _useSearchParams(searchZodSchema: Schema extends ZodSchema) {
+  const navigate = useNavigate()
+  /**
+   * Retrieve the `search` string from the hook from React Router,
+   * so that it aligns with the Router's lifecycle.
+   */
+  const location = useLocation()
+
+  const search = location.search
+
+  const searchParams = useMemo(() => {
+    // First, parsed to `Record<string, unknown>`
+    const parsed = defaultParseSearch(search)
+
+    // Then, validated with Zod
+    const validated = searchZodSchema.parse(parsed)
+
+    return validated
+  }, [search])
+
+  type SearchParams = z.infer<typeof Schema>
+
+  const setSearchParams = useCallback((nextSearchParams: SearchParams, options?: NavigateOptions) => {
+    const nextSearch = defaultStringifySearch(nextSearchParams)
+
+    /**
+     * Use `navigate` instead of the setter returned by React Router's `useSearchParams()`
+     * to update the search, since React Router's Search Params API do additional
+     * encoding, which is not compatible with our custom serializer.
+     */
+    return navigate({
+      pathname: '.',
+      search: nextSearch,
+    }, options)
+  }, [navigate])
+
+  return [searchParams, setSearchParams] as const
+}
+
+// Usage
+const productSearchSchema = z.object({
+  page: z.number().default(1),
+  filter: z.string().default(''),
+  sort: z.enum(['newest', 'oldest', 'price']).default('newest'),
+})
+
+function useProductListSearch() {
+  return _useSearchParams(productSearchSchema)
+}
+
+// In your component
+function ProductList() {
+  // Fully typed search params!
+  const [searchParams, setSearchParams] = useProductListSearch()
+  // searchParams.page
+  // searchParams.filter
+  // searchParams.sort
+
+  // ...
+}
+```
