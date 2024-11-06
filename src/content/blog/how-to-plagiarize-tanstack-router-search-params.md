@@ -1,6 +1,5 @@
 ---
-title: 如何剽窃 Tanstack Router 的 Search Params API（WIP)
-date: 2024-10-27T18:00:00.000+08:00
+title: 如何剽窃 Tanstack Router 的 Search Params API
 keywords: ['tanstack router', 'react router', 'search params', 'react hooks', 'state management']
 description: Some internals of the amazing Search Params API from Tanstack Router, and how to implement a similar one in a React Router based project.
 lang: zh
@@ -309,7 +308,7 @@ function toValue(mix: any) {
 
 ```ts
 import { useLocation, useNavigate, type NavigateOptions } from 'react-router-dom'
-import { type ZodSchema, z } from 'zod'
+import { type ZodRawShape, z } from 'zod'
 
 import { parseSearchWith, stringifySearchWith } from './wherever-you-put-them'
 
@@ -319,9 +318,9 @@ const defaultStringifySearch = stringifySearchWith(JSON.stringify)
 /**
  * Helper hook to use typed Search Params with Zod Schema validation.
  * @param searchZodSchema - The Zod Schema for the Search Params.
- * @returns A tuple of typed Search Params and the setter.
+ * @returns Like `useState()` - a tuple of typed search params object and its setter.
  */
-function _useSearchParams(searchZodSchema: Schema extends ZodSchema) {
+function _useSearchParams<Schema extends ZodRawShape>(searchZodSchema: z.ZodObject<Schema>) {
   const navigate = useNavigate()
   /**
    * Retrieve the `search` string from the hook from React Router,
@@ -331,28 +330,30 @@ function _useSearchParams(searchZodSchema: Schema extends ZodSchema) {
 
   const search = location.search
 
-  const searchParams = useMemo(() => {
-    // First, parsed to `Record<string, unknown>`
+  type SearchParams = z.infer<typeof Schema>
+
+  const searchParams = useMemo<SearchParams>(() => {
+    // First, parse as `Record<string, unknown>`
     const parsed = defaultParseSearch(search)
 
-    // Then, validated with Zod
+    // Then, validated with Zod schema.
+    // By default unrecognized keys get stripped out here.
     const validated = searchZodSchema.parse(parsed)
 
     return validated
   }, [search])
 
-  type SearchParams = z.infer<typeof Schema>
-
   const setSearchParams = useCallback((nextSearchParams: SearchParams, options?: NavigateOptions) => {
     const nextSearch = defaultStringifySearch(nextSearchParams)
 
     /**
-     * Use `navigate` instead of the setter returned by React Router's `useSearchParams()`
-     * to update the search, since React Router's Search Params API do additional
-     * encoding, which is not compatible with our custom serializer.
+     * Use `navigate()` to update search params,
+     * because `setParams()` from `useSearchParams()`
+     * does additional encoding.
+     * @see https://github.com/remix-run/react-router/blob/7372affd445eaa16d7866bc97ef14cb61361bff5/packages/react-router-dom/index.tsx#L1497
+     * @see https://github.com/remix-run/react-router/blob/main/packages/react-router-dom/dom.ts#L79
      */
     return navigate({
-      pathname: '.',
       search: nextSearch,
     }, options)
   }, [navigate])
