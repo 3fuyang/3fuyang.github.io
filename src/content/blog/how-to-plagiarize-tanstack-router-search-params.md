@@ -1,5 +1,6 @@
 ---
 title: 如何剽窃 Tanstack Router 的 Search Params API
+date: 2024-10-27T18:00:00.000+08:00
 keywords: ['tanstack router', 'react router', 'search params', 'react hooks', 'state management']
 description: Some internals of the amazing Search Params API from Tanstack Router, and how to implement a similar one in a React Router based project.
 lang: zh
