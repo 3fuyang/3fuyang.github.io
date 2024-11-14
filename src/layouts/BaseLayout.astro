@@ -1,5 +1,4 @@
 ---
-import { ViewTransitions } from 'astro:transitions'
 import SpeedInsights from "@vercel/speed-insights/astro"
 import { Image } from 'astro:assets';
 
@@ -43,7 +42,25 @@ const { title, keywords = ['fwio', 'blog' ,'ts' , 'typescript', 'vue', 'react'],
     <link rel="apple-touch-icon" href="/fwio-apple-touch.png" sizes="180x180" />
     <link rel="mask-icon" href="/fwio.svg" color="#FFFFFF" />
     <slot name="head" />
-    <ViewTransitions />
+    <script is:inline>
+      const THEME_STORAGE_KEY = 'theme'
+      const THEME ={
+        dark: 'dark',
+        light: 'light'
+      }
+    
+      const prevTheme = localStorage.getItem(THEME_STORAGE_KEY)
+    
+      if (
+        prevTheme === THEME.dark ||
+        (!prevTheme &&
+          window.matchMedia('(prefers-color-scheme: dark)').matches)
+      ) {
+        document.documentElement.classList.add(THEME.dark)
+      } else {
+        document.documentElement.classList.remove(THEME.dark)
+      }
+    </script>
     <SpeedInsights />
   </head>
   <>
@@ -55,6 +72,7 @@ const { title, keywords = ['fwio', 'blog' ,'ts' , 'typescript', 'vue', 'react'],
       />
       <script type="text/partytown">
         window.dataLayer = window.dataLayer || [];
+        // eslint-disable-next-line no-undef
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
       
@@ -72,7 +90,7 @@ const { title, keywords = ['fwio', 'blog' ,'ts' , 'typescript', 'vue', 'react'],
       </main>
       {!isHome && (
         <Image
-          aria-hidden
+          aria-hidden="true"
           src={Seagull}
           alt=""
           fetchpriority="high"
@@ -82,19 +100,3 @@ const { title, keywords = ['fwio', 'blog' ,'ts' , 'typescript', 'vue', 'react'],
     </div>
   </body>
 </html>
-
-<script>
-  import { THEME, THEME_STORAGE_KEY } from '~/hooks/useDark'
-
-  const prevTheme = localStorage.getItem(THEME_STORAGE_KEY)
-
-  if (
-    prevTheme === THEME.dark ||
-    (!prevTheme &&
-      window.matchMedia('(prefers-color-scheme: dark)').matches)
-  ) {
-    document.documentElement.classList.add(THEME.dark)
-  } else {
-    document.documentElement.classList.remove(THEME.dark)
-  }
-</script>
