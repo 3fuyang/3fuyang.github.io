@@ -14,7 +14,7 @@ export default defineConfig({
   prefetch: true,
   markdown: {
     shikiConfig: {
-      theme: 'vitesse-dark',
+      theme: 'nord',
     },
     rehypePlugins: [
       rehypeHeadingIds,

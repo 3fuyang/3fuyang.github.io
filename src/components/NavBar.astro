@@ -23,14 +23,14 @@ const fLinks = [
 ---
 
 <header
-  class="z-1 sticky top-0 flex items-center justify-between gap-6 px-6 py-3 backdrop-blur-sm backdrop-saturate-50"
+  class="sticky top-0 z-10 flex items-center justify-between space-x-6 px-6 py-3 backdrop-blur-sm backdrop-saturate-50"
 >
   <a href="/" class="select-none outline-none" title="Home"> Fwio </a>
-  <nav class="flex items-center gap-4 md:gap-8">
+  <nav class="flex items-center space-x-4 md:space-x-8">
     {fLinks.map((fLink) => <FLink {...fLink} />)}
     <a
       href="https://github.com/3fuyang"
-      class="link"
+      class="link !mr-4 md:!mr-6"
       target="_blank"
       rel="noreferrer noopener"
       title="Github"

@@ -10,7 +10,7 @@ export interface Props {
 const { posts } = Astro.props
 ---
 
-<section class="m-auto flex max-w-xl flex-col gap-6">
+<section class="m-auto max-w-xl space-y-6">
   {
     posts.map(({ slug, title, date }) => {
       const dateTime = new Date(date).toLocaleDateString()
