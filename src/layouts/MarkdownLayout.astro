@@ -1,4 +1,6 @@
 ---
+import '@fontsource/geist-mono';
+
 import BaseLayout from './BaseLayout.astro'
 
 import './MarkdownLayout.css'
@@ -13,7 +15,7 @@ const { title, keywords, description } = Astro.props
 ---
 
 <BaseLayout {...{ title, keywords, description }}>
-  <article class="mx-a prose">
+  <article class="prose mx-auto dark:prose-invert">
     <slot />
   </article>
 </BaseLayout>

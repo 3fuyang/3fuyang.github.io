@@ -1,6 +1,7 @@
 ---
 import SpeedInsights from "@vercel/speed-insights/astro"
 import { Image } from 'astro:assets';
+import '@fontsource/geist-sans';
 
 import Seagull from '../../public/seagull.svg'
 import NavBar from '~/components/NavBar.astro'
@@ -72,7 +73,8 @@ const { title, keywords = ['fwio', 'blog' ,'ts' , 'typescript', 'vue', 'react'],
       />
       <script type="text/partytown">
         window.dataLayer = window.dataLayer || [];
-        // eslint-disable-next-line no-undef
+         
+        // eslint-disable-next-line prefer-rest-params
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
       
@@ -84,7 +86,7 @@ const { title, keywords = ['fwio', 'blog' ,'ts' , 'typescript', 'vue', 'react'],
   <body>
     <div class="scroll-smooth text-gray-700 dark:text-gray-200">
       <NavBar />
-      <main class="px6 py10">
+      <main class="px-6 py-10">
         <slot />
         <Footer />
       </main>
@@ -94,7 +96,7 @@ const { title, keywords = ['fwio', 'blog' ,'ts' , 'typescript', 'vue', 'react'],
           src={Seagull}
           alt=""
           fetchpriority="high"
-          class="pointer-events-none fixed left-1/2 top-1/2 aspect-1 ha max-w-2/5 op45 mix-blend-difference filter-invert-60 md:max-w-1/6 -translate-1/2 dark:op100"
+          class="pointer-events-none fixed left-1/2 top-1/2 aspect-square h-auto max-w-[45%] -translate-x-1/2 -translate-y-1/2 opacity-45 mix-blend-difference invert-[.6] md:max-w-[17%] dark:opacity-100"
         />
       )}
     </div>

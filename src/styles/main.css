@@ -4,6 +4,8 @@
   --c-scrollbar: #d3d0d7;
   --c-scrollbar-hover: #9e9cae;
   --c-scrollbar-active: #787878;
+
+  font-family: 'Geist Sans', sans-serif;
 }
 
 html {
@@ -68,4 +70,12 @@ a.prose-heading-anchor:hover {
 .prose h5,
 .prose h6 {
   scroll-margin-block-start: 4rem;
+}
+
+.skeleton {
+  @apply mt-2.5 h-4 rounded-sm bg-gray-200 dark:bg-gray-600;
+}
+
+.link {
+  @apply opacity-70 transition-opacity hover:opacity-100 focus-visible:opacity-100;
 }

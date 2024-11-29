@@ -56,6 +56,7 @@ Manipulate the DOM of a range of content in harmony with the `EditorView`
 Draw additional content in the editor in a way that isn't tied to a specific range.
 
 Two way to create a `ViewPlugin`:
+
 - `ViewPlugin.define`
 - `ViewPlugin.fromClass`
 

@@ -53,6 +53,7 @@ How much does the sync platform understand about the data it's syncing, and are 
 ## System Requirements
 
 > Systems programming is the art of negotiating an application's ideal exprience with the limitations of the real world.
+>
 > - Networks aren't always fast and reliable.
 > - Computation is sometime expensive.
 > - Storage can be slow and costly.

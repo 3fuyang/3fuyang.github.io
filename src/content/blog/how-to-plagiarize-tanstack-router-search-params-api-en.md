@@ -1,7 +1,14 @@
 ---
 title: How to Plagiarize Tanstack Router's Search Params API
 date: 2024-11-07
-keywords: ['tanstack router', 'react router', 'search params', 'react hooks', 'state management']
+keywords:
+  [
+    'tanstack router',
+    'react router',
+    'search params',
+    'react hooks',
+    'state management',
+  ]
 description: Some internals of the amazing Search Params API from Tanstack Router, and how to implement a similar one in a React Router-based project.
 lang: en
 duration: 2min
@@ -105,7 +112,7 @@ export function stringifySearchWith(
     })
 
     // Finally, encode the output string with our Tanstack level `encode()`,
-    // which is borrowed from the dear `qss` package. 
+    // which is borrowed from the dear `qss` package.
     const searchStr = encode(search as Record<string, string>).toString()
 
     return searchStr ? `?${searchStr}` : ''
@@ -121,7 +128,7 @@ It's the `Object.keys(search).forEach(/*...*/)` that leads us to the flat, strin
 
 And you may noticed, the `encode()` function is a lightweight utility sourced from the [`qss`](https://github.com/lukeed/qss) library, designed to serialize search objects into URL-safe strings, very fast, since this procedure is a so-called hot-path.
 
-```ts
+````ts
 /**
  * Encodes an object into a query string.
  * @param obj - The object to encode into a query string.
@@ -155,7 +162,7 @@ export function encode(obj: any, pfx?: string) {
 
   return (pfx || '') + str
 }
-```
+````
 
 This is a trivial piece of code with non-trivial readability: `encode()` accepts an object `obj` and an optional prefix `pfx`. It iterates through each key-value pair in `obj`, applying `encodeURIComponent()` to each to ensure URL safety. When handling non-string types, implicit type [coercion](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent#uricomponent) occurs, meaning `encode()` can handle various data types seamlessly without extra processing. This flexibility and simplicity make it especially powerful in handling diverse data.
 
@@ -277,9 +284,9 @@ As you see, `parseWithSearch()`, serves as the factory function of the deseriali
 
 1. A trivial job: remove the prefix `?` of the search string, otherwise it will lead to food poisoning;
 2. The delicate logic happens in the `decode()` function, which is borrowed from the `qss` package. It correctly decodes the `encode` output:
-    1. Quite primitive, `decode()` first splits `str` into individual `key=value` pairs according to the delimiter `&`, and then processes them one by one;
-    2. For each `key=value`, `decode()` first decodes the `key` using `decodeURIComponent()`, and then passes the `value` to the magical `toValue()` function;
-    3. `toValue()` lives up to its name, it rescues the unfair treatment of `string` in `stringifySearchWith()`: after fully `decodeURIComponent()` on the `value`, it forcefully converts the `string` to `number` or `boolean`;
+   1. Quite primitive, `decode()` first splits `str` into individual `key=value` pairs according to the delimiter `&`, and then processes them one by one;
+   2. For each `key=value`, `decode()` first decodes the `key` using `decodeURIComponent()`, and then passes the `value` to the magical `toValue()` function;
+   3. `toValue()` lives up to its name, it rescues the unfair treatment of `string` in `stringifySearchWith()`: after fully `decodeURIComponent()` on the `value`, it forcefully converts the `string` to `number` or `boolean`;
 3. The downstream processing is rather rough, for each `string` type `value` in the `query` object outputted by `decode()`, `parseWithSearch()` passes it to the parser `JSON.parse()`, in the hope of obtaining a `string` or **arbitrary complex** structure.
 
 ## Recap
@@ -304,7 +311,11 @@ Well, as [Validating Search Params](https://tanstack.com/router/latest/docs/fram
 At this stage, we are already capable of implementing a Search Params API that resembles Tanstack Router's in a [React Router](https://reactrouter.com)-based project.
 
 ```ts
-import { useLocation, useNavigate, type NavigateOptions } from 'react-router-dom'
+import {
+  useLocation,
+  useNavigate,
+  type NavigateOptions,
+} from 'react-router-dom'
 import { type ZodRawShape, z } from 'zod'
 
 import { parseSearchWith, stringifySearchWith } from './wherever-you-put-them'
@@ -317,7 +328,9 @@ const defaultStringifySearch = stringifySearchWith(JSON.stringify)
  * @param searchZodSchema - The Zod Schema for the Search Params.
  * @returns Like `useState()` - a tuple of typed search params object and its setter.
  */
-function _useSearchParams<Schema extends ZodRawShape>(searchZodSchema: z.ZodObject<Schema>) {
+function _useSearchParams<Schema extends ZodRawShape>(
+  searchZodSchema: z.ZodObject<Schema>,
+) {
   const navigate = useNavigate()
   /**
    * Retrieve the `search` string from the hook from React Router,
@@ -340,20 +353,26 @@ function _useSearchParams<Schema extends ZodRawShape>(searchZodSchema: z.ZodObje
     return validated
   }, [search])
 
-  const setSearchParams = useCallback((nextSearchParams: SearchParams, options?: NavigateOptions) => {
-    const nextSearch = defaultStringifySearch(nextSearchParams)
+  const setSearchParams = useCallback(
+    (nextSearchParams: SearchParams, options?: NavigateOptions) => {
+      const nextSearch = defaultStringifySearch(nextSearchParams)
 
-    /**
-     * Use `navigate()` to update search params,
-     * because `setParams()` from `useSearchParams()`
-     * does additional encoding.
-     * @see https://github.com/remix-run/react-router/blob/7372affd445eaa16d7866bc97ef14cb61361bff5/packages/react-router-dom/index.tsx#L1497
-     * @see https://github.com/remix-run/react-router/blob/main/packages/react-router-dom/dom.ts#L79
-     */
-    return navigate({
-      search: nextSearch,
-    }, options)
-  }, [navigate])
+      /**
+       * Use `navigate()` to update search params,
+       * because `setParams()` from `useSearchParams()`
+       * does additional encoding.
+       * @see https://github.com/remix-run/react-router/blob/7372affd445eaa16d7866bc97ef14cb61361bff5/packages/react-router-dom/index.tsx#L1497
+       * @see https://github.com/remix-run/react-router/blob/main/packages/react-router-dom/dom.ts#L79
+       */
+      return navigate(
+        {
+          search: nextSearch,
+        },
+        options,
+      )
+    },
+    [navigate],
+  )
 
   return [searchParams, setSearchParams] as const
 }

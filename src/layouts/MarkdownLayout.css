@@ -1,8 +1,16 @@
+/* Code scrolling */
+.prose pre {
+  max-height: 30rem;
+  overflow: auto;
+}
+
+/* Line number */
 .prose code {
   counter-reset: step;
   counter-increment: step 0;
-}
 
+  font-family: 'Geist Mono', monospace;
+}
 .prose code .line:not(:last-child)::before {
   content: counter(step);
   counter-increment: step;
@@ -10,5 +18,5 @@
   margin-right: 1.5rem;
   display: inline-block;
   text-align: right;
-  color: rgba(115,138,148,.4)
+  color: rgba(115, 138, 148, 0.4);
 }

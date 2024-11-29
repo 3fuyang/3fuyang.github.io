@@ -1,7 +1,14 @@
 ---
 title: 如何剽窃 Tanstack Router 的 Search Params API
 date: 2024-10-27T18:00:00.000+08:00
-keywords: ['tanstack router', 'react router', 'search params', 'react hooks', 'state management']
+keywords:
+  [
+    'tanstack router',
+    'react router',
+    'search params',
+    'react hooks',
+    'state management',
+  ]
 description: Some internals of the amazing Search Params API from Tanstack Router, and how to implement a similar one in a React Router based project.
 lang: zh
 duration: 2min
@@ -103,7 +110,7 @@ export function stringifySearchWith(
     })
 
     // Finally, encode the output string with our Tanstack level `encode()`,
-    // which is borrowed from the dear `qss` package. 
+    // which is borrowed from the dear `qss` package.
     const searchStr = encode(search as Record<string, string>).toString()
 
     return searchStr ? `?${searchStr}` : ''
@@ -119,7 +126,7 @@ export function stringifySearchWith(
 
 另外，你可能注意到了 `encode()` 这个机械降神的函数，它由先知 Tanstack Router 从 [`qss`](https://github.com/lukeed/qss) 中汲取而来，以为将 search object 转化为 URL-safe string 这条 hot path 极致赋能。[router/packages/react-router/src/qss.ts at main · TanStack/router](https://github.com/TanStack/router/blob/main/packages/react-router/src/qss.ts) 中记录了其具体的实现：
 
-```ts
+````ts
 /**
  * Encodes an object into a query string.
  * @param obj - The object to encode into a query string.
@@ -153,7 +160,7 @@ export function encode(obj: any, pfx?: string) {
 
   return (pfx || '') + str
 }
-```
+````
 
 这是一段简单的代码，而其易读性却不简单。在接收一个对象 `obj` 和可选的前缀 `pfx` 后，`encode()` 会将 `obj` 中的每个键值对**分别**调用 `encodeURIComponent()`，需要注意的是，其中的 `tmp` 或者 `tmp[i]` 并不一定是字符串，而仍然可能是除 `object` 外的任意类型。是的，`encodeURIComponent()` 在处理非字符串时将执行 [coercion](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent#uricomponent)。
 
@@ -281,9 +288,9 @@ function toValue(mix: any) {
 
 1. 举手之劳！去掉 search string 的前缀 `?`，否则将导致食物中毒；
 2. 精密的逻辑发生在上消化道 `decode()` 中，这位来自 `qss` 的大法官能够将 `encode` 产物正确地还原：
-    1. 相当原始地，`decode()` 首先将 `str` 根据分隔符 `&` 分割为各个 `key=value` 对，然后依次处理；
-    2. 对每个 `key=value`，`decode()` 会首先将 `key` 使用 `decodeURIComponent()` 解码，然后将 value 传递给神奇的 `toValue()`；
-    3. `toValue()` 名副其实，它救赎了 `stringifySearchWith()` 中对 `string` 的不公处理：它在补足对 `value` 的 `decodeURIComponent()` 后，专断地将 `string` 转化为 `number` 或 `boolean`；
+   1. 相当原始地，`decode()` 首先将 `str` 根据分隔符 `&` 分割为各个 `key=value` 对，然后依次处理；
+   2. 对每个 `key=value`，`decode()` 会首先将 `key` 使用 `decodeURIComponent()` 解码，然后将 value 传递给神奇的 `toValue()`；
+   3. `toValue()` 名副其实，它救赎了 `stringifySearchWith()` 中对 `string` 的不公处理：它在补足对 `value` 的 `decodeURIComponent()` 后，专断地将 `string` 转化为 `number` 或 `boolean`；
 3. 下消化道则显得相当大刀阔斧，对 `decode()` 输出的 `query` 对象中的每个 `string` 类型的 `value`，`parseWithSearch()` 会将其传递给 parser `JSON.parse()`，以期获得 `string` 或者**任意复杂**的结构体。
 
 ### Recap
@@ -299,7 +306,7 @@ function toValue(mix: any) {
 如 [Validating Search Params](https://tanstack.com/router/latest/docs/framework/react/guide/search-params#validating-search-params) 所揭晓的，Tanstack Router 在实际使用中对 Search Params 的解析分为两步:
 
 1. **Unified Parser** - 即已经在上面得到剖析的 `parseSearchWith()`，默认情况下，所有 Search Params 统一先接受它的解析，但不可接受的是，它返回的类型永远是 `Record<string, unknown>`；
-2. **Custom Validation** - 开发者，也就是我们，能够自定义的 Validator（例如 [Zod]((https://zod.dev/)) 这样的 Schema-based Validator），以对 Search Params 进行更为精细、同时灵活的类型验证。
+2. **Custom Validation** - 开发者，也就是我们，能够自定义的 Validator（例如 [Zod](<(https://zod.dev/)>) 这样的 Schema-based Validator），以对 Search Params 进行更为精细、同时灵活的类型验证。
 
 ![Type Validation](../../assets/how-to-plagiarize-tanstack-router-search-params/typed-search-params.png)
 
@@ -308,7 +315,11 @@ function toValue(mix: any) {
 有了以上这些条件，我们已经能够在垂垂老矣的 [React Router](https://reactrouter.com) 项目中，实现一套剽窃 Tanstack Router 的 Search Params API。
 
 ```ts
-import { useLocation, useNavigate, type NavigateOptions } from 'react-router-dom'
+import {
+  useLocation,
+  useNavigate,
+  type NavigateOptions,
+} from 'react-router-dom'
 import { type ZodRawShape, z } from 'zod'
 
 import { parseSearchWith, stringifySearchWith } from './wherever-you-put-them'
@@ -321,7 +332,9 @@ const defaultStringifySearch = stringifySearchWith(JSON.stringify)
  * @param searchZodSchema - The Zod Schema for the Search Params.
  * @returns Like `useState()` - a tuple of typed search params object and its setter.
  */
-function _useSearchParams<Schema extends ZodRawShape>(searchZodSchema: z.ZodObject<Schema>) {
+function _useSearchParams<Schema extends ZodRawShape>(
+  searchZodSchema: z.ZodObject<Schema>,
+) {
   const navigate = useNavigate()
   /**
    * Retrieve the `search` string from the hook from React Router,
@@ -344,20 +357,26 @@ function _useSearchParams<Schema extends ZodRawShape>(searchZodSchema: z.ZodObje
     return validated
   }, [search])
 
-  const setSearchParams = useCallback((nextSearchParams: SearchParams, options?: NavigateOptions) => {
-    const nextSearch = defaultStringifySearch(nextSearchParams)
+  const setSearchParams = useCallback(
+    (nextSearchParams: SearchParams, options?: NavigateOptions) => {
+      const nextSearch = defaultStringifySearch(nextSearchParams)
 
-    /**
-     * Use `navigate()` to update search params,
-     * because `setParams()` from `useSearchParams()`
-     * does additional encoding.
-     * @see https://github.com/remix-run/react-router/blob/7372affd445eaa16d7866bc97ef14cb61361bff5/packages/react-router-dom/index.tsx#L1497
-     * @see https://github.com/remix-run/react-router/blob/main/packages/react-router-dom/dom.ts#L79
-     */
-    return navigate({
-      search: nextSearch,
-    }, options)
-  }, [navigate])
+      /**
+       * Use `navigate()` to update search params,
+       * because `setParams()` from `useSearchParams()`
+       * does additional encoding.
+       * @see https://github.com/remix-run/react-router/blob/7372affd445eaa16d7866bc97ef14cb61361bff5/packages/react-router-dom/index.tsx#L1497
+       * @see https://github.com/remix-run/react-router/blob/main/packages/react-router-dom/dom.ts#L79
+       */
+      return navigate(
+        {
+          search: nextSearch,
+        },
+        options,
+      )
+    },
+    [navigate],
+  )
 
   return [searchParams, setSearchParams] as const
 }

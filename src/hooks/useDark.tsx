@@ -21,6 +21,7 @@ export function useDark() {
       prevTheme === THEME.dark ||
       (!prevTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)
     ) {
+      // eslint-disable-next-line @eslint-react/hooks-extra/no-direct-set-state-in-use-effect
       setTheme(THEME.dark)
     }
   }, [])

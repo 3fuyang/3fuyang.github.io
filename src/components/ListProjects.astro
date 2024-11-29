@@ -30,20 +30,22 @@ const projects: Project[] = [
 ]
 ---
 
-<section class="ma max-w-xl flex flex-col gap-4">
+<section class="m-auto flex max-w-xl flex-col gap-4">
   {
     projects.map(({ src, title, intro }) => (
       <a href={src} target="_blank" rel="noreferrer noopener">
         <article
           class:list={[
-            'box-border rounded-md p3 op75',
-            'hover:op100',
-            'active:op100',
-            'transition',
+            'box-border rounded-md px-3 py-2 opacity-75',
+            'hover:opacity-100 focus-visible:opacity-100',
+            'active:opacity-100',
+            'transition-opacity',
           ]}
         >
-          <h2 title={title} class="truncate text-xl font-bold tracking-wide">{title}</h2>
-          <main class="box-border overflow-auto">{intro}</main>
+          <h2 title={title} class="truncate text-xl font-bold tracking-wide">
+            {title}
+          </h2>
+          <main class="box-border overflow-auto text-pretty">{intro}</main>
         </article>
       </a>
     ))
