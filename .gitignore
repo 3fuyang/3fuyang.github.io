@@ -25,5 +25,6 @@ dist-ssr
 *.sln
 *.sw?
 bundle-stats.html
+.vercel/
 
 .eslintcache
