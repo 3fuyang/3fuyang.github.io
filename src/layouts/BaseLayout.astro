@@ -12,7 +12,7 @@ import '../styles/global.css'
 
 const { pathname } = Astro.url
 
-const isHome = pathname === '/'
+const isPost = ['blog/', 'notes/', 'essay/'].some((item) => pathname.includes(item))
 
 const isProd = import.meta.env.NODE_ENV === 'production'
 
@@ -93,7 +93,7 @@ const { title, keywords = ['fwio', 'blog' ,'ts' , 'typescript', 'vue', 'react'],
         <slot />
         <Footer />
       </main>
-      {!isHome && (
+      {!isPost && (
         <Image
           aria-hidden="true"
           src={Seagull}

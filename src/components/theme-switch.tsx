@@ -1,3 +1,4 @@
+import { MonitorIcon, MoonStarIcon, SunIcon } from 'lucide-react'
 import { useTernaryDarkMode, type TernaryDarkMode } from 'usehooks-ts'
 import {
   DropdownMenu,
@@ -6,7 +7,6 @@ import {
   DropdownMenuRadioItem,
   DropdownMenuTrigger,
 } from './ui/dropdown-menu'
-import { MonitorIcon, MoonStarIcon, SunIcon } from 'lucide-react'
 
 export default function ThemeSwitch() {
   const { isDarkMode, ternaryDarkMode, setTernaryDarkMode } =
@@ -18,7 +18,11 @@ export default function ThemeSwitch() {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger>
+      <DropdownMenuTrigger
+        title="Theme Preference"
+        aria-label={ternaryDarkMode}
+        className="opacity-80 hover:opacity-100 focus-visible:opacity-100"
+      >
         {isDarkMode ? (
           <MoonStarIcon className="size-5" />
         ) : (

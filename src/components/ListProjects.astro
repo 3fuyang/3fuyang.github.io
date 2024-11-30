@@ -30,15 +30,19 @@ const projects: Project[] = [
 ]
 ---
 
-<section class="m-auto max-w-xl space-y-6">
+<section class="mx-auto max-w-xl space-y-6">
   {
     projects.map(({ src, title, intro }) => (
-      <a href={src} target="_blank" rel="noreferrer noopener">
+      <a
+        class="inline-block"
+        href={src}
+        target="_blank"
+        rel="noreferrer noopener"
+      >
         <article
           class:list={[
             'box-border rounded-md px-3 py-2 opacity-75',
             'hover:opacity-100 focus-visible:opacity-100',
-            'active:opacity-100',
             'transition-opacity',
           ]}
         >

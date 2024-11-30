@@ -320,8 +320,7 @@ import {
   useNavigate,
   type NavigateOptions,
 } from 'react-router-dom'
-import { type ZodRawShape, z } from 'zod'
-
+import { z, type ZodRawShape } from 'zod'
 import { parseSearchWith, stringifySearchWith } from './wherever-you-put-them'
 
 const defaultParseSearch = parseSearchWith(JSON.parse)

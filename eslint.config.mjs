@@ -3,11 +3,11 @@ import react from '@eslint-react/eslint-plugin'
 import pluginJs from '@eslint/js'
 import * as tsParser from '@typescript-eslint/parser'
 import eslintPluginAstro from 'eslint-plugin-astro'
-import globals from 'globals'
-import tseslint from 'typescript-eslint'
-import tailwind from 'eslint-plugin-tailwindcss'
 // @ts-expect-error
 import hooksPlugin from 'eslint-plugin-react-hooks'
+import tailwind from 'eslint-plugin-tailwindcss'
+import globals from 'globals'
+import tseslint from 'typescript-eslint'
 
 export default tseslint.config(
   {
