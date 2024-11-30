@@ -1,8 +1,8 @@
 ---
 import { getCollection } from 'astro:content'
 
-import BaseLayout from '~/layouts/BaseLayout.astro'
-import ListPosts from '~/components/ListPosts.astro'
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import ListPosts from '@/components/ListPosts.astro'
 
 const allBlogPosts = await getCollection('notes')
 

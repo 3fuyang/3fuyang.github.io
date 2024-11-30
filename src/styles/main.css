@@ -72,10 +72,6 @@ a.prose-heading-anchor:hover {
   scroll-margin-block-start: 4rem;
 }
 
-.skeleton {
-  @apply mt-2.5 h-4 rounded-sm bg-gray-200 dark:bg-gray-600;
-}
-
 .link {
   @apply opacity-70 transition-opacity hover:opacity-100 focus-visible:opacity-100;
 }

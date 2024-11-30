@@ -9,6 +9,8 @@ import { defineConfig } from 'astro/config'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeExternalLinks from 'rehype-external-links'
 
+const isProd = import.meta.env.PROD
+
 // https://astro.build/config
 export default defineConfig({
   prefetch: true,
@@ -40,15 +42,17 @@ export default defineConfig({
     react(),
     mdx(),
     sentry({
-      enabled: process.env.NODE_ENV === 'production',
+      enabled: isProd,
       dsn: process.env.SENTRY_DSN,
       sourceMapsUploadOptions: {
         project: process.env.SENTRY_PROJECT,
         authToken: process.env.SENTRY_AUTH_TOKEN,
       },
     }),
-    partytown(),
-    tailwind(),
+    isProd && partytown(),
+    tailwind({
+      applyBaseStyles: false,
+    }),
   ],
   output: 'static',
   adapter: vercelStatic({

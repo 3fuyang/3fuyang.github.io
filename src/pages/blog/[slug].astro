@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content'
 
-import MarkdownLayout from '~/layouts/MarkdownLayout.astro'
+import MarkdownLayout from '@/layouts/MarkdownLayout.astro'
 
 export async function getStaticPaths() {
   const allBlogPosts = await getCollection('blog')

@@ -1,6 +1,6 @@
 ---
 import FLink from './FLink.astro'
-import ToggleTheme from './ToggleTheme'
+import ThemeSwitch from './theme-switch'
 
 const fLinks = [
   {
@@ -50,6 +50,6 @@ const fLinks = [
           clip-rule="evenodd"></path></svg
       >
     </a>
-    <ToggleTheme client:visible />
+    <ThemeSwitch client:idle />
   </nav>
 </header>

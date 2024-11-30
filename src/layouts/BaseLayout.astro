@@ -4,10 +4,11 @@ import { Image } from 'astro:assets';
 import '@fontsource/geist-sans';
 
 import Seagull from '../../public/seagull.svg'
-import NavBar from '~/components/NavBar.astro'
-import Footer from '~/components/Footer.astro'
+import NavBar from '@/components/NavBar.astro'
+import Footer from '@/components/Footer.astro'
 
 import '../styles/main.css'
+import '../styles/global.css'
 
 const { pathname } = Astro.url
 
@@ -44,49 +45,51 @@ const { title, keywords = ['fwio', 'blog' ,'ts' , 'typescript', 'vue', 'react'],
     <link rel="mask-icon" href="/fwio.svg" color="#FFFFFF" />
     <slot name="head" />
     <script is:inline>
-      const THEME_STORAGE_KEY = 'theme'
-      const THEME ={
+      const THEME_LOCAL_STORAGE_KEY = 'usehooks-ts-ternary-dark-mode'
+      const THEME_ENUM ={
         dark: 'dark',
-        light: 'light'
+        light: 'light',
+        system: 'system'
       }
-    
-      const prevTheme = localStorage.getItem(THEME_STORAGE_KEY)
-    
-      if (
-        prevTheme === THEME.dark ||
-        (!prevTheme &&
-          window.matchMedia('(prefers-color-scheme: dark)').matches)
-      ) {
-        document.documentElement.classList.add(THEME.dark)
+
+      const prevTheme = JSON.parse(localStorage.getItem(THEME_LOCAL_STORAGE_KEY)) ?? 'system'
+      const isDarkOS = window.matchMedia('(prefers-color-scheme: dark)').matches
+      const isDarkMode = prevTheme === THEME_ENUM.dark || (
+        prevTheme === THEME_ENUM.system && isDarkOS
+      )
+
+      if (isDarkMode) {
+        document.documentElement.classList.add(THEME_ENUM.dark)
       } else {
-        document.documentElement.classList.remove(THEME.dark)
+        document.documentElement.classList.remove(THEME_ENUM.dark)
       }
     </script>
-    <SpeedInsights />
+    {isProd && <SpeedInsights />}
   </head>
+  <!-- Third-party scripts in production -->
   <Fragment>
-  {isProd && (
-    <>
-      <script
-        type="text/partytown"
-        src="https://www.googletagmanager.com/gtag/js?id=G-Z0VQSCZHJ1"
-      />
-      <script type="text/partytown">
-        window.dataLayer = window.dataLayer || [];
-         
-        // eslint-disable-next-line prefer-rest-params
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-      
-        gtag('config', 'G-Z0VQSCZHJ1');
-      </script>
-    </>
-  )}
+    {isProd && (
+      <>
+        <script
+          type="text/partytown"
+          src="https://www.googletagmanager.com/gtag/js?id=G-Z0VQSCZHJ1"
+        />
+        <script type="text/partytown">
+          window.dataLayer = window.dataLayer || [];
+          
+          // eslint-disable-next-line prefer-rest-params
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-Z0VQSCZHJ1');
+        </script>
+      </>
+    )}
   </Fragment>
   <body>
-    <div class="scroll-smooth text-gray-700 dark:text-gray-200">
+    <div class="scroll-smooth">
       <NavBar />
-      <main class="px-6 py-10">
+      <main class="flex min-h-[calc(100vh_-_3rem)] flex-col px-6 py-10">
         <slot />
         <Footer />
       </main>

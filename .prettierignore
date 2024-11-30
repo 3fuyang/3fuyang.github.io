@@ -3,3 +3,4 @@ node_modules
 .github
 .astro
 pnpm-lock.yaml
+src/components/ui
