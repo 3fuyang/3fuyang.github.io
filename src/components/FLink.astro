@@ -9,6 +9,12 @@ const { pathname } = Astro.url
 const { to, title } = Astro.props
 ---
 
-<a class:list={['link', pathname === to ? 'op100' : '']} href={to}>
+<a
+  class:list={[
+    'link text-foreground/80 hover:text-foreground focus-visible:text-foreground',
+    pathname === to && 'text-foreground'
+  ]}
+  href={to}
+>
   <span>{title}</span>
 </a>

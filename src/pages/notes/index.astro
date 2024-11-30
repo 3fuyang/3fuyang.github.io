@@ -3,7 +3,9 @@ import ListPosts from '@/components/ListPosts.astro'
 import BaseLayout from '@/layouts/BaseLayout.astro'
 import { getCollection } from 'astro:content'
 
-const allBlogPosts = await getCollection('notes')
+const allBlogPosts = await getCollection('notes', ({ data }) => {
+  return import.meta.env.PROD ? !data.draft : true
+})
 
 const posts = allBlogPosts
   .map(({ slug, data: { title, date } }) => ({

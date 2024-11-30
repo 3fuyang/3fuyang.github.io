@@ -19,20 +19,20 @@ const { posts } = Astro.props
           <a
             href={slug}
             class:list={[
-              'ml-4 box-border block rounded-sm p-1',
-              'focus-visible::opacity-100 opacity-90 hover:opacity-100 dark:opacity-80',
-              'flex flex-col',
-              'transition-all',
+              'ml-4 block rounded-sm p-1',
+              'text-foreground/80 focus-visible:text-foreground hover:text-foreground',
+              'block',
+              'transition-colors',
             ]}
           >
             <h2
               title={title}
-              class="truncate text-xl font-medium tracking-wide"
+              class="truncate text-lg tracking-wide"
             >
               {title}
             </h2>
             <time
-              class="text-sm opacity-75 dark:opacity-80"
+              class="text-sm text-foreground/75"
               datetime={dateTime}
             >
               {dateTime}

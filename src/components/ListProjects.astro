@@ -1,4 +1,6 @@
 ---
+import { ExternalLinkIcon } from 'lucide-react'
+
 interface Project {
   title: string
   src: string
@@ -34,20 +36,23 @@ const projects: Project[] = [
   {
     projects.map(({ src, title, intro }) => (
       <a
-        class="inline-block"
+        class="block"
         href={src}
         target="_blank"
         rel="noreferrer noopener"
       >
         <article
           class:list={[
-            'box-border rounded-md px-3 py-2 opacity-75',
-            'hover:opacity-100 focus-visible:opacity-100',
-            'transition-opacity',
+            'rounded-md px-3 py-2 text-foreground/75',
+            'hover:text-foreground focus-visible:text-foreground',
+            'transition-colors',
           ]}
         >
-          <h2 title={title} class="truncate text-xl font-bold tracking-wide">
-            {title}
+          <h2 title={title} class="flex items-center space-x-2 text-lg tracking-wide">
+            <span class="truncate">
+              {title}
+            </span>
+            <ExternalLinkIcon className="size-4" />
           </h2>
           <main class="box-border overflow-auto text-pretty">{intro}</main>
         </article>

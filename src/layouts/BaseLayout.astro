@@ -89,7 +89,7 @@ const { title, keywords = ['fwio', 'blog' ,'ts' , 'typescript', 'vue', 'react'],
   <body>
     <div class="scroll-smooth">
       <NavBar />
-      <main class="flex min-h-[calc(100vh_-_3rem)] flex-col px-6 py-10">
+      <main class="min-h-[calc(100vh_-_3rem)] items-stretch px-6 py-10">
         <slot />
         <Footer />
       </main>
@@ -99,7 +99,7 @@ const { title, keywords = ['fwio', 'blog' ,'ts' , 'typescript', 'vue', 'react'],
           src={Seagull}
           alt=""
           fetchpriority="high"
-          class="pointer-events-none fixed left-1/2 top-1/2 aspect-square h-auto max-w-[45%] -translate-x-1/2 -translate-y-1/2 opacity-45 mix-blend-difference invert-[.6] dark:opacity-100 md:max-w-[17%]"
+          class="pointer-events-none fixed left-1/2 top-1/2 aspect-square h-auto max-w-[45%] -translate-x-1/2 -translate-y-1/2 opacity-45 md:max-w-[17%]"
         />
       )}
     </div>
