@@ -32,7 +32,7 @@ const projects: Project[] = [
 ]
 ---
 
-<section class="mx-auto max-w-xl space-y-6">
+<section class="mx-auto max-w-xl space-y-4">
   {
     projects.map(({ src, title, intro }) => (
       <a class="block" href={src} target="_blank" rel="noreferrer noopener">
@@ -45,12 +45,12 @@ const projects: Project[] = [
         >
           <h2
             title={title}
-            class="flex items-center space-x-2 text-lg tracking-wide"
+            class="flex items-center space-x-2 tracking-wide"
           >
             <span class="truncate">{title}</span>
             <ExternalLinkIcon className="size-4" />
           </h2>
-          <main class="box-border overflow-auto text-pretty">{intro}</main>
+          <main class="overflow-auto text-pretty text-sm">{intro}</main>
         </article>
       </a>
     ))
