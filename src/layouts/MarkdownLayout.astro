@@ -13,7 +13,9 @@ const { title, keywords, description } = Astro.props
 ---
 
 <BaseLayout {...{ title, keywords, description }}>
-  <article class="prose mx-auto dark:prose-invert prose-p:text-pretty">
+  <article
+    class="prose prose-sm prose-cyan mx-auto dark:prose-sky dark:prose-invert sm:prose-base prose-p:text-pretty"
+  >
     <slot />
   </article>
 </BaseLayout>

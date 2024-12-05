@@ -1,10 +1,11 @@
 ---
 import MarkdownLayout from '@/layouts/MarkdownLayout.astro'
 import { getCollection } from 'astro:content'
+import { ClockIcon } from 'lucide-react'
 
 export async function getStaticPaths() {
   const allBlogPosts = await getCollection('blog', ({ data }) => {
-    return import.meta.env.PROD ? data.draft !== true : true;
+    return import.meta.env.PROD ? data.draft !== true : true
   })
 
   return allBlogPosts.map(({ slug, render, data }) => ({
@@ -13,20 +14,27 @@ export async function getStaticPaths() {
     },
     props: {
       render,
-      title: data.title,
-      keywords: data.keywords,
-      description: data.description,
+      ...data,
     },
   }))
 }
 
-const { render, title, keywords, description } = Astro.props
+const { render, title, keywords, description, date, minutesRead } = Astro.props
 
 const { Content } = await render()
 ---
 
 <MarkdownLayout title={`${title} | Fwio`} {...{ keywords, description }}>
-  <h1>{title}</h1>
+  <h1 class="text-2xl font-bold">{title}</h1>
+  <section class="flex items-center space-x-6 text-sm text-foreground/60">
+    <time datetime={new Date(date).toISOString()}
+      >{new Date(date).toLocaleDateString()}</time
+    >
+    <div class="flex items-center space-x-2">
+      <ClockIcon className="size-4" />
+      <span>{minutesRead}</span>
+    </div>
+  </section>
   <Content />
   <section class="mx-auto mt-12 max-w-prose">
     <script

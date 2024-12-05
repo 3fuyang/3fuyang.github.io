@@ -4,7 +4,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro'
 import { getCollection } from 'astro:content'
 
 const allBlogPosts = await getCollection('blog', ({ data }) => {
-  return import.meta.env.PROD ? data.draft !== true : true;
+  return import.meta.env.PROD ? data.draft !== true : true
 })
 
 const posts = allBlogPosts

@@ -6,8 +6,6 @@ lang: en
 date: 2024-06-21T15:00:00.000+08:00
 ---
 
-# CodeMirror Notes
-
 ## Reference
 
 - [Learning CodeMirror](https://thetrevorharmon.com/blog/learning-codemirror/#structure--lifecycle)

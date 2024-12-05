@@ -8,6 +8,7 @@ const postSchema = z.object({
   lang: z.string(),
   duration: z.string(),
   draft: z.boolean().optional(),
+  minutesRead: z.string().optional(),
 })
 
 const blogCollection = defineCollection({

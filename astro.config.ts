@@ -8,6 +8,7 @@ import sentry from '@sentry/astro'
 import { defineConfig } from 'astro/config'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeExternalLinks from 'rehype-external-links'
+import { remarkReadingTime } from './src/lib/remark-reading-time'
 
 const isProd = import.meta.env.PROD
 
@@ -18,6 +19,7 @@ export default defineConfig({
     shikiConfig: {
       theme: 'nord',
     },
+    remarkPlugins: [remarkReadingTime],
     rehypePlugins: [
       rehypeHeadingIds,
       [

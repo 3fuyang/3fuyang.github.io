@@ -18,10 +18,10 @@ A personal blog built with [Astro](https://astro.build/) & [React](https://react
 - Generally Responsive
 - Dark Mode
 - Third-party Service Integration
-    - Google Analytics
-    - Sentry
+  - Google Analytics
+  - Sentry
 - CD
-    - Vercel + Cloudflare
+  - Vercel + Cloudflare
 
 ### Todos
 
