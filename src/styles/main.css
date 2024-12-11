@@ -7,14 +7,12 @@
 
   font-family: 'Geist Sans', sans-serif;
   font-weight: 300;
-}
 
-html {
   background-color: var(--c-bg);
   transition: background-color 0.2s ease;
 }
 
-html.dark {
+:root.dark {
   --c-bg: #000;
   --c-scrollbar: #787878;
   --c-scrollbar-hover: #c2c2bd;
@@ -61,7 +59,6 @@ a.prose-heading-anchor {
 
 a.prose-heading-anchor:hover {
   text-decoration: underline;
-  text-underline-offset: 0.2em;
 }
 
 .prose h1,
@@ -71,4 +68,35 @@ a.prose-heading-anchor:hover {
 .prose h5,
 .prose h6 {
   scroll-margin-block-start: 4rem;
+}
+
+.prose pre:not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+  font-size: 1em;
+}
+
+.prose code:not(:where([class~="not-prose"],[class~="not-prose"] *,pre *)) {
+  @apply font-semibold rounded bg-muted px-[0.3em] py-[0.2em] before:content-none after:content-none
+}
+
+.prose blockquote:not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+  quotes: none;
+  font-style: normal;
+  padding-inline-start: .75em;
+  border-left-width: 4px;
+}
+
+.prose p:not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+  font-weight: 300;
+}
+
+.prose ul:not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+  padding-inline-start: 1em;
+}
+
+.prose ul > li:not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+  padding-inline-start: 0;
+}
+
+.prose a:not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+  text-underline-offset: .2em;
 }
