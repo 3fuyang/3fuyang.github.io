@@ -1,19 +1,15 @@
 /* Define background and scrollbar style. */
 :root {
-  --c-bg: #fff;
+  @apply bg-background transition-colors font-light;
+
   --c-scrollbar: #d3d0d7;
   --c-scrollbar-hover: #9e9cae;
   --c-scrollbar-active: #787878;
 
   font-family: 'Geist Sans', sans-serif;
-  font-weight: 300;
-
-  background-color: var(--c-bg);
-  transition: background-color 0.2s ease;
 }
 
 :root.dark {
-  --c-bg: #000;
   --c-scrollbar: #787878;
   --c-scrollbar-hover: #c2c2bd;
   --c-scrollbar-active: #ebf0f1;
@@ -50,6 +46,10 @@
   background: var(--c-scrollbar-active);
 }
 
+img {
+  @apply select-none;
+}
+
 a.prose-heading-anchor {
   color: inherit;
   transition: all 0.2s ease;
@@ -70,23 +70,31 @@ a.prose-heading-anchor:hover {
   scroll-margin-block-start: 4rem;
 }
 
+.prose h1:not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+  @apply mb-6 text-pretty leading-snug;
+}
+
+.prose p:not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+  @apply my-5;
+}
+
 .prose pre:not(:where([class~="not-prose"],[class~="not-prose"] *)) {
   font-size: 1em;
 }
 
+/* Inline code */
 .prose code:not(:where([class~="not-prose"],[class~="not-prose"] *,pre *)) {
-  @apply font-semibold rounded bg-muted px-[0.3em] py-[0.2em] before:content-none after:content-none
+  @apply font-semibold rounded bg-muted px-[0.3em] py-[0.2em] before:content-none after:content-none tracking-wide;
 }
 
 .prose blockquote:not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+  @apply not-italic my-5 border-l-4;
   quotes: none;
-  font-style: normal;
   padding-inline-start: .75em;
-  border-left-width: 4px;
 }
 
 .prose p:not(:where([class~="not-prose"],[class~="not-prose"] *)) {
-  font-weight: 300;
+  @apply font-light;
 }
 
 .prose ul:not(:where([class~="not-prose"],[class~="not-prose"] *)) {
@@ -94,9 +102,13 @@ a.prose-heading-anchor:hover {
 }
 
 .prose ul > li:not(:where([class~="not-prose"],[class~="not-prose"] *)) {
-  padding-inline-start: 0;
+  @apply ps-0;
 }
 
 .prose a:not(:where([class~="not-prose"],[class~="not-prose"] *)) {
   text-underline-offset: .2em;
+}
+
+.prose img:not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+  @apply my-6;
 }

@@ -12,10 +12,9 @@ export async function getStaticPaths() {
     params: {
       slug,
     },
-    props: {
+    props: Object.assign(data, {
       render,
-      ...data,
-    },
+    }),
   }))
 }
 
@@ -26,7 +25,7 @@ const { Content } = await render()
 
 <MarkdownLayout title={`${title} | Fwio`} {...{ keywords, description }}>
   <h1 class="text-2xl font-bold">{title}</h1>
-  <section class="flex items-center space-x-6 text-sm text-foreground/60">
+  <section class="flex items-center space-x-6 text-sm text-muted-foreground">
     <time datetime={new Date(date).toISOString()}
       >{new Date(date).toLocaleDateString()}</time
     >

@@ -12,10 +12,9 @@ export async function getStaticPaths() {
     params: {
       slug,
     },
-    props: {
+    props: Object.assign(data, {
       render,
-      ...data,
-    },
+    }),
   }))
 }
 
