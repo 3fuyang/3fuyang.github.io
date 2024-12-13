@@ -1,4 +1,5 @@
 ---
+import { TableOfContents } from '@/components/table-of-contents'
 import MarkdownLayout from '@/layouts/MarkdownLayout.astro'
 import { getCollection } from 'astro:content'
 import { ClockIcon } from 'lucide-react'
@@ -20,7 +21,16 @@ export async function getStaticPaths() {
 
 const { render, title, keywords, description, date, minutesRead } = Astro.props
 
-const { Content } = await render()
+const { Content, headings } = await render()
+
+const concatenatedHeadings = [
+  {
+    text: title,
+    slug: 'top',
+    depth: 1,
+  },
+  ...headings,
+]
 ---
 
 <MarkdownLayout title={`${title} | Fwio`} {...{ keywords, description }}>
@@ -34,6 +44,7 @@ const { Content } = await render()
       <span>{minutesRead}</span>
     </div>
   </section>
+  <TableOfContents client:load headings={concatenatedHeadings} />
   <Content />
   <section class="mx-auto mt-12 max-w-prose">
     <script
