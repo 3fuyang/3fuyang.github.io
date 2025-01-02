@@ -54,12 +54,13 @@ export default defineConfig({
     isProd && partytown(),
     tailwind({
       applyBaseStyles: false,
+      nesting: true,
     }),
   ],
   output: 'static',
   adapter: vercelStatic({
     webAnalytics: {
-      enabled: true,
+      enabled: isProd,
     },
   }),
 })
