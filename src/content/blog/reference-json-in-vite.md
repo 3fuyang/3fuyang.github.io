@@ -7,7 +7,7 @@ lang: en
 duration: 1min
 ---
 
-## Reference JSON in Vite
+## Two Approaches
 
 JSON, as the standard format of structured data in web development, basically has two approaches to be consumed in Vite:
 
@@ -93,6 +93,15 @@ In the playground, multiple JSON files may be needed, and they take quite a lot 
 ```ts
 function loadTheme(name: string) {
   return fetch(`/themes/${name}.json`).then((res) => res.json())
+}
+```
+
+However, your JSON asset is not always located in the public directory, chances are you want to colocate it with your app code. To resolve the proper URL, you will need to construct the URL with `import.meta.url`.
+
+```ts
+function loadTheme(name: string) {
+  const url = new URL(`./themes/${name}.json`, import.meta.url).href
+  return fetch(url).then((res) => res.json())
 }
 ```
 
