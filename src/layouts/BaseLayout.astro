@@ -15,7 +15,7 @@ const { pathname } = Astro.url
 
 const isPost = ['blog/', 'notes/', 'essay/'].some((item) => pathname.includes(item))
 
-const isProd = import.meta.env.NODE_ENV === 'production'
+const isProd = import.meta.env.PROD
 
 interface Props {
   title: string
@@ -73,6 +73,7 @@ const { title, keywords = ['fwio', 'blog' ,'ts' , 'typescript', 'vue', 'react'],
       <>
         <script
           type="text/partytown"
+          async
           src="https://www.googletagmanager.com/gtag/js?id=G-Z0VQSCZHJ1"
         />
         <script type="text/partytown">

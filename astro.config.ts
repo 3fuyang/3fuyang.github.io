@@ -3,8 +3,7 @@ import mdx from '@astrojs/mdx'
 import partytown from '@astrojs/partytown'
 import react from '@astrojs/react'
 import tailwind from '@astrojs/tailwind'
-import vercelStatic from '@astrojs/vercel/static'
-import sentry from '@sentry/astro'
+import vercel from '@astrojs/vercel'
 import { defineConfig } from 'astro/config'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeExternalLinks from 'rehype-external-links'
@@ -43,22 +42,19 @@ export default defineConfig({
   integrations: [
     react(),
     mdx(),
-    sentry({
-      enabled: isProd,
-      dsn: process.env.SENTRY_DSN,
-      sourceMapsUploadOptions: {
-        project: process.env.SENTRY_PROJECT,
-        authToken: process.env.SENTRY_AUTH_TOKEN,
-      },
-    }),
-    isProd && partytown(),
     tailwind({
       applyBaseStyles: false,
       nesting: true,
     }),
+    isProd &&
+      partytown({
+        config: {
+          forward: ['dataLayer.push'],
+        },
+      }),
   ],
   output: 'static',
-  adapter: vercelStatic({
+  adapter: vercel({
     webAnalytics: {
       enabled: isProd,
     },

@@ -92,8 +92,8 @@ export default {
             '--tw-prose-invert-th-borders': theme('colors.border'),
             '--tw-prose-invert-td-borders': theme('colors.border'),
           },
-        }
-      })
+        },
+      }),
     },
   },
   plugins: [typography, animate],

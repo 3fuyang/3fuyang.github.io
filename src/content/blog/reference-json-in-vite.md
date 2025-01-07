@@ -22,11 +22,11 @@ In comparison to the default-only import in Node, Vite even allows [named import
 
 ```ts
 // JSON module in Node
-import foo from './foo.json' with { type: 'json' }
+// JSON module in Vite
+import foo, { bar } from './foo.json' with { type: 'json' }
+
 console.log(foo)
 
-// JSON module in Vite
-import { bar } from './foo.json'
 console.log(bar)
 ```
 
@@ -116,5 +116,5 @@ For resources that your page will need very soon, the [`rel=preload`](https://de
 As we will load JSON assets via `fetch`, we need to specify the correct `as` attribute. In addition to this, proper `crossorigin` attribute is also required for the preloaded resource to be accessible to our `fetch` calls.
 
 ```html
-<link rel="preload" as="fetch" src="/foo.json" crossorigin>
+<link rel="preload" as="fetch" src="/foo.json" crossorigin />
 ```
