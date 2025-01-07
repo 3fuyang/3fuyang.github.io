@@ -1,6 +1,5 @@
 import { rehypeHeadingIds } from '@astrojs/markdown-remark'
 import mdx from '@astrojs/mdx'
-import partytown from '@astrojs/partytown'
 import react from '@astrojs/react'
 import tailwind from '@astrojs/tailwind'
 import vercel from '@astrojs/vercel'
@@ -46,12 +45,6 @@ export default defineConfig({
       applyBaseStyles: false,
       nesting: true,
     }),
-    isProd &&
-      partytown({
-        config: {
-          forward: ['dataLayer.push'],
-        },
-      }),
   ],
   output: 'static',
   adapter: vercel({
