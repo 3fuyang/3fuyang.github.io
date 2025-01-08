@@ -22,12 +22,12 @@ In comparison to the default-only import in Node, Vite even allows [named import
 
 ```ts
 // JSON module in Node
-// JSON module in Vite
-import foo, { bar } from './foo.json' with { type: 'json' }
-
+import foo from './foo.json' with { type: 'json' }
 console.log(foo)
 
-console.log(bar)
+// JSON module in Vite
+import { baz } from './bar.json'
+console.log(baz)
 ```
 
 Under the hood, Vite converts `.json` files to ES6 modules via:
@@ -54,7 +54,7 @@ And for JSON files, you need to use the [`?url`](https://vite.dev/guide/assets.h
 import foo from '/foo.json?url'
 
 // Non-public directory
-// becomes `/assets/foo.2d8efhg.json
+// becomes `/assets/foo.2d8efhg.json`
 import foo from './foo.json?url'
 ```
 
@@ -72,8 +72,8 @@ In my opinion, the usage of JSON in frontend development usually **scales** from
 
 It tends to start as an abstraction of static data for better separation of concerns. For example, a table-of-contents configuration for a documentation site. The configuration is often single and critical at the build time to the project, so importing this file as a module meets the requirement quite well and is very intuitive.
 
-```ts
-import toc from './toc.json
+```tsx
+import toc from './toc.json'
 
 // UI for navigation
 <TOC toc={toc} />

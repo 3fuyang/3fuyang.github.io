@@ -19,9 +19,9 @@ export async function getStaticPaths() {
   }))
 }
 
-const { render, title, keywords, description, date, minutesRead } = Astro.props
+const { render, title, keywords, description, date } = Astro.props
 
-const { Content, headings } = await render()
+const { Content, headings, remarkPluginFrontmatter } = await render()
 
 const concatenatedHeadings = [
   {
@@ -35,16 +35,16 @@ const concatenatedHeadings = [
 
 <MarkdownLayout title={`${title} | Fwio`} {...{ keywords, description }}>
   <h1 class="text-2xl font-bold">{title}</h1>
-  <TableOfContents client:load headings={concatenatedHeadings} />
   <section class="flex items-center space-x-6 text-sm text-foreground/60">
     <time datetime={new Date(date).toISOString()}
       >{new Date(date).toLocaleDateString()}</time
     >
     <div class="flex items-center space-x-2">
       <ClockIcon className="size-4" />
-      <span>{minutesRead}</span>
+      <span>{remarkPluginFrontmatter.minutesRead}</span>
     </div>
   </section>
+  <TableOfContents client:load headings={concatenatedHeadings} />
   <Content />
   <section class="mx-auto mt-12 max-w-prose">
     <script

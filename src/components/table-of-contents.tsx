@@ -16,7 +16,7 @@ export function TableOfContents({ headings }: { headings: MarkdownHeading[] }) {
   }, [headings])
 
   return (
-    <aside className="not-prose top-[84px] z-40 h-full space-y-2 py-4 leading-normal xl:fixed xl:right-6 xl:max-h-[calc(100vh_-_84px_-_2rem)] xl:w-64 xl:overflow-auto">
+    <aside className="not-prose top-[84px] z-40 my-6 h-full space-y-2 leading-normal xl:fixed xl:right-6 xl:max-h-[calc(100vh_-_84px_-_2rem)] xl:w-64 xl:overflow-auto">
       <p className="font-medium">On this page</p>
 
       <ul className="space-y-2 text-sm font-light text-muted-foreground">

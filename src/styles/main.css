@@ -47,7 +47,7 @@
 }
 
 img {
-  @apply select-none;
+  @apply select-none rounded-md;
 }
 
 a.prose-heading-anchor {
@@ -70,6 +70,10 @@ a.prose-heading-anchor:hover {
   scroll-margin-block-start: 4rem;
 }
 
+.prose h2:not(:where([class~='not-prose'], [class~='not-prose'] *)) {
+  @apply mt-6;
+}
+
 .prose h1:not(:where([class~='not-prose'], [class~='not-prose'] *)) {
   @apply mb-6 text-pretty leading-snug;
 }
@@ -78,13 +82,15 @@ a.prose-heading-anchor:hover {
   @apply my-5;
 }
 
+/* Block code */
 .prose pre:not(:where([class~='not-prose'], [class~='not-prose'] *)) {
+  @apply font-light tracking-wide bg-gradient-to-bl from-[rgba(224,_204,_250,_0.2)] to-slate-950;
   font-size: 1em;
 }
 
 /* Inline code */
 .prose code:not(:where([class~='not-prose'], [class~='not-prose'] *, pre *)) {
-  @apply rounded bg-muted px-[0.3em] py-[0.2em] font-semibold tracking-wide before:content-none after:content-none;
+  @apply border rounded-lg bg-muted px-[0.3em] py-[0.15em] tracking-wide before:content-none after:content-none font-normal;
 }
 
 .prose blockquote:not(:where([class~='not-prose'], [class~='not-prose'] *)) {
@@ -106,7 +112,12 @@ a.prose-heading-anchor:hover {
 }
 
 .prose a:not(:where([class~='not-prose'], [class~='not-prose'] *)) {
+  @apply font-light;
   text-underline-offset: 0.2em;
+}
+
+.prose a:not(:where([class~='not-prose'], [class~='not-prose'] *)):has(code) {
+  @apply no-underline;
 }
 
 .prose img:not(:where([class~='not-prose'], [class~='not-prose'] *)) {

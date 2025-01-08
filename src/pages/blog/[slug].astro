@@ -19,9 +19,9 @@ export async function getStaticPaths() {
   }))
 }
 
-const { render, title, keywords, description, date, minutesRead } = Astro.props
+const { render, title, keywords, description, date } = Astro.props
 
-const { Content, headings } = await render()
+const { Content, headings, remarkPluginFrontmatter } = await render()
 
 const concatenatedHeadings = [
   {
@@ -41,7 +41,7 @@ const concatenatedHeadings = [
     >
     <div class="flex items-center space-x-2">
       <ClockIcon className="size-4" />
-      <span>{minutesRead}</span>
+      <span>{remarkPluginFrontmatter.minutesRead}</span>
     </div>
   </section>
   <TableOfContents client:load headings={concatenatedHeadings} />
