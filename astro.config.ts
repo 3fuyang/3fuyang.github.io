@@ -10,9 +10,12 @@ import { remarkReadingTime } from './src/lib/remark-reading-time'
 
 const isProd = import.meta.env.PROD
 
+const SITE = 'https://www.fwio.me'
+
 // https://astro.build/config
 export default defineConfig({
   prefetch: true,
+  site: SITE,
   markdown: {
     shikiConfig: {
       theme: 'nord',

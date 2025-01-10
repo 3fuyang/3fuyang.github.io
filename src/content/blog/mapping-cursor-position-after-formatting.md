@@ -1,10 +1,9 @@
 ---
 title: Mapping Cursor Position After Formatting
-date: 2024-11-29T23:16:00.000+08:00
+pubDate: 2024-11-29T23:16:00.000+08:00
 keywords: ['codemirror', 'formatting', 'cursor position']
 description: How to map the cursor position after formatting.
 lang: en
-duration: 1min
 ---
 
 Today, while implementing a simple formatting feature with [Codemirror](https://codemirror.net/), I found that mapping the cursor position correctly after formatting is far from straightforward.

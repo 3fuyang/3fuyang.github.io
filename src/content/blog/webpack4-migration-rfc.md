@@ -1,7 +1,7 @@
 ---
 title: Webpack 4 迁移 RFC
-date: 2022-12-09T19:00:00.000+08:00
-description: 实习期间，对陈旧项目架构的一次构建效率升级，本文是其 RFC，当然，不太会有人读到了。
+pubDate: 2022-12-09T19:00:00+08:00
+description: 实习期间，对陈旧项目架构的一次构建效率升级，本文是其 RFC，当然，我相信不太会有人愿意看这样的内容
 lang: zh
 duration: 10min
 ---
@@ -9,7 +9,7 @@ duration: 10min
 - Start Date: 2022-12-05
 - Target Major Version: v2
 - Reference Issues: none
-- Implemention PR:
+- Implementation PR: TODO
 
 ## Summary
 

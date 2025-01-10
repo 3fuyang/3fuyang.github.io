@@ -1,9 +1,8 @@
 ---
 title: 客户端 Session Storage 的生命周期
-date: 2022-09-30T21:33:00.000+08:00
-description: Session Storage 是客户端存储的一种，本文通过试验对其生命周期进行了一些探讨。
+pubDate: 2022-09-30T21:33:00+08:00
+description: Session Storage 是一种 Web Client Storage ，本文通过试验对其生命周期进行一些探讨
 lang: zh
-duration: 1min
 ---
 
 > Long may the holiday shine.

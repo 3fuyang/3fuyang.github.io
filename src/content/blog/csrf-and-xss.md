@@ -1,12 +1,11 @@
 ---
 title: CSRF 和 XSS 攻击
-date: 2022-09-10T13:15:00.000+08:00
-description: 记录从《The JWT Handbook》看到的对 XSS 攻击和 CSRF 攻击的通俗解释。
+pubDate: 2022-09-10T13:15:00.000+08:00
+description: 记录 The JWT Handbook 中对 XSS 与 CSRF 攻击的通俗解释
 lang: zh
-duration: 1min
 ---
 
-从[《The JWT Handbook》](https://auth0.com/resources/ebooks/jwt-handbook)看到的，对这两种网络攻击简单易懂的解释。
+从[《The JWT Handbook》](https://auth0.com/resources/ebooks/jwt-handbook)了解到，对这两种网络攻击简单易懂的解释。
 
 ## Cross Site Request Forgery (CSRF)
 

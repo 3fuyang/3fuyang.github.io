@@ -1,9 +1,8 @@
 ---
 title: How to win at CORS?
-date: 2022-11-24T15:09:00.000+08:00
+pubDate: 2022-11-24T15:09:00.000+08:00
 description: 现代 Web 开发离不开 CORS，本文参考 Jake Archibald 的 《How to win at CORS?》，做一些摘要、翻译和笔记。
 lang: zh
-duration: 4min
 ---
 
 > Reference: [How to win at CORS - JakeArchibald.com](https://jakearchibald.com/2021/cors/)

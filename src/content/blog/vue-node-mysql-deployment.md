@@ -1,7 +1,7 @@
 ---
-title: Vue  + Node.js + MySQL 项目部署到 ECS 服务器
-date: 2022-02-27T18:11:00.000+08:00
-description: 别再用阿里云了。
+title: Vue + Node.js + MySQL 项目部署到 ECS 服务器
+pubDate: 2022-02-27T18:11:00+08:00
+description: 别再用阿里云了
 lang: zh
 duration: 10min
 ---

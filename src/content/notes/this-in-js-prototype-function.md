@@ -1,9 +1,8 @@
 ---
 title: prototype 函数中的 this 绑定
-date: 2022-09-02T15:11:00.000+08:00
-description: this，你懂的。
+pubDate: 2022-09-02T15:11:00+08:00
+description: 你知道的，我一直是 `this` 的死党，至于 Functional Programming，我祝他成功
 lang: zh
-duration: 2min
 ---
 
 在重做山月前端面试基础中 [bind](https://q.shanyue.tech/fe/js/32.html) 一题时，由于对`this`理解不到位，写出如下**错误答案**：

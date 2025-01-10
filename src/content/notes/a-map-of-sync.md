@@ -1,9 +1,8 @@
 ---
 title: Reading Notes of "A Map of Sync"
-date: 2024-11-15T10:00:00.000+08:00
+pubDate: 2024-11-15T10:00:00+08:00
 description: Reading "A Map of Sync"
 lang: en
-duration: 2min
 ---
 
 > This is a reading note of ["A Map of Sync"](https://stack.convex.dev/a-map-of-sync) by [Convex](https://www.convex.dev/). Most of the content is quoted from the original article.

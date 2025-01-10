@@ -1,12 +1,9 @@
 ---
 title: TS Config 简记
-date: 2022-05-02T18:03:00.000+08:00
+pubDate: 2022-05-02T18:03:00+08:00
 description: 对 TypeScript 的 Config File 中一些字段意义的记录。
 lang: zh
-duration: 4min
 ---
-
-Fwio
 
 > 总结一些 TSConfig 文件的选项意义。
 

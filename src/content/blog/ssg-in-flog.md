@@ -1,9 +1,8 @@
 ---
 title: Flog 与 SSG
-date: 2022-08-19T18:07:00.000+08:00
+pubDate: 2022-08-19T18:07:00+08:00
 description: 构建初版 Flog　的心路历程。
 lang: zh
-duration: 10min
 ---
 
 个人博客, 和官方文档一样, 是 **SSG(Static Site Generator)** 的典型用例。

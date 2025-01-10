@@ -1,6 +1,6 @@
 ---
 title: 如何剽窃 Tanstack Router 的 Search Params API
-date: 2024-10-27T18:00:00.000+08:00
+pubDate: 2024-10-27T18:00:00+08:00
 keywords:
   [
     'tanstack router',
@@ -11,7 +11,6 @@ keywords:
   ]
 description: Some internals of the amazing Search Params API from Tanstack Router, and how to implement a similar one in a React Router based project.
 lang: zh
-duration: 2min
 ---
 
 > 本文行文风格极大程度上受[《如何带着三文鱼旅行》](https://book.douban.com/subject/35706102/)的影响，尽管是坏的意义上。

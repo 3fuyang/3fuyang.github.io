@@ -1,9 +1,8 @@
 ---
 title: JavaScript 实现深拷贝（cloneDeep）
-date: 2022-09-03T12:48:00.000+08:00
-description: 实现 JS 变量的深拷贝，相比于网上普遍的程序，额外包含了对 Promise 对象的克隆。
+pubDate: 2022-09-03T12:48:00+08:00
+description: 实现 JS 变量的深拷贝，相比于网上普遍的程序，额外包含了对 Promise 对象的克隆
 lang: zh
-duration: 10min
 ---
 
 JavaScript 只有两种不同的数据类型：**原始值**（primitive value）和**引用值**（reference value）。

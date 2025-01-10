@@ -8,12 +8,11 @@ const allBlogPosts = await getCollection('blog', ({ data }) => {
 })
 
 const posts = allBlogPosts
-  .map(({ slug, data: { title, date } }) => ({
+  .map(({ slug, data }) => ({
     slug: `/blog/${slug}`,
-    title,
-    date,
+    data,
   }))
-  .sort((a, b) => Number(b.date) - Number(a.date))
+  .sort((a, b) => Number(b.data.pubDate) - Number(a.data.pubDate))
 ---
 
 <BaseLayout title="Blog | Fwio">

@@ -1,9 +1,8 @@
 ---
 title: React now uses microtask for sync updates
-date: 2024-11-14T20:00:00.000+08:00
+pubDate: 2024-11-14T20:00:00+08:00
 description: React now uses microtask for sync updates
 lang: en
-duration: 1min
 ---
 
 Just a quick note to myself:

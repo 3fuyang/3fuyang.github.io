@@ -1,10 +1,12 @@
 ---
+import { type CollectionEntry } from 'astro:content'
+
+interface Post extends Pick<CollectionEntry<'blog'>, 'data'> {
+  slug: string;
+}
+
 export interface Props {
-  posts: {
-    slug: string
-    title: string
-    date: Date
-  }[]
+  posts: Post[]
 }
 
 const { posts } = Astro.props
@@ -12,8 +14,8 @@ const { posts } = Astro.props
 
 <section class="mx-auto max-w-xl space-y-6">
   {
-    posts.map(({ slug, title, date }) => {
-      const dateTime = new Date(date).toLocaleDateString()
+    posts.map(({ slug, data: { title, pubDate = '' } }) => {
+      const dateTime = new Date(pubDate).toLocaleDateString()
       return (
         <article>
           <a

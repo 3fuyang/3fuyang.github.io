@@ -1,12 +1,14 @@
+import { rssSchema } from '@astrojs/rss'
 import { defineCollection, z } from 'astro:content'
 
-const postSchema = z.object({
+const postSchema = rssSchema.extend({
   title: z.string(),
-  date: z.date(),
   keywords: z.array(z.string()).optional(),
   description: z.string().optional(),
-  lang: z.string(),
-  duration: z.string(),
+  lang: z.enum([
+    'zh',
+    'en',
+  ]).optional(),
   draft: z.boolean().optional(),
   minutesRead: z.string().optional(),
 })

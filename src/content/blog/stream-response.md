@@ -1,9 +1,8 @@
 ---
 title: Stream Response
 description: draft
-duration: 1min
 lang: zh
-date: 2024-05-29T17:59:00.000+08:00
+pubDate: 2024-05-29T17:59:00+08:00
 draft: true
 ---
 

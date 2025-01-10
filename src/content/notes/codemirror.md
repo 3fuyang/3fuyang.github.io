@@ -1,9 +1,8 @@
 ---
 title: CodeMirror Notes
-duration: 1min
 description: Notes for CodeMirror 6
 lang: en
-date: 2024-06-21T15:00:00.000+08:00
+pubDate: 2024-06-21T15:00:00+08:00
 ---
 
 ## Reference

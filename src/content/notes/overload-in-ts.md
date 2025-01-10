@@ -1,9 +1,8 @@
 ---
 title: TS 中的函数重载
-date: 2022-09-12T22:06:00.000+08:00
+pubDate: 2022-09-12T22:06:00+08:00
 description: TypeScript 所定义的函数重载语法，与 C++ 等静态语言中的概念有较大差异。
 lang: zh
-duration: 1min
 ---
 
 TypeScript 中的函数重载（Function Overload）较为特别，其允许的是**声明**（Declaration）重载，而不是**实现**（Implementation）重载。

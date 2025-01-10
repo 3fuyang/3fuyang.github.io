@@ -1,9 +1,8 @@
 ---
-title: 借助 import.meta.glob 编写自动路由脚本
-date: 2022-10-07T16:20:00.000+08:00
+title: 借助 `import.meta.glob` 编写自动路由脚本
+pubDate: 2022-10-07T16:20:00+08:00
 description: Flog 是一个重运行时的博客应用，为了在功能上实现像 VitePress、Next.js 等 SSG 框架那样的基于文件系统的路由，使用 Vite 自带的 import.meta.glob API 实现了一个轻量级的、运行时的自动路由脚本。
 lang: zh
-duration: 3min
 ---
 
 > 脚本源码：[auto-routes.ts](https://github.com/3fuyang/3fuyang.github.io/blob/master/src/routes/auto-routes.ts)

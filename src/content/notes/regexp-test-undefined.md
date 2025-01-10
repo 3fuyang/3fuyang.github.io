@@ -1,9 +1,8 @@
 ---
 title: /[a-zA-Z]/.test(undefined) === true
-duration: 1min
-description: undefined 被自动转化成字符串进行正则匹配了，整蛊。
+description: undefined 被自动转化成字符串进行正则匹配了，整蛊
 lang: zh
-date: 2022-09-25T18:31:00.000+08:00
+pubDate: 2022-09-25T18:31:00+08:00
 ---
 
 `undefined`在匹配**正则表达式**时居然会被视作**字符串**，这也太整蛊了...

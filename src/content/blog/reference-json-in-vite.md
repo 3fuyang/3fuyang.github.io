@@ -1,10 +1,9 @@
 ---
 title: Referencing JSON in Vite
-date: 2025-01-03T22:42:00.000+08:00
+pubDate: 2025-01-03T22:42:00.000+08:00
 keywords: ['preload', 'web performance', 'vite', 'json']
 description: How to import your JSON files properly in Vite.
 lang: en
-duration: 1min
 ---
 
 ## Two Approaches

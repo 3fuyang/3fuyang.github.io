@@ -1,9 +1,8 @@
 ---
 title: Readings 2409019
-duration: 1min
 description: Readings
 lang: en
-date: 2024-09-19T12:00:00.000+08:00
+pubDate: 2024-09-19T12:00:00+08:00
 ---
 
 - [Using callbacks to achieve better component decoupling in React | Dario's Blog](https://darios.blog/posts/using-callbacks-in-react) - Basic, very.

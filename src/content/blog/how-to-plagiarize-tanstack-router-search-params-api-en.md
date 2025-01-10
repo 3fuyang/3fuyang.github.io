@@ -1,6 +1,6 @@
 ---
 title: How to Plagiarize Tanstack Router's Search Params API
-date: 2024-11-07
+pubDate: 2024-11-07
 keywords:
   [
     'tanstack router',
@@ -11,10 +11,9 @@ keywords:
   ]
 description: Some internals of the amazing Search Params API from Tanstack Router, and how to implement a similar one in a React Router-based project.
 lang: en
-duration: 2min
 ---
 
-> Note: This article is originally written in [Chinese](/blog/how-to-plagiarize-tanstack-router-search-params) and translated by LLM. Please point out any mistakes or inappropriate phrases. Thank you!
+> Note: This article is originally written in [Chinese](/blog/how-to-plagiarize-tanstack-router-search-params) and translated with LLM. Please point out any mistakes or inappropriate phrases. Thanks in advance:\)
 
 > This article is heavily influenced by [How to Travel with a Salmon](https://www.amazon.com/Travel-Salmon-Other-Essays-Harvest/dp/015600125X), but in all the wrong ways.
 

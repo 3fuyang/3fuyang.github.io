@@ -1,9 +1,8 @@
 ---
 title: npm is Superior Again
-date: 2024-11-19T10:00:00.000+08:00
+pubDate: 2024-11-19T10:00:00+08:00
 description: npm is Superior Again
 lang: en
-duration: 1min
 ---
 
 I was wandering around the [discuss.Codemirror](https://discuss.codemirror.net/) site, and I saw an opinion from the library author [marijn](https://discuss.codemirror.net/u/marijn/summary):

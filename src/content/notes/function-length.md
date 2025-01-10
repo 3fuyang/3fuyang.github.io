@@ -1,9 +1,8 @@
 ---
 title: Function.prototype.length
-duration: 1min
 description: Function.prototype.length 的意义。
 lang: zh
-date: 2022-10-10T14:54:00.000+08:00
+pubDate: 2022-10-10T14:54:00+08:00
 ---
 
 `Function.prototype.length`返回函数的**形参**（parameters）个数。

@@ -1,9 +1,8 @@
 ---
 title: 关键渲染路径（Critical Rendering Path）
-date: 2022-09-25T11:24:00.000+08:00
+pubDate: 2022-09-25T11:24:00+08:00
 description: 关键渲染路径（CSP）是浏览器渲染页面的主要流程，通过了解其内部原理，可对前端性能优化起到重要的指示作用。
 lang: zh
-duration: 8min
 ---
 
 > 参考文献：

@@ -1,9 +1,8 @@
 ---
 title: Readings 2409012
-duration: 1min
 description: Readings
 lang: en
-date: 2024-09-12T18:00:00.000+08:00
+pubDate: 2024-09-12T18:00:00+08:00
 ---
 
 - [The Undeniable Utility Of CSS `:has` • Josh W. Comeau](https://www.joshwcomeau.com/css/has/) - Loved the API.

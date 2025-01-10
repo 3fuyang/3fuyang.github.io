@@ -1,10 +1,9 @@
 ---
 title: Adopt Oxlint
-date: 2024-07-06T23:16:00.000+08:00
+pubDate: 2024-07-06T23:16:00+08:00
 keywords: ['oxlint', 'javascript', 'linter', 'eslint']
 description: How to integrate your project with oxlint, the cutting-edge JavaScript linter.
 lang: en
-duration: 2min
 ---
 
 Recently, I started exploring with [oxlint](https://oxc.rs/docs/guide/usage/linter.html), the increasingly popular JavaScript linter in the community, especially for its ability of replacing [ESLint](https://eslint.org/), which tends to be a performance bottleneck during CI runs for large projects.

@@ -1,13 +1,12 @@
 ---
 title: Vue 与 React 与竞态问题
-date: 2022-10-18T21:07:00.000+08:00
+pubDate: 2022-10-18T21:07:00+08:00
 description: 从《Vue.js 设计与实现》和 reactjs.beta.org 文档上看到的两个框架处理竞态问题上的相似手法，是闭包使用的很好案例。
 lang: zh
-duration: 3min
 ---
 
-> ## Reference
->
+## Reference
+
 > - [You Might Not Need An Effect](https://beta.reactjs.org/learn/you-might-not-need-an-effect#fetching-data)
 > - 《Vue.js 设计与实现》
 
