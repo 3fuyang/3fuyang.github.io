@@ -64,3 +64,7 @@
     @apply bg-background text-foreground;
   }
 }
+
+@view-transition {
+  navigation: auto;
+}
