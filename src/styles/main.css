@@ -6,7 +6,7 @@
   --c-scrollbar-hover: #9e9cae;
   --c-scrollbar-active: #787878;
 
-  font-family: 'Geist Sans', sans-serif;
+  font-family: 'Geist Variable', sans-serif, 'PingFang SC', 'HarmonyOS_Regular', 'Helvetica Neue', 'Microsoft YaHei';
 }
 
 :root.dark {
@@ -94,7 +94,7 @@ a.prose-heading-anchor:hover {
 }
 
 .prose blockquote:not(:where([class~='not-prose'], [class~='not-prose'] *)) {
-  @apply my-5 border-l-4 not-italic;
+  @apply font-light my-5 border-l-4 not-italic;
   quotes: none;
   padding-inline-start: 0.75em;
 }
