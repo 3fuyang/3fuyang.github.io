@@ -25,7 +25,7 @@ f.myBind({ a: 2 })(4)
 其中，返回的箭头函数并没有问题，但`myBind`不能使用箭头函数定义，因为返回函数的`this`**继承**自外层的`myBind`,
 由于`myBind`也用箭头函数定义，那么在**定义时**`this`就**静态**地指向了`Global`对象，`Global`不是一个函数，不存在`apply`属性，所以报错。
 
-将外层的`myBind`改为常规函数(function () \{\})的写法即可：
+将外层的`myBind`改为常规函数 (function () \{\}) 的写法即可：
 
 ```js
 Function.prototype.myBind = function (obj) {

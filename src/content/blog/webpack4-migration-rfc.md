@@ -240,7 +240,7 @@ v2 (after)
 {
 	test: /.m?jsx?$/,
 	loader: 'babel-loader',
-	// 开发模式下, 只需转译使用了 JSX 的模块
+	// 开发模式下，只需转译使用了 JSX 的模块
 	include: [
 		// 所有使用了 JSX 语法的模块
 		// module1
@@ -300,7 +300,7 @@ const configureESBuildLoader = () => ({
     // 排除使用了 JSX 语法的模块
   ],
   options: {
-    // 生产模式下, 需要兼容到 es2015 语法
+    // 生产模式下，需要兼容到 es2015 语法
     target: 'es2015',
   },
 })
@@ -763,7 +763,7 @@ v2 原本通过`extract-text-webpack-plugin`将项目的**所有** CSS 代码提
 // h5, build\webpack.base.conf.js
 module: {
   rules: [
-    ...(config.dev.useEslint ? [] : []), // h5 中，关于是否应用eslint的配置处始终返回空数组
+    ...(config.dev.useEslint ? [] : []), // h5 中，关于是否应用 eslint 的配置处始终返回空数组
   ]
 }
 ```

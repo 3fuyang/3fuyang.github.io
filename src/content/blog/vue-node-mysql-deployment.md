@@ -17,9 +17,9 @@ duration: 10min
 ### 一、服务器配置与宝塔面板
 
 1. 配置并购买 ECS 服务器（注意记忆自定义 **SSH 连接密码**，用户名固定为 'root'），生成实例
-2. 使用上面设置的密码通过 “**远程连接 —— Workbench”**，进入 shell 命令行
-3. 根据 ECS 操作系统用对应的**命令**安装 “宝塔 Linux 面板”，复制 “**外网面板地址**”，进入面板（**注意**：需先配置 ECS 实例**安全组**，放行 **8888 端口**）
-   1. **配置安全组方法**：进入 ECS 安全组规则配置页面，选择 “**入方向**” 手动添加各种规则
+2. 使用上面设置的密码通过“**远程连接 —— Workbench”**，进入 shell 命令行
+3. 根据 ECS 操作系统用对应的**命令**安装“宝塔 Linux 面板”，复制“**外网面板地址**”，进入面板（**注意**：需先配置 ECS 实例**安全组**，放行 **8888 端口**）
+   1. **配置安全组方法**：进入 ECS 安全组规则配置页面，选择“**入方向**”手动添加各种规则
    2. 为了后续部署方便，通过**快速添加**为常用端口添加规则
    3. 此外，将**前端与后端应用**使用的端口号分别手动添加到规则中
 4. 在宝塔面板的**软件商店**中，选择**极速安装** Nginx@、MySQL@5.5、TomCat@7
@@ -51,8 +51,8 @@ duration: 10min
 
 ### 五、启用 Node 服务
 
-1. 使用 **node --version** 或 **node -v** 命令查看 ECS 是否安装了 Node.js 。
-2. 若未安装，使用以下命令安装 Node （**注意：CentOS 属于 Linux 系统**）：
+1. 使用 **node --version** 或 **node -v** 命令查看 ECS 是否安装了 Node.js。
+2. 若未安装，使用以下命令安装 Node（**注意：CentOS 属于 Linux 系统**）：
 3. ```shell
    $cd /root
    $wget https://nodejs.org/download/release/v14.17.0/node-v14.17.0-linux-x64.tar.gz
@@ -90,7 +90,7 @@ duration: 10min
    server{
        // 前端网页端口号
        listen <port>;
-       // ECS 服务器外网IP地址
+       // ECS 服务器外网 IP 地址
        server_name localhost <host>;
        location / {
        // 前端目录
@@ -101,7 +101,7 @@ duration: 10min
    ```
 3. 保存修改，回到服务，先点击**重载配置**，再点击**重启**：
    1. 如果此时运行失败，出现：`bind() to 0.0.0.0:80 failed (98:Adress already in use)`错误，是由于**端口号被占用**。
-4. 在浏览器中访问 “http://ip:port"，即可进入前端页面
+4. 在浏览器中访问“http://ip:port"，即可进入前端页面
 
    1. 主页可以正常访问，但**调用后端接口**时，提示错误 **We're sorry but XX doesn't work properly without JavaScript enabled**，原因是 **Nginx 配置异常，没有正确转发后端接口地址**。
    2. 需要在 Nginx 中配置**转发访问后端的具体地址**：

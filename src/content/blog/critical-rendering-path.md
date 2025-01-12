@@ -42,11 +42,11 @@ lang: zh
 
 OK，这里有一张示意图，它大致上和前面的描述符合，并且注意 DOM 和 CSSOM 被浏览器并行构建。
 
-### DOM（Document Object Model）
+### DOM (Document Object Model)
 
 DOM 包含了页面的**所有内容**（all the content），它的构建是**增量**（Incremental）的，也就是非阻塞渲染的。
 
-### CSSOM（CSS Object Model）
+### CSSOM (CSS Object Model)
 
 CSSOM 包含了 DOM 的**所有样式信息**，它的加载是**阻塞**的，[MDN](https://developer.mozilla.org/en-US/docs/Web/Performance/Critical_rendering_path) 非常决绝地描述道：
 

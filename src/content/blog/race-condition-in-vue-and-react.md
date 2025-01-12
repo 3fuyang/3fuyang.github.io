@@ -18,10 +18,10 @@ lang: zh
 
 ## React 处理竞态问题
 
-在 [You Might Not Need An Effect](https://beta.reactjs.org/learn/you-might-not-need-an-effect#fetching-data) 中,
+在 [You Might Not Need An Effect](https://beta.reactjs.org/learn/you-might-not-need-an-effect#fetching-data) 中，
 React 为竞态问题举了一个"搜索框"的例子。
 
-假设用户对单词`"hello"`以一种完美的、绕过你自信的防抖或者节流策略的节奏敲下键盘,
+假设用户对单词`"hello"`以一种完美的、绕过你自信的防抖或者节流策略的节奏敲下键盘，
 那么`"h"`、`"he"`、`"hel"`、`"hell"`、`"hello"`都将触发不同的 data fetching。
 
 显然它们返回响应的时间是无法预测的，不能简单地以最后一个响应（它可能是过期的）为准。
@@ -115,5 +115,5 @@ watch(obj, async (newValue, oldValue, onInvalidate) => {
 })
 ```
 
-两者的解决方法几乎**一模一样**，区别只在于 Vue 注册 cleanup 函数的 API 形式较为特殊，是传递给`watch`的回调函数的一个类似于 hook 的可选参数,
+两者的解决方法几乎**一模一样**，区别只在于 Vue 注册 cleanup 函数的 API 形式较为特殊，是传递给`watch`的回调函数的一个类似于 hook 的可选参数，
 比起 React 更加的**集成**，但都应用了**闭包**的思维。

@@ -97,7 +97,7 @@ JavaScript 是一门**单线程同步**编程语言，任务只能在主线程�
 > - after every callback, as long as **no other JavaScript is mid-execution**
 > - at the end of each task.
 
-对执行栈的认识离不开**作用域**（Scoping）这个概念，一般来说，我们认为执行栈以**函数调用**为单位，将其以**上下文帧**的形式压入栈中,
+对执行栈的认识离不开**作用域**（Scoping）这个概念，一般来说，我们认为执行栈以**函数调用**为单位，将其以**上下文帧**的形式压入栈中，
 每一帧包含函数的**作用域**。
 
 在我的理解里，如果出现**闭包**（或其他对上层作用域的引用）时，那个包含被引用值的上下文就**无法**出栈，即使它的函数体已经被完全执行（evaluated）,
@@ -131,7 +131,7 @@ console.log('script ends')
 // 5. promise 1: 1
 ```
 
-其中，在 script 中产生的 timeout 宏任务引用了 script 作用域中的`ref`变量，那么在 evaluate 完 script 后,
+其中，在 script 中产生的 timeout 宏任务引用了 script 作用域中的`ref`变量，那么在 evaluate 完 script 后，
 script 作用域还保留在执行栈中，但第二个 promise 产生的微任务却被执行了。并且由于第二个 promise 是一个初始化时就已经 fulfilled
 的`Promise.resolve()`，所以其`then()`回调在自上而下执行 script 时就已经被推入微任务队列。
 

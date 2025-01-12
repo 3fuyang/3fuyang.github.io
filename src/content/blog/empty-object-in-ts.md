@@ -5,7 +5,7 @@ description: TS 中的 `{}` 并不代表空对象字面值的类型，而是代�
 lang: zh
 ---
 
-在做 [Type Challenges](https://github.com/type-challenges/type-challenges) 时,
+在做 [Type Challenges](https://github.com/type-challenges/type-challenges) 时，
 对 [`AnyOf`](https://github.com/type-challenges/type-challenges/blob/main/questions/00949-medium-anyof/README.md)
 这道迷惑了很久：
 
@@ -69,5 +69,5 @@ type AnyOf<T extends readonly any[]> = T extends [infer L, ...infer R]
   : false
 ```
 
-最后吐槽一下，当时在 bing、google、stackoverflow 上搜了很久 TS 中空字符字面量怎么表示，但一直没查到,
+最后吐槽一下，当时在 bing、google、stackoverflow 上搜了很久 TS 中空字符字面量怎么表示，但一直没查到，
 大概是英语水平不行吧，单凭敲几个关键词还是不能准确检索。
