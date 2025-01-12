@@ -19,7 +19,7 @@ export async function getStaticPaths() {
   }))
 }
 
-const { render, title, keywords, description, pubDate = '' } = Astro.props
+const { render, title, keywords, description, pubDate } = Astro.props
 
 const { Content, headings, remarkPluginFrontmatter } = await render()
 

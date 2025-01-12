@@ -11,6 +11,8 @@ const postSchema = rssSchema.extend({
   ]).optional(),
   draft: z.boolean().optional(),
   minutesRead: z.string().optional(),
+}).required({
+  pubDate: true,
 })
 
 const blogCollection = defineCollection({

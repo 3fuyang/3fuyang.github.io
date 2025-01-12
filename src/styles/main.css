@@ -123,3 +123,7 @@ a.prose-heading-anchor:hover {
 .prose img:not(:where([class~='not-prose'], [class~='not-prose'] *)) {
   @apply my-6;
 }
+
+h2.year-marker {
+  -webkit-text-stroke: 1px hsl(var(--muted-foreground));
+}
