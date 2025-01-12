@@ -7,6 +7,7 @@ import { defineConfig } from 'astro/config'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeExternalLinks from 'rehype-external-links'
 import { remarkReadingTime } from './src/lib/remark-reading-time'
+import { visualizer } from "rollup-plugin-visualizer"
 
 const isProd = import.meta.env.PROD
 
@@ -16,6 +17,14 @@ const SITE = 'https://www.fwio.me'
 export default defineConfig({
   prefetch: true,
   site: SITE,
+  vite: {
+    plugins: [
+      visualizer({
+        emitFile: true,
+        filename: 'stats.html',
+      }),
+    ],
+  },
   markdown: {
     shikiConfig: {
       theme: 'nord',
