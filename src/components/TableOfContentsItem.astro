@@ -1,0 +1,31 @@
+---
+import type { MarkdownHeading } from 'astro'
+
+export interface MarkdownHeadingNode extends MarkdownHeading {
+  children?: MarkdownHeadingNode[]
+}
+
+interface Props {
+  heading: MarkdownHeadingNode
+}
+
+const { heading } = Astro.props
+---
+
+<li class="flex flex-col space-y-2 text-pretty">
+  <a
+    href={`#${heading.slug}`}
+    class="transition-colors hover:text-foreground focus-visible:text-foreground"
+  >
+    {heading.text}
+  </a>
+  {
+    heading.children && (
+      <ul class="space-y-2 pl-4">
+        {heading.children.map((child) => (
+          <Astro.self heading={child} />
+        ))}
+      </ul>
+    )
+  }
+</li>

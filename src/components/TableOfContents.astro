@@ -1,0 +1,63 @@
+---
+import type { MarkdownHeading } from 'astro'
+import type { MarkdownHeadingNode } from './TableOfContentsItem.astro'
+import TableOfContentsItem from './TableOfContentsItem.astro'
+
+interface Props {
+  headings: MarkdownHeadingNode[]
+}
+
+const { headings } = Astro.props
+
+const MAX_DEPTH = 6
+const filteredHeadings = headings.filter(
+  (heading) => heading.depth <= MAX_DEPTH,
+)
+const structuralHeadings = transformToTree(filteredHeadings)
+
+function transformToTree(data: MarkdownHeading[]): MarkdownHeadingNode[] {
+  const root: MarkdownHeadingNode[] = [] // The final tree structure
+  const stack: MarkdownHeadingNode[] = [] // Tracks the hierarchy of nodes
+
+  for (const item of data) {
+    // Create a copy of the current item
+    const node: MarkdownHeadingNode = { ...item }
+
+    // Find the appropriate parent in the stack
+    while (stack.length && stack[stack.length - 1].depth >= item.depth) {
+      stack.pop()
+    }
+
+    if (stack.length === 0) {
+      // No parent, add it to the root level
+      root.push(node)
+    } else {
+      // Add as a child to the current parent
+      const parent = stack[stack.length - 1]
+      if (!parent.children) {
+        parent.children = []
+      }
+      parent.children.push(node)
+    }
+
+    // Push the current node onto the stack
+    stack.push(node)
+  }
+
+  return root
+}
+---
+
+<aside
+  class="not-prose top-[84px] z-40 my-6 h-full space-y-2 leading-normal xl:fixed xl:right-6 xl:max-h-[calc(100vh_-_84px_-_2rem)] xl:w-64 xl:overflow-auto"
+>
+  <p class="font-medium">On this page</p>
+
+  <ul class="space-y-2 text-sm font-light text-muted-foreground">
+    {
+      structuralHeadings.map((heading) => (
+        <TableOfContentsItem heading={heading} />
+      ))
+    }
+  </ul>
+</aside>
