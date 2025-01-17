@@ -6,10 +6,12 @@ import vercel from '@astrojs/vercel'
 import { defineConfig } from 'astro/config'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeExternalLinks from 'rehype-external-links'
+import { visualizer } from 'rollup-plugin-visualizer'
 import { remarkReadingTime } from './src/lib/remark-reading-time'
-import { visualizer } from "rollup-plugin-visualizer"
 
 const isProd = import.meta.env.PROD
+
+const enabledAnalyze = process.env.ANALYZE
 
 const SITE = 'https://www.fwio.me'
 
@@ -19,10 +21,11 @@ export default defineConfig({
   site: SITE,
   vite: {
     plugins: [
-      visualizer({
-        emitFile: true,
-        filename: 'stats.html',
-      }),
+      !!enabledAnalyze &&
+        visualizer({
+          emitFile: true,
+          filename: 'stats.html',
+        }),
     ],
   },
   markdown: {
