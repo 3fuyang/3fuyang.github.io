@@ -53,7 +53,7 @@ function transformToTree(data: MarkdownHeading[]): MarkdownHeadingNode[] {
 >
   <p class="font-medium">On this page</p>
 
-  <ul class="space-y-2 text-sm font-light text-muted-foreground">
+  <ul class="text-muted-foreground space-y-2 text-sm font-light">
     {
       structuralHeadings.map((heading) => (
         <TableOfContentsItem heading={heading} />

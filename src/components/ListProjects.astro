@@ -38,7 +38,7 @@ const projects: Project[] = [
       <a class="block" href={src} target="_blank" rel="noreferrer noopener">
         <article
           class:list={[
-            'rounded-md px-3 py-2 text-foreground/75',
+            'text-foreground/75 rounded-md px-3 py-2',
             'hover:text-foreground focus-visible:text-foreground',
             'transition-colors',
           ]}
@@ -47,7 +47,7 @@ const projects: Project[] = [
             <span class="truncate">{title}</span>
             <ExternalLinkIcon className="size-4" />
           </h2>
-          <main class="overflow-auto text-pretty text-sm">{intro}</main>
+          <main class="overflow-auto text-sm text-pretty">{intro}</main>
         </article>
       </a>
     ))

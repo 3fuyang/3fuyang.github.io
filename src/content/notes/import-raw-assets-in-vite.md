@@ -25,7 +25,7 @@ function assetPlugin(config: ResolvedConfig): Plugin {
         )}`
       }
       // ...
-    }
+    },
   }
 }
 ```

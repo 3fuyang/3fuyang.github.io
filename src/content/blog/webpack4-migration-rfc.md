@@ -313,8 +313,8 @@ SourceMap 是结合浏览器 DevTool 将打包产物映射回源码的工具文�
 // build/webpack.prod.js
 
 {
-	devtool: false // 关闭 SourceMap
-	// ...
+  devtool: false // 关闭 SourceMap
+  // ...
 }
 ```
 

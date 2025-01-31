@@ -21,11 +21,13 @@ In comparison to the default-only import in Node, Vite even allows [named import
 
 ```ts
 // JSON module in Node
-import foo from './foo.json' with { type: 'json' }
-console.log(foo)
 
 // JSON module in Vite
 import { baz } from './bar.json'
+import foo from './foo.json' with { type: 'json' }
+
+console.log(foo)
+
 console.log(baz)
 ```
 
@@ -75,7 +77,7 @@ It tends to start as an abstraction of static data for better separation of conc
 import toc from './toc.json'
 
 // UI for navigation
-<TOC toc={toc} />
+;<TOC toc={toc} />
 
 // RSS feed
 await writeFile('rss.xml', generateRSSFeed(toc))

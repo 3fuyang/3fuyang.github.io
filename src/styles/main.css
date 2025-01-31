@@ -8,7 +8,8 @@
   --c-scrollbar-hover: oklch(70.02% 0.0261 290.81);
   --c-scrollbar-active: oklch(57.27% 0 0);
 
-  font-family: 'Geist Variable', sans-serif, 'PingFang SC', 'HarmonyOS_Regular', 'Helvetica Neue', 'Microsoft YaHei';
+  font-family: 'Geist Variable', sans-serif, 'PingFang SC', 'HarmonyOS_Regular',
+    'Helvetica Neue', 'Microsoft YaHei';
 }
 
 :root.dark {
@@ -49,7 +50,7 @@
 }
 
 img {
-  @apply select-none rounded-md;
+  @apply rounded-md select-none;
 }
 
 a.prose-heading-anchor {
@@ -77,7 +78,7 @@ a.prose-heading-anchor:hover {
 }
 
 .prose h1:not(:where([class~='not-prose'], [class~='not-prose'] *)) {
-  @apply mb-6 text-pretty leading-snug;
+  @apply mb-6 leading-snug text-pretty;
 }
 
 .prose p:not(:where([class~='not-prose'], [class~='not-prose'] *)) {
@@ -86,17 +87,17 @@ a.prose-heading-anchor:hover {
 
 /* Block code */
 .prose pre:not(:where([class~='not-prose'], [class~='not-prose'] *)) {
-  @apply font-light tracking-wide bg-gradient-to-bl from-[oklch(87.61%_0.066_304.74_/_0%)] dark:from-indigo-950/80 to-slate-950;
+  @apply bg-gradient-to-bl from-[oklch(87.61%_0.066_304.74_/_0%)] to-slate-950 font-light tracking-wide dark:from-indigo-950/80;
   font-size: 1em;
 }
 
 /* Inline code */
 .prose code:not(:where([class~='not-prose'], [class~='not-prose'] *, pre *)) {
-  @apply border rounded-lg bg-muted px-[0.3em] py-[0.15em] tracking-wide before:content-none after:content-none font-normal;
+  @apply bg-muted rounded-lg border px-[0.3em] py-[0.15em] font-normal tracking-wide before:content-none after:content-none;
 }
 
 .prose blockquote:not(:where([class~='not-prose'], [class~='not-prose'] *)) {
-  @apply font-light my-5 border-l-4 not-italic;
+  @apply my-5 border-l-4 font-light not-italic;
   quotes: none;
   padding-inline-start: 0.75em;
 }

@@ -8,7 +8,7 @@ lang: zh
 **参考资料**：
 
 - [Tasks, microtasks, queues and schedules - JakeArchibald.com](https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/?utm_source=html5weekly)
-- [浏览器事件循环机制_唐霜的博客 (tangshuang.net)](https://www.tangshuang.net/7617.html)
+- [浏览器事件循环机制\_唐霜的博客 (tangshuang.net)](https://www.tangshuang.net/7617.html)
 
 JavaScript 是一门**单线程同步**编程语言，任务只能在主线程上一个一个**串行**地执行。
 

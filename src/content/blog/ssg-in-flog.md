@@ -74,7 +74,7 @@ SSG 自动路由的思路很简单，就是用脚本在编译时读取某些目�
 这个需求在 Vite 中，可以用`import.meta.glob`较为容易地实现。
 
 这可能也是为什么 Vitepress 的路由生成都不使用 [Vue Router](https://router.vuejs.org/),
-而是另写一个  LOC < 200  的脚本。
+而是另写一个 LOC < 200 的脚本。
 
 ![VitePress 的路由方案](../../assets/ssg-in-flog/vitepress-router.webp)
 
