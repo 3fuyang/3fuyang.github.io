@@ -1,8 +1,8 @@
 import { rehypeHeadingIds } from '@astrojs/markdown-remark'
 import mdx from '@astrojs/mdx'
 import react from '@astrojs/react'
-import tailwind from '@astrojs/tailwind'
 import vercel from '@astrojs/vercel'
+import tailwindcss from '@tailwindcss/vite'
 import { defineConfig } from 'astro/config'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeExternalLinks from 'rehype-external-links'
@@ -21,6 +21,7 @@ export default defineConfig({
   site: SITE,
   vite: {
     plugins: [
+      tailwindcss(),
       !!enabledAnalyze &&
         visualizer({
           emitFile: true,
@@ -53,14 +54,7 @@ export default defineConfig({
       ],
     ],
   },
-  integrations: [
-    react(),
-    mdx(),
-    tailwind({
-      applyBaseStyles: false,
-      nesting: true,
-    }),
-  ],
+  integrations: [react(), mdx()],
   output: 'static',
   adapter: vercel({
     webAnalytics: {

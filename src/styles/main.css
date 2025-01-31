@@ -1,18 +1,20 @@
+@reference './global.css';
+
 /* Define background and scrollbar style. */
 :root {
   @apply bg-background font-light transition-colors;
 
-  --c-scrollbar: #d3d0d7;
-  --c-scrollbar-hover: #9e9cae;
-  --c-scrollbar-active: #787878;
+  --c-scrollbar: oklch(86.2% 0.0101 305.38);
+  --c-scrollbar-hover: oklch(70.02% 0.0261 290.81);
+  --c-scrollbar-active: oklch(57.27% 0 0);
 
   font-family: 'Geist Variable', sans-serif, 'PingFang SC', 'HarmonyOS_Regular', 'Helvetica Neue', 'Microsoft YaHei';
 }
 
 :root.dark {
-  --c-scrollbar: #787878;
-  --c-scrollbar-hover: #c2c2bd;
-  --c-scrollbar-active: #ebf0f1;
+  --c-scrollbar: oklch(57.27% 0 0);
+  --c-scrollbar-hover: oklch(81.26% 0.0069 106.55);
+  --c-scrollbar-active: oklch(95.16% 0.0055 211.04);
 }
 
 * {
@@ -84,7 +86,7 @@ a.prose-heading-anchor:hover {
 
 /* Block code */
 .prose pre:not(:where([class~='not-prose'], [class~='not-prose'] *)) {
-  @apply font-light tracking-wide bg-gradient-to-bl from-[rgba(224,_204,_250,_0.2)] dark:from-indigo-950 to-slate-950;
+  @apply font-light tracking-wide bg-gradient-to-bl from-[oklch(87.61%_0.066_304.74_/_0%)] dark:from-indigo-950/80 to-slate-950;
   font-size: 1em;
 }
 
@@ -125,5 +127,5 @@ a.prose-heading-anchor:hover {
 }
 
 h2.year-marker {
-  -webkit-text-stroke: 1px hsl(var(--muted-foreground));
+  -webkit-text-stroke: 1px var(--color-muted-foreground);
 }
